@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import axios from 'axios';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 import "./AddNewLocationForm.scss";
 
@@ -19,11 +20,28 @@ function AddNewLocationForm({ newMarker, setMarkerAddress, setLocationName }) {
       .catch(error => console.error("Error", error));
   };
 
+  const handleAddNewLocation = () => {
+    axios.post('http://127.0.0.1:8000/api/places/', {
+      name: nameInput.current.value,
+      address: address,
+      latitude: latLng.lat,
+      longitude: latLng.lng
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
   const handleSubmit = e => {
     e.preventDefault();
     newMarker(latLng);
     setMarkerAddress(address);
     setLocationName(nameInput.current.value);
+    handleAddNewLocation()
+    console.log({latLng})
   };
 
   return (

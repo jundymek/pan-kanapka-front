@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./LocationTable.scss";
+import "./LocationsTable.scss";
 
-function LocationTable() {
+function LocationsTable() {
   const [locations, setLocations] = useState([]);
 
   function getLocations() {
@@ -55,4 +55,4 @@ function LocationTable() {
   );
 }
 
-export default LocationTable;
+export default LocationsTable;

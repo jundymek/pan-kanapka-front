@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import MyMap from './Map'
+import MyMap from './Map/Map'
 
 function App() {
   return (
