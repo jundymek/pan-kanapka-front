@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import AddNewLocationForm from "./AddNewLocationForm";
+import LocationTable from './LocationTable';
 
 function MyMap() {
   const [currentPos, setCurrentPos] = useState([52.237049, 21.017532]);
@@ -21,6 +22,7 @@ function MyMap() {
         </Marker>
       </Map>
       <AddNewLocationForm newMarker={setCurrentPos} setMarkerAddress={setAddress} setLocationName={setLocationName} />
+      <LocationTable />
     </div>
   );
 }
