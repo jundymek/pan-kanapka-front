@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+
 import "./LocationsTable.scss";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import { fetchLocations } from "../../actions";
 
 function LocationsTable(props) {
-  console.log(props)
+  console.log(props);
   // const [locations, setLocations] = useState([]);
 
   // function getLocations() {
@@ -26,9 +26,8 @@ function LocationsTable(props) {
 
   useEffect(() => {
     props.dispatch(fetchLocations());
-    console.log(props.locations)
+    console.log(props.locations);
     // setLocations(props.dispatch(fetchLocations()))
-
   }, []);
 
   console.log(props.locations);
@@ -67,6 +66,4 @@ const mapStateToProps = state => ({
   error: state.locations.error
 });
 
-export default connect(
-  mapStateToProps,
-)(LocationsTable);
+export default connect(mapStateToProps)(LocationsTable);
