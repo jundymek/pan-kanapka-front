@@ -1,37 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 import "./LocationsTable.scss";
 import { connect } from "react-redux";
-import { fetchLocations } from "../../store/actions/locationActions";
+import { fetchLocations, removeLocation } from "../../store/actions/locationActions";
 
 function LocationsTable(props) {
-  console.log(props);
-  // const [locations, setLocations] = useState([]);
-
-  // function getLocations() {
-  //   axios.get(`http://127.0.0.1:8000/api/places/`).then(res => {
-  //     const locations = res.data;
-  //     console.log(locations);
-  //     setLocations(locations);
-  //   });
-  // }
-
-  // function deleteLocation(id) {
-  //   console.log(id);
-  //   axios.delete(`http://127.0.0.1:8000/api/places/${id}`).then(res => {
-  //     console.log(res);
-  //     setLocations(locations.filter((item) => item.id !== id))
-  //   });
-  // }
 
   useEffect(() => {
-    props.dispatch(fetchLocations());
-    console.log(props.locations);
-    // setLocations(props.dispatch(fetchLocations()))
+    props.onFetchLocations();
   }, []);
-  
-  useEffect(() => {
-  }, [props.locations]);
+
+  useEffect(() => {}, [props.locations]);
 
   console.log(props.locations);
   const tableBody = props.locations.length
@@ -41,7 +20,7 @@ function LocationsTable(props) {
             <td className="table__body-td">{location.name}</td>
             <td className="table__body-td">{location.address}</td>
             <td className="table__body-td">
-              {/* <button onClick={() => deleteLocation(location.id)}>Delete</button> */}
+              <button onClick={() => props.onRemoveLocation(location.id)}>Delete</button>
             </td>
             <td className="table__body-td">
               <a href="{% url 'subscribe' place.id %}">Subscribe</a>
@@ -69,4 +48,9 @@ const mapStateToProps = state => ({
   error: state.locations.error
 });
 
-export default connect(mapStateToProps)(LocationsTable);
+const mapDispatchToProps = dispatch => ({
+  onFetchLocations: () => dispatch(fetchLocations()),
+  onRemoveLocation: locationId => dispatch(removeLocation(locationId))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LocationsTable);
