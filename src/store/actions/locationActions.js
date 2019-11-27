@@ -3,6 +3,7 @@ import axios from "axios";
 export const FETCH_LOCATIONS_BEGIN = "FETCH_LOCATIONS_BEGIN";
 export const FETCH_LOCATIONS_SUCCESS = "FETCH_LOCATIONS_SUCCESS";
 export const FETCH_LOCATIONS_FAILURE = "FETCH_LOCATIONS_FAILURE";
+export const ADD_NEW_LOCATION = "ADD_NEW_LOCATION"
 
 export function fetchLocations() {
   return dispatch => {
@@ -40,3 +41,8 @@ export const fetchLocationsFailure = error => ({
   type: FETCH_LOCATIONS_FAILURE,
   payload: { error }
 });
+
+export const addNewLocation = location => ({
+  type: ADD_NEW_LOCATION,
+  payload: { location }
+})

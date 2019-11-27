@@ -1,9 +1,11 @@
 import React, { useState, useRef } from "react";
 import axios from 'axios';
+import { connect } from 'react-redux';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 import "./AddNewLocationForm.scss";
+import {addNewLocation} from '../../store/actions/locationActions'
 
-function AddNewLocationForm({ newMarker, setMarkerAddress, setLocationName }) {
+function AddNewLocationForm({ newMarker, setMarkerAddress, setLocationName, onAddLocation }) {
   const [address, setAddress] = useState("");
   const [latLng, setLatLng] = useState("");
   const nameInput = useRef(null);
@@ -11,6 +13,7 @@ function AddNewLocationForm({ newMarker, setMarkerAddress, setLocationName }) {
   const handleChange = address => {
     setAddress(address);
   };
+  console.log(onAddLocation)
 
   const handleSelect = address => {
     geocodeByAddress(address)
@@ -28,6 +31,7 @@ function AddNewLocationForm({ newMarker, setMarkerAddress, setLocationName }) {
       longitude: latLng.lng
     })
     .then(function (response) {
+      onAddLocation(response.data)
       console.log(response);
     })
     .catch(function (error) {
@@ -63,10 +67,6 @@ function AddNewLocationForm({ newMarker, setMarkerAddress, setLocationName }) {
                 {loading && <div>Loading...</div>}
                 {suggestions.map(suggestion => {
                   const className = suggestion.active ? "suggestion-item--active" : "suggestion-item";
-                  // inline style for demonstration purpose
-                  /* const style = suggestion.active
-                      ? { backgroundColor: '#fafafa', cursor: 'pointer' }
-                      : { backgroundColor: '#000', cursor: 'pointer' }; */
                   return (
                     <div
                       {...getSuggestionItemProps(suggestion, {
@@ -87,4 +87,16 @@ function AddNewLocationForm({ newMarker, setMarkerAddress, setLocationName }) {
   );
 }
 
-export default AddNewLocationForm;
+const mapStateToProps = state => ({
+  locations: state.locations.locations,
+})
+
+const mapDispatchToProps = dispatch => ({
+  onAddLocation: (location) => dispatch(addNewLocation(location))
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AddNewLocationForm);
+

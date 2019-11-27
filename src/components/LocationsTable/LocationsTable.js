@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import "./LocationsTable.scss";
 import { connect } from "react-redux";
-import { fetchLocations } from "../../actions";
+import { fetchLocations } from "../../store/actions/locationActions";
 
 function LocationsTable(props) {
   console.log(props);
@@ -29,6 +29,9 @@ function LocationsTable(props) {
     console.log(props.locations);
     // setLocations(props.dispatch(fetchLocations()))
   }, []);
+  
+  useEffect(() => {
+  }, [props.locations]);
 
   console.log(props.locations);
   const tableBody = props.locations.length
