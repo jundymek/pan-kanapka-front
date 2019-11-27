@@ -1,9 +1,8 @@
 import React, { useState, useRef } from "react";
-import axios from 'axios';
 import { connect } from 'react-redux';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 import "./AddNewLocationForm.scss";
-import {addNewLocation} from '../../store/actions/locationActions'
+import {addLocation} from '../../store/actions/locationActions'
 
 function AddNewLocationForm({ newMarker, setMarkerAddress, setLocationName, onAddLocation }) {
   const [address, setAddress] = useState("");
@@ -13,7 +12,6 @@ function AddNewLocationForm({ newMarker, setMarkerAddress, setLocationName, onAd
   const handleChange = address => {
     setAddress(address);
   };
-  console.log(onAddLocation)
 
   const handleSelect = address => {
     geocodeByAddress(address)
@@ -23,29 +21,12 @@ function AddNewLocationForm({ newMarker, setMarkerAddress, setLocationName, onAd
       .catch(error => console.error("Error", error));
   };
 
-  const handleAddNewLocation = () => {
-    axios.post('http://127.0.0.1:8000/api/places/', {
-      name: nameInput.current.value,
-      address: address,
-      latitude: latLng.lat,
-      longitude: latLng.lng
-    })
-    .then(function (response) {
-      onAddLocation(response.data)
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-  }
-
   const handleSubmit = e => {
     e.preventDefault();
     newMarker(latLng);
     setMarkerAddress(address);
     setLocationName(nameInput.current.value);
-    handleAddNewLocation()
-    console.log({latLng})
+    onAddLocation(nameInput.current.value, address, latLng.lat, latLng.lng)
   };
 
   return (
@@ -92,7 +73,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  onAddLocation: (location) => dispatch(addNewLocation(location))
+  onAddLocation: (name, address, lat, lng) => dispatch(addLocation(name, address, lat, lng))
 })
 
 export default connect(

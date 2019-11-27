@@ -22,16 +22,32 @@ export function fetchLocations() {
 }
 
 export function removeLocation(id) {
-  console.log(id);
   return dispatch => {
     return axios
     .delete(`http://127.0.0.1:8000/api/places/${id}`)
-    .then(res => {
-      console.log(res);
-      // setLocations(locations.filter((item) => item.id !== id))
+    .then(() => {
       dispatch(deleteLocation(id));
     });
   };
+}
+
+export function addLocation(name, address, lat, lng) {
+  return dispatch => {
+    axios.post('http://127.0.0.1:8000/api/places/', {
+      name: name,
+      address: address,
+      latitude: lat,
+      longitude: lng
+    })
+    .then(function (response) {
+      console.log(response);
+      dispatch(addNewLocation(response.data))
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    }); 
+  }
 }
 
 
