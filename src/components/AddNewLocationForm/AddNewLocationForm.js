@@ -4,7 +4,7 @@ import PlacesAutocomplete, { geocodeByAddress, getLatLng } from "react-places-au
 import "./AddNewLocationForm.scss";
 import {addLocation} from '../../store/actions/locationActions'
 
-function AddNewLocationForm({ newMarker, setMarkerAddress, setLocationName, onAddLocation }) {
+function AddNewLocationForm({ onAddLocation }) {
   const [address, setAddress] = useState("");
   const [latLng, setLatLng] = useState("");
   const nameInput = useRef(null);
@@ -23,9 +23,6 @@ function AddNewLocationForm({ newMarker, setMarkerAddress, setLocationName, onAd
 
   const handleSubmit = e => {
     e.preventDefault();
-    newMarker(latLng);
-    setMarkerAddress(address);
-    setLocationName(nameInput.current.value);
     onAddLocation(nameInput.current.value, address, latLng.lat, latLng.lng)
   };
 

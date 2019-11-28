@@ -1,5 +1,8 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-logo {
@@ -21,8 +24,3 @@
   color: #09d3ac;
 }
 
-.leaflet-container {
-  height: 400px;
-  width: 90%;
-  margin: 0 auto;
-}
