@@ -1,16 +1,31 @@
 import React, { useEffect } from "react";
+import axios from "axios";
 
 import "./LocationsTable.scss";
 import { connect } from "react-redux";
 import { fetchLocations, removeLocation } from "../../store/actions/locationActions";
 
 function LocationsTable(props) {
-
+  console.log(props.token)
   useEffect(() => {
     props.onFetchLocations();
   }, []);
 
   useEffect(() => {}, [props.locations]);
+
+  function handleSubscribe(id) {
+    console.log(id)
+    axios
+      .get(`http://127.0.0.1:8000/subscribe/${id}/`, {
+        headers: {
+            Authorization: `Token ${props.token}`
+        }
+    })
+      .then(res => {
+        console.log(res);
+      })
+      .catch(error => console.log(error));
+  }
 
   console.log(props.locations);
   const tableBody = props.locations.length
@@ -21,6 +36,9 @@ function LocationsTable(props) {
             <td className="table__body-td">{location.address}</td>
             <td className="table__body-td">
               <button onClick={() => props.onRemoveLocation(location.id)}>Delete</button>
+            </td>
+            <td className="table__body-td">
+              <button onClick={() => handleSubscribe(location.id)}>Subscribe</button>
             </td>
             <td className="table__body-td">
               <a href="{% url 'subscribe' place.id %}">Subscribe</a>
@@ -45,7 +63,8 @@ function LocationsTable(props) {
 const mapStateToProps = state => ({
   locations: state.locations.locations,
   loading: state.locations.loading,
-  error: state.locations.error
+  error: state.locations.error,
+  token: state.auth.token
 });
 
 const mapDispatchToProps = dispatch => ({

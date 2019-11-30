@@ -65,6 +65,7 @@ function AddNewLocationForm({ onAddLocation }) {
   );
 }
 
+
 const mapStateToProps = state => ({
   locations: state.locations.locations,
 })
