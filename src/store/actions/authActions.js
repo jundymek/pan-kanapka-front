@@ -4,6 +4,7 @@ import { loginWindowHideShow } from "../../helpers/loginWindowHideShow"
 export const LOGIN_REQUEST = "LOGIN_REQUEST";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAILURE = "LOGIN_FAILURE";
+export const LOGOUT_REQUEST = "LOGOUT_REQUEST";
 
 export function fetchLogin(username, password) {
   return dispatch => {
@@ -17,6 +18,21 @@ export function fetchLogin(username, password) {
         console.log(username);
         dispatch(receiveLogin(res.data, username));
         loginWindowHideShow()
+      })
+      .catch(error => dispatch(loginError(error)));
+  };
+}
+export function fetchLogout(token) {
+  return dispatch => {
+    return axios
+      .post("http://127.0.0.1:8000/rest-auth/logout/", {
+        headers: {
+            'Authorization': token
+        }
+      })
+      .then(res => {
+        console.log(res);
+        dispatch(handleLogout());
       })
       .catch(error => dispatch(loginError(error)));
   };
@@ -36,6 +52,14 @@ export const receiveLogin = (data, username) => ({
   isAuthenticated: true,
   token: data.key,
   username: username
+});
+
+export const handleLogout = () => ({
+  type: LOGOUT_REQUEST,
+  isFetching: false,
+  isAuthenticated: false,
+  token: null,
+  username: null
 });
 
 export const loginError = message => ({

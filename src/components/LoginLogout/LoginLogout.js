@@ -1,19 +1,32 @@
 import React from "react";
 import { connect } from "react-redux";
+import { fetchLogout } from "../../store/actions/authActions";
 import "./LoginLogout.scss";
 import { loginWindowHideShow } from "../../helpers/loginWindowHideShow";
 
-function LoginLogout({ isAuthenticated, username }) {
+function LoginLogout({ isAuthenticated, username, handleLogout, token }) {
   return (
     <div className="login-logout">
-      {isAuthenticated ? `Hello ${username}` : <button onClick={() => loginWindowHideShow()}>Login</button>}
+      {isAuthenticated ? (
+        <div>
+          <span>Logged as {username}</span>
+          <button onClick={() => handleLogout(token)}>Logout</button>
+        </div>
+      ) : (
+        <button onClick={() => loginWindowHideShow()}>Login</button>
+      )}
     </div>
   );
 }
 
 const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated,
+  token: state.auth.token,
   username: state.auth.username
 });
 
-export default connect(mapStateToProps)(LoginLogout);
+const mapDispatchToProps = dispatch => ({
+    handleLogout: (token) => dispatch(fetchLogout(token))
+  });
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginLogout);
