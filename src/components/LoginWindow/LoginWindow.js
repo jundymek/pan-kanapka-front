@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { fetchLogin } from "../../store/actions/authActions";
 import { connect } from "react-redux";
 import "./LoginWindow.scss";
+import { loginWindowHideShow } from "../../helpers/loginWindowHideShow";
 
 function LoginWindow({ handleLogin }) {
   const usernameInput = useRef(null);
@@ -12,17 +13,10 @@ function LoginWindow({ handleLogin }) {
     handleLogin(usernameInput.current.value, passwordInput.current.value);
   };
 
-  const handleExit = () => {
-    const form = document.querySelector(".login-wrapper")
-    const mainApp = document.querySelector(".App");
-    form.classList.remove('login-wrapper--active')
-    mainApp.classList.remove("App--blurred");
-  }
-
   return (
     <div className="login-wrapper">
       <section className="login">
-        <button onClick={handleExit} className="login__exit">X</button>
+        <button onClick={loginWindowHideShow} className="login__exit">X</button>
         <h3 className="login__title">Login</h3>
         <form className="login-form" onSubmit={handleSubmit}>
           <label htmlFor="name">Username</label>
