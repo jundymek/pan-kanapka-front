@@ -28,11 +28,12 @@ export const storeAuth = (state = initialState, action) => {
         username: action.username
       };
     case LOGIN_FAILURE:
+        console.log(action)
       return {
         ...state,
         isFetching: false,
         isAuthenticated: false,
-        error: action.error
+        error: action.message
       };
     case LOGOUT_REQUEST:
       return {

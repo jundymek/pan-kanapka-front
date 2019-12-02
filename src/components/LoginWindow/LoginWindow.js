@@ -1,10 +1,10 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { fetchLogin } from "../../store/actions/authActions";
 import { connect } from "react-redux";
 import "./LoginWindow.scss";
 import { loginWindowHideShow } from "../../helpers/loginWindowHideShow";
 
-function LoginWindow({ handleLogin }) {
+function LoginWindow({ handleLogin, error }) {
   const usernameInput = useRef(null);
   const passwordInput = useRef(null);
 
@@ -27,13 +27,15 @@ function LoginWindow({ handleLogin }) {
             Submit
           </button>
         </form>
+        <div className="error">{error ? 'Wpisz poprawne dane' : ''}</div>
       </section>
     </div>
   );
 }
 
 const mapStateToProps = state => ({
-  token: state.auth.token
+  token: state.auth.token,
+  error: state.auth.error
 });
 
 const mapDispatchToProps = dispatch => ({
