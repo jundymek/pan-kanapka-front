@@ -1,35 +1,26 @@
-import React, { useRef } from "react";
-import { fetchLogin } from "../../store/actions/authActions";
+import React from "react";
 import { connect } from "react-redux";
+import "./LoginLogout.scss";
 
-function LoginLogout({handleLogin}) {
-  const usernameInput = useRef(null);
-  const passwordInput = useRef(null);
-
-    const handleSubmit = e => {
-        e.preventDefault()
-        handleLogin(usernameInput.current.value, passwordInput.current.value)
-    }
-
+function LoginLogout({ isAuthenticated, username }) {
+  console.log(username);
+  function handleLogin() {
+    const form = document.querySelector(".login-wrapper");
+    const mainApp = document.querySelector(".App");
+    form.classList.add("login-wrapper--active");
+    mainApp.classList.add("App--blurred");
+    console.log(form);
+  }
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <input type="text" ref={usernameInput} />
-        username
-        <input type="password" ref={passwordInput} />
-        password
-        <button type="submit">Submit</button>
-      </form>
-    </>
+    <div className="login-logout">
+      {isAuthenticated ? `Hello` : <button onClick={() => handleLogin()}>Login</button>}
+    </div>
   );
 }
 
 const mapStateToProps = state => ({
-  token: state.auth.token
+  isAuthenticated: state.auth.isAuthenticated,
+  username: state.auth.username
 });
 
-const mapDispatchToProps = dispatch => ({
-  handleLogin: (username, password) => dispatch(fetchLogin(username, password))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(LoginLogout);
+export default connect(mapStateToProps)(LoginLogout);

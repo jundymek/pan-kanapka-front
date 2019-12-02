@@ -7,6 +7,7 @@ import { fetchLocations, removeLocation } from "../../store/actions/locationActi
 
 function LocationsTable(props) {
   console.log(props.token)
+  console.log(props.username)
   useEffect(() => {
     props.onFetchLocations();
   }, []);
@@ -37,12 +38,9 @@ function LocationsTable(props) {
             <td className="table__body-td">
               <button onClick={() => props.onRemoveLocation(location.id)}>Delete</button>
             </td>
-            <td className="table__body-td">
-              <button onClick={() => handleSubscribe(location.id)}>Subscribe</button>
-            </td>
-            <td className="table__body-td">
-              <a href="{% url 'subscribe' place.id %}">Subscribe</a>
-            </td>
+          <td className="table__body-td">
+            <button onClick={() => handleSubscribe(location.id)}>Subscribe</button>
+          </td>
           </tr>
         );
       })
@@ -64,7 +62,9 @@ const mapStateToProps = state => ({
   locations: state.locations.locations,
   loading: state.locations.loading,
   error: state.locations.error,
-  token: state.auth.token
+  token: state.auth.token,
+  username: state.auth.username,
+  isAuthenticated: state.auth.isAuthenticated
 });
 
 const mapDispatchToProps = dispatch => ({

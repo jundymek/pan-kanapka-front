@@ -3,6 +3,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  &--blurred {
+    opacity: .3;
+  }
 }
 
 .App-logo {

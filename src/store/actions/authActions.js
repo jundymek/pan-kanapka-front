@@ -13,7 +13,8 @@ export function fetchLogin(username, password) {
       })
       .then(res => {
         console.log(res);
-        dispatch(receiveLogin(res.data));
+        console.log(username);
+        dispatch(receiveLogin(res.data, username));
       })
       .catch(error => dispatch(loginError(error)));
   };
@@ -27,11 +28,12 @@ export const requestLogin = (username, password) => ({
   password
 });
 
-export const receiveLogin = data => ({
+export const receiveLogin = (data, username) => ({
   type: LOGIN_SUCCESS,
   isFetching: false,
   isAuthenticated: true,
-  token: data.key
+  token: data.key,
+  username: username
 });
 
 export const loginError = message => ({

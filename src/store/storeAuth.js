@@ -24,7 +24,8 @@ export const storeAuth = (state = initialState, action) => {
         ...state,
         isFetching: false,
         isAuthenticated: true,
-        token: action.token
+        token: action.token,
+        username: action.username
       };
     case LOGIN_FAILURE:
       return {
