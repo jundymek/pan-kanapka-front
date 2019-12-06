@@ -10,7 +10,7 @@ function LoginLogout({ isAuthenticated, username, handleLogout, token }) {
       {isAuthenticated ? (
         <div>
           <span>Logged as {username}</span>
-          <button onClick={() => handleLogout(token)}>Logout</button>
+          <button className="logout-button--js" onClick={() => handleLogout(token)}>Logout</button>
         </div>
       ) : (
         <button onClick={() => loginWindowHideShow()}>Login</button>

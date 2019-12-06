@@ -1,3 +1,7 @@
 
 Todo:
-  ☐ Item
+  ✔ Ustawienie elementów na "disabled" przy wyswietleniu formularza logowania. @started(19-12-03 22:57) @done(19-12-03 23:44) @lasted(47m24s)
+  ☐ Card dla konkretnej lokalizacji (zamiast tabelki) @started(19-12-04 00:29)
+
+Błędy: 
+  ✔ Po wygaszeniu buttonów i zalogowaniu nowego usera button logout jest "disabled" @done(19-12-04 01:12)
