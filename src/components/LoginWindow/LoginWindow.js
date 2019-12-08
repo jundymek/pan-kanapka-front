@@ -12,6 +12,8 @@ function LoginWindow({ handleLogin, error }) {
   const handleSubmit = e => {
     e.preventDefault();
     handleLogin(usernameInput.current.value, passwordInput.current.value);
+    usernameInput.current.value = ''
+    passwordInput.current.value = ''
   };
 
   return (

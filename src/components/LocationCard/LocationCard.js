@@ -10,24 +10,29 @@ function CardButtons({username, cardId, token, deleteLocation}) {
   console.log(cardId, token)
   if (username !== 'admin') {
     return (
-      <button className="locationCard__btn-submit" onClick={() => subscribeLocation(cardId, token)}>Subscribe
-          <div className="locationCard__btn-submit-inner"></div>
+      <button className="locationCard__btn locationCard__btn--submit" onClick={() => subscribeLocation(cardId, token)}>Subscribe
+          {/* <div className="locationCard__btn-submit-inner"></div> */}
       </button>
     )
   } else {
     return (
-      <button className="locationCard__btn-submit" onClick={() => deleteLocation(cardId, token)}>Delete
-          <div className="locationCard__btn-submit-inner"></div>
+      <button className="locationCard__btn locationCard__btn--delete" onClick={() => deleteLocation(cardId, token)}>Delete
+          {/* <div className="locationCard__btn-submit-inner"></div> */}
       </button>
     )
   }
 }
 
 function LocationCard(props) {
+  console.log(props)
   return (
     <section className="locationCard">
       <div className="locationCard__title-wrapper">
         <h3 className="locationCard__title">{props.card.name}</h3>
+        <div className="locationCard__address-wrapper">
+          <i className="far fa-address-card locationCard__address--icon"></i>
+          <p className="locationCard__address">{props.card.address}</p>
+        </div>
       </div>
       <MapForCard location={props.card} />
       { props.token ? 
@@ -38,7 +43,6 @@ function LocationCard(props) {
         token={props.token}
         /> : ''
       }
-      
     </section>
   );
 }

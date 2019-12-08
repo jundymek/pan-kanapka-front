@@ -15,7 +15,6 @@ function App(props) {
         <LoginLogout />
         <MyMap />
         {props.user === 'admin' ? <AddNewLocationForm /> : ''}
-        <LocationsTable />
         <LocationsCardsManager />
       </div>
       <LoginWindow />

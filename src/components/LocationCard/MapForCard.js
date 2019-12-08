@@ -5,7 +5,7 @@ function MapForCard({ location }) {
   const initialPosition = [location.latitude, location.longitude];
 
   return (
-    <Map center={initialPosition} zoom={13}>
+    <Map center={initialPosition} zoom={13} className="mapForCard">
       <TileLayer
         attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

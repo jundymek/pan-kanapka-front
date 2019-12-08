@@ -34,6 +34,7 @@ export const storeAuth = (state = initialState, action) => {
         ...state,
         isFetching: false,
         token: null,
+        username: null,
         error: action.error
       };
     default:
