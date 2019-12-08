@@ -13,7 +13,6 @@ export function fetchLocations() {
       .get("http://127.0.0.1:8000/api/places/")
       .then(handleErrors)
       .then(res => {
-        console.log(res);
         dispatch(fetchLocationsSuccess(res.data));
         return res;
       })

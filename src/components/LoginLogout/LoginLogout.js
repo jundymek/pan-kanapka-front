@@ -7,7 +7,7 @@ import { loginWindowHideShow } from "../../helpers/loginWindowHideShow";
 function LoginLogout({ isAuthenticated, username, handleLogout, token }) {
   return (
     <div className="login-logout">
-      {isAuthenticated ? (
+      {isAuthenticated === 'true' ? (
         <div>
           <span>Logged as {username}</span>
           <button className="logout-button--js" onClick={() => handleLogout(token)}>Logout</button>

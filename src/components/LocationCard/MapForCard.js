@@ -2,7 +2,6 @@ import React from "react";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
 function MapForCard({location}) {
-    console.log(location)
     const initialPosition = [location.latitude, location.longitude];
   
     return (

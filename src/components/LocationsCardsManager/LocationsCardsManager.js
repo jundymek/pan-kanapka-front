@@ -17,11 +17,6 @@ function LocationsCardsManager({ locations }) {
 
 const mapStateToProps = state => ({
   locations: state.locations.locations
-  // loading: state.locations.loading,
-  // error: state.locations.error,
-  // token: state.auth.token,
-  // username: state.auth.username,
-  // isAuthenticated: state.auth.isAuthenticated
 });
 
 export default connect(mapStateToProps)(LocationsCardsManager);

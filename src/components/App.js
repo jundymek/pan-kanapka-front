@@ -8,14 +8,13 @@ import LoginLogout from "./LoginLogout/LoginLogout";
 import LoginWindow from "./LoginWindow/LoginWindow"
 import LocationsCardsManager from './LocationsCardsManager/LocationsCardsManager';
 
-function App({auth}) {
-  console.log(auth)
+function App(props) {
   return (
     <div>
       <div className="App">
         <LoginLogout />
         <MyMap />
-        <AddNewLocationForm />
+        {props.user === 'admin' ? <AddNewLocationForm /> : ''}
         <LocationsTable />
         <LocationsCardsManager />
       </div>
@@ -25,7 +24,8 @@ function App({auth}) {
 }
 
 const mapStateToProps = state => ({
-  auth: state.auth.token
+  auth: state.auth.token,
+  user: state.auth.username
 })
 
 export default connect(

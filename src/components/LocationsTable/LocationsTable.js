@@ -6,8 +6,6 @@ import { connect } from "react-redux";
 import { fetchLocations, removeLocation } from "../../store/actions/locationActions";
 
 function LocationsTable(props) {
-  console.log(props.token)
-  console.log(props.username)
   useEffect(() => {
     props.onFetchLocations();
   }, []);
@@ -15,20 +13,15 @@ function LocationsTable(props) {
   useEffect(() => {}, [props.locations]);
 
   function handleSubscribe(id) {
-    console.log(id)
     axios
       .get(`http://127.0.0.1:8000/subscribe/${id}/`, {
         headers: {
             Authorization: `Token ${props.token}`
         }
     })
-      .then(res => {
-        console.log(res);
-      })
       .catch(error => console.log(error));
   }
 
-  console.log(props.locations);
   const tableBody = props.locations.length
     ? props.locations.map((location, index) => {
         return (

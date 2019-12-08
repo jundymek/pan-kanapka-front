@@ -14,8 +14,9 @@ export function fetchLogin(username, password) {
         password: password
       })
       .then(res => {
-        console.log(res);
-        console.log(username);
+        localStorage.setItem('token', res.data.key)
+        localStorage.setItem('username', username)
+        localStorage.setItem('isAuthenticated', true)
         dispatch(receiveLogin(res.data, username));
         loginWindowHideShow()
       })
@@ -31,7 +32,9 @@ export function fetchLogout(token) {
         }
       })
       .then(res => {
-        console.log(res);
+        localStorage.setItem('token', null)
+        localStorage.setItem('username', null)
+        localStorage.setItem('isAuthenticated', false)
         dispatch(handleLogout());
       })
       .catch(error => dispatch(loginError(error)));

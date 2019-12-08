@@ -2,15 +2,15 @@ import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_REQUEST } from "./a
 
 const initialState = {
   isFetching: false,
-  isAuthenticated: false,
-  token: null,
-  error: null
+  isAuthenticated: localStorage.getItem('isAuthenticated'),
+  token: localStorage.getItem('token'),
+  error: null,
+  username: localStorage.getItem('username')
 };
 
 export const storeAuth = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_REQUEST:
-      console.log(action);
       return {
         ...state,
         isFetching: true,
@@ -19,7 +19,6 @@ export const storeAuth = (state = initialState, action) => {
         error: null
       };
     case LOGIN_SUCCESS:
-      console.log(action);
       return {
         ...state,
         isFetching: false,
@@ -28,7 +27,6 @@ export const storeAuth = (state = initialState, action) => {
         username: action.username
       };
     case LOGIN_FAILURE:
-        console.log(action)
       return {
         ...state,
         isFetching: false,
