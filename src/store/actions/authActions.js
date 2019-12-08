@@ -16,7 +16,6 @@ export function fetchLogin(username, password) {
       .then(res => {
         localStorage.setItem('token', res.data.key)
         localStorage.setItem('username', username)
-        localStorage.setItem('isAuthenticated', true)
         dispatch(receiveLogin(res.data, username));
         loginWindowHideShow()
       })
@@ -32,9 +31,8 @@ export function fetchLogout(token) {
         }
       })
       .then(res => {
-        localStorage.setItem('token', null)
-        localStorage.setItem('username', null)
-        localStorage.setItem('isAuthenticated', false)
+        localStorage.removeItem('token')
+        localStorage.removeItem('username')
         dispatch(handleLogout());
       })
       .catch(error => dispatch(loginError(error)));
@@ -44,7 +42,6 @@ export function fetchLogout(token) {
 export const requestLogin = (username, password) => ({
   type: LOGIN_REQUEST,
   isFetching: true,
-  isAuthenticated: false,
   username,
   password
 });
@@ -52,7 +49,6 @@ export const requestLogin = (username, password) => ({
 export const receiveLogin = (data, username) => ({
   type: LOGIN_SUCCESS,
   isFetching: false,
-  isAuthenticated: true,
   token: data.key,
   username: username
 });
@@ -60,7 +56,6 @@ export const receiveLogin = (data, username) => ({
 export const handleLogout = () => ({
   type: LOGOUT_REQUEST,
   isFetching: false,
-  isAuthenticated: false,
   token: null,
   username: null
 });
@@ -68,6 +63,5 @@ export const handleLogout = () => ({
 export const loginError = message => ({
   type: LOGIN_FAILURE,
   isFetching: false,
-  isAuthenticated: false,
   message
 });

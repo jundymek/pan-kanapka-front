@@ -13,15 +13,19 @@ function LocationCard(props) {
         <h3 className="locationCard__title">{props.card.name}</h3>
       </div>
       <MapForCard location={props.card} />
+      { props.token && props.username !== 'admin' ? 
       <button className="locationCard__btn-submit" onClick={() => subscribeLocation(props.card.id, props.token)}>Subscribe
           <div className="locationCard__btn-submit-inner"></div>
-      </button>
+      </button> : ''
+      }
+      
     </section>
   );
 }
 
 const mapStateToProps = state => ({
-  token: state.auth.token
+  token: state.auth.token,
+  username: state.auth.username
 });
 
 const mapDispatchToProps = dispatch => ({

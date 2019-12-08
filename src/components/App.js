@@ -24,7 +24,6 @@ function App(props) {
 }
 
 const mapStateToProps = state => ({
-  auth: state.auth.token,
   user: state.auth.username
 })
 

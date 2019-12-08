@@ -1,13 +1,13 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { connect } from "react-redux";
 import { fetchLogout } from "../../store/actions/authActions";
 import "./LoginLogout.scss";
 import { loginWindowHideShow } from "../../helpers/loginWindowHideShow";
 
-function LoginLogout({ isAuthenticated, username, handleLogout, token }) {
+function LoginLogout({ username, handleLogout, token }) {
   return (
     <div className="login-logout">
-      {isAuthenticated === 'true' ? (
+      {token ? (
         <div>
           <span>Logged as {username}</span>
           <button className="logout-button--js" onClick={() => handleLogout(token)}>Logout</button>
@@ -20,7 +20,6 @@ function LoginLogout({ isAuthenticated, username, handleLogout, token }) {
 }
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated,
   token: state.auth.token,
   username: state.auth.username
 });

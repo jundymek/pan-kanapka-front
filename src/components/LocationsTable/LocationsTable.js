@@ -57,7 +57,6 @@ const mapStateToProps = state => ({
   error: state.locations.error,
   token: state.auth.token,
   username: state.auth.username,
-  isAuthenticated: state.auth.isAuthenticated
 });
 
 const mapDispatchToProps = dispatch => ({
