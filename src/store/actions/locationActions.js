@@ -20,10 +20,15 @@ export function fetchLocations() {
   };
 }
 
-export function removeLocation(id) {
+export function removeLocation(id, token) {
+  console.log('reeeeeeeeeee', id, token)
   return dispatch => {
     return axios
-    .delete(`http://127.0.0.1:8000/api/places/${id}`)
+    .delete(`http://127.0.0.1:8000/api/places/${id}`, {
+      headers: {
+          Authorization: `Token ${token}`
+      }
+  })
     .then(() => {
       dispatch(deleteLocation(id));
     });
