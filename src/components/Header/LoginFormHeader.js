@@ -10,7 +10,7 @@ function LoginFormHeader(props) {
   const handleSubmit = e => {
     e.preventDefault();
     console.log("login");
-    // handleLogin(usernameInput.current.value, passwordInput.current.value);
+    props.handleLogin(usernameInput.current.value, passwordInput.current.value);
     usernameInput.current.value = "";
     passwordInput.current.value = "";
   };

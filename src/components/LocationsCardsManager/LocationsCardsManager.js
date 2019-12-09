@@ -1,28 +1,55 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import LocationCard from "../LocationCard/LocationCard";
 import { LocationsCardsList } from "../LocationsCardsList/LocationsCardsList";
 import { connect } from "react-redux";
 import "./LocationsCardsManager.scss";
 import { fetchLocations } from "../../store/actions/locationActions";
 
-const renderLocationCard = (card, index) => {
-  return <LocationCard key={index} card={card} />;
+const renderLocationCard = (card, index, isSubscribed, setSubscribedLocations) => {
+  return <LocationCard setSubscribedLocations={setSubscribedLocations} key={index} card={card} isSubscribed={isSubscribed}/>;
 };
 
 function LocationsCardsManager(props) {
+  const [subscribedLocations, setSubscribedLocations] = useState([]);
+
   useEffect(() => {
     props.onFetchLocations();
   }, []);
 
+  useEffect(() => {
+  }, [subscribedLocations])
+
+  useEffect(() => {
+    if (props.token) {
+      axios
+        .get(`http://127.0.0.1:8000/api/user/`, {
+          headers: {
+            Authorization: `Token ${props.token}`
+          }
+        })
+        .then(res => {
+          console.log(res.data[0].places);
+          setSubscribedLocations(res.data[0].places);
+        })
+        .catch(error => console.log(error));
+    }
+    else {
+      setSubscribedLocations([]);
+    }
+  }, [props.token]);
+
+  console.log(subscribedLocations);
   return (
     <div className="locations-cards">
-      <LocationsCardsList locations={props.locations} renderLocationCard={renderLocationCard} />
+      <LocationsCardsList setSubscribedLocations={setSubscribedLocations} locations={props.locations} renderLocationCard={renderLocationCard} subscribedLocations={subscribedLocations ? subscribedLocations : []} />
     </div>
   );
 }
 
 const mapStateToProps = state => ({
-  locations: state.locations.locations
+  locations: state.locations.locations,
+  token: state.auth.token
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -22,6 +22,7 @@ export function fetchLogin(username, password) {
       .catch(error => dispatch(loginError(error)));
   };
 }
+
 export function fetchLogout(token) {
   return dispatch => {
     return axios

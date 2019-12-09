@@ -2,6 +2,7 @@
   border: 1px solid black;
   width: 400px;
   max-width: 90%;
+  max-height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,14 +19,13 @@
   }
   &__address {
     margin: 0;
-    padding: 0;
+    padding: 10px;
     color: #fff;
     &--icon {
       color: #fff;
-      padding-right: 10px;
+      padding: 10px;
       font-size: 30px;
     }
-
   }
   &__btn {
     padding: 0;
@@ -67,12 +67,6 @@
       height: 100%;
       border-radius: 10%;
       transition: width .3s ease-in-out;
-      // &--submit {
-      //   background-color: rgb(46, 87, 6); 
-      // }
-      // &--delete {
-      //   background-color: rgb(243, 26, 26); 
-      // }  
     }
   }
   &__title-wrapper {
@@ -88,6 +82,9 @@
   &__title {
     margin-top: -10px;
     color: #fff;
+  }
+  &--subscribed {
+    border: 10px solid red;
   }
 }
 

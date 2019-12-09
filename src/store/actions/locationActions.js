@@ -14,7 +14,6 @@ export function fetchLocations() {
       .then(handleErrors)
       .then(res => {
         dispatch(fetchLocationsSuccess(res.data));
-        return res;
       })
       .catch(error => dispatch(fetchLocationsFailure(error)));
   };
