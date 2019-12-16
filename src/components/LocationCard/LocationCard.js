@@ -13,7 +13,6 @@ function handleSubsctibeLocation(cardId, token, setSubscribedLocations) {
 
 
 function CardButtons({ username, cardId, token, deleteLocation, setSubscribedLocations }) {
-  console.log(cardId, token);
   if (username !== "admin") {
     return (
       <button className="locationCard__btn locationCard__btn--submit" onClick={() => handleSubsctibeLocation(cardId, token, setSubscribedLocations)}>
@@ -30,9 +29,6 @@ function CardButtons({ username, cardId, token, deleteLocation, setSubscribedLoc
 }
 
 function LocationCard(props) {
-  
-  console.log(props);
-  console.log(props.card.id);
   return (
     <section className={props.isSubscribed ? "locationCard locationCard--subscribed" : "locationCard"} >
       <div className="locationCard__title-wrapper">

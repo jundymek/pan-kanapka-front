@@ -10,6 +10,7 @@ const renderLocationCard = (card, index, isSubscribed, setSubscribedLocations) =
   return <LocationCard setSubscribedLocations={setSubscribedLocations} key={index} card={card} isSubscribed={isSubscribed}/>;
 };
 
+
 function LocationsCardsManager(props) {
   const [subscribedLocations, setSubscribedLocations] = useState([]);
 
@@ -23,14 +24,13 @@ function LocationsCardsManager(props) {
   useEffect(() => {
     if (props.token) {
       axios
-        .get(`http://127.0.0.1:8000/api/user/`, {
+        .get(`http://127.0.0.1:8000/api/user/6`, {
           headers: {
             Authorization: `Token ${props.token}`
           }
         })
         .then(res => {
-          console.log(res.data[0].places);
-          setSubscribedLocations(res.data[0].places);
+          setSubscribedLocations(res.data.places);
         })
         .catch(error => console.log(error));
     }
@@ -38,7 +38,7 @@ function LocationsCardsManager(props) {
       setSubscribedLocations([]);
     }
   }, [props.token]);
-
+  
   console.log(subscribedLocations);
   return (
     <div className="locations-cards">
@@ -49,7 +49,8 @@ function LocationsCardsManager(props) {
 
 const mapStateToProps = state => ({
   locations: state.locations.locations,
-  token: state.auth.token
+  token: state.auth.token,
+  username: state.auth.username
 });
 
 const mapDispatchToProps = dispatch => ({
