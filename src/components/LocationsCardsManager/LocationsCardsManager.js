@@ -5,11 +5,13 @@ import { LocationsCardsList } from "../LocationsCardsList/LocationsCardsList";
 import { connect } from "react-redux";
 import "./LocationsCardsManager.scss";
 import { fetchLocations } from "../../store/actions/locationActions";
+import runServiceWorker from "../../helpers/runServiceWorker";
 
 const renderLocationCard = (card, index, isSubscribed, setSubscribedLocations) => {
-  return <LocationCard setSubscribedLocations={setSubscribedLocations} key={index} card={card} isSubscribed={isSubscribed}/>;
+  return (
+    <LocationCard setSubscribedLocations={setSubscribedLocations} key={index} card={card} isSubscribed={isSubscribed} />
+  );
 };
-
 
 function LocationsCardsManager(props) {
   const [subscribedLocations, setSubscribedLocations] = useState([]);
@@ -19,7 +21,12 @@ function LocationsCardsManager(props) {
   }, []);
 
   useEffect(() => {
-  }, [subscribedLocations])
+    if (props.token) {
+      runServiceWorker(props.token);
+    }
+  }, [props.token]);
+
+  useEffect(() => {}, [subscribedLocations]);
 
   useEffect(() => {
     if (props.token) {
@@ -33,16 +40,19 @@ function LocationsCardsManager(props) {
           setSubscribedLocations(res.data.places);
         })
         .catch(error => console.log(error));
-    }
-    else {
+    } else {
       setSubscribedLocations([]);
     }
   }, [props.token]);
-  
-  console.log(subscribedLocations);
+
   return (
     <div className="locations-cards">
-      <LocationsCardsList setSubscribedLocations={setSubscribedLocations} locations={props.locations} renderLocationCard={renderLocationCard} subscribedLocations={subscribedLocations ? subscribedLocations : []} />
+      <LocationsCardsList
+        setSubscribedLocations={setSubscribedLocations}
+        locations={props.locations}
+        renderLocationCard={renderLocationCard}
+        subscribedLocations={subscribedLocations ? subscribedLocations : []}
+      />
     </div>
   );
 }

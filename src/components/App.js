@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import "./App.scss";
 import MyMap from "./Map/Map";
 import AddNewLocationForm from "./AddNewLocationForm/AddNewLocationForm";
-import LocationsTable from "./LocationsTable/LocationsTable";
 import LoginLogout from "./LoginLogout/LoginLogout";
 import LoginWindow from "./LoginWindow/LoginWindow";
 import LocationsCardsManager from "./LocationsCardsManager/LocationsCardsManager";

@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import "./LocationCard.scss";
 import MapForCard from "./MapForCard";
 import { connect } from "react-redux";
@@ -7,15 +6,17 @@ import { removeLocation } from "../../store/actions/locationActions";
 import { subscribeLocation } from "../../helpers/subscribeLocation";
 
 function handleSubsctibeLocation(cardId, token, setSubscribedLocations) {
-  subscribeLocation(cardId, token)
-  setSubscribedLocations(prevState => [...prevState, cardId])
+  subscribeLocation(cardId, token);
+  setSubscribedLocations(prevState => [...prevState, cardId]);
 }
-
 
 function CardButtons({ username, cardId, token, deleteLocation, setSubscribedLocations }) {
   if (username !== "admin") {
     return (
-      <button className="locationCard__btn locationCard__btn--submit" onClick={() => handleSubsctibeLocation(cardId, token, setSubscribedLocations)}>
+      <button
+        className="locationCard__btn locationCard__btn--submit"
+        onClick={() => handleSubsctibeLocation(cardId, token, setSubscribedLocations)}
+      >
         Subscribe
       </button>
     );
@@ -30,7 +31,7 @@ function CardButtons({ username, cardId, token, deleteLocation, setSubscribedLoc
 
 function LocationCard(props) {
   return (
-    <section className={props.isSubscribed ? "locationCard locationCard--subscribed" : "locationCard"} >
+    <section className={props.isSubscribed ? "locationCard locationCard--subscribed" : "locationCard"}>
       <div className="locationCard__title-wrapper">
         <h3 className="locationCard__title">{props.card.name}</h3>
         <div className="locationCard__address-wrapper">

@@ -26,7 +26,9 @@ function LoginFormHeader(props) {
           <label htmlFor="password">Password</label>
           <input type="password" ref={passwordInput} />
         </div>
-        <button className="header-form__submit-btn" type="submit">Login</button>
+        <button className="header-form__submit-btn" type="submit">
+          Login
+        </button>
       </form>
       <div>{props.error ? "Wpisz poprawne dane" : ""}</div>
     </div>
