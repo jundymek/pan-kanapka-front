@@ -5,7 +5,7 @@ export function subscribeLocation(id, token) {
     .get(`http://127.0.0.1:8000/subscribe/${id}/`, {
       headers: {
         Authorization: `Token ${token}`
-      }
-    })
+      },
+    }).then(res => console.log(res))
     .catch(error => console.log(error));
 }

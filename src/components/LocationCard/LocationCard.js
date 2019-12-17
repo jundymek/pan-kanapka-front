@@ -5,19 +5,19 @@ import { connect } from "react-redux";
 import { removeLocation } from "../../store/actions/locationActions";
 import { subscribeLocation } from "../../helpers/subscribeLocation";
 
-function handleSubsctibeLocation(cardId, token, setSubscribedLocations) {
+function handleSubsctibeLocation(cardId, token, setSubscribedLocations, isSubscribed) {
   subscribeLocation(cardId, token);
-  setSubscribedLocations(prevState => [...prevState, cardId]);
+  !isSubscribed ? setSubscribedLocations(prevState => [...prevState, cardId]) : setSubscribedLocations(prevState => prevState.filter((id) => id !== cardId));
 }
 
-function CardButtons({ username, cardId, token, deleteLocation, setSubscribedLocations }) {
+function CardButtons({ username, cardId, isSubscribed, token, deleteLocation, setSubscribedLocations }) {
   if (username !== "admin") {
     return (
       <button
         className="locationCard__btn locationCard__btn--submit"
-        onClick={() => handleSubsctibeLocation(cardId, token, setSubscribedLocations)}
+        onClick={() => handleSubsctibeLocation(cardId, token, setSubscribedLocations, isSubscribed)}
       >
-        Subscribe
+        {!isSubscribed ? "Subscribe" : "Unsubscribe"}
       </button>
     );
   } else {
@@ -30,6 +30,8 @@ function CardButtons({ username, cardId, token, deleteLocation, setSubscribedLoc
 }
 
 function LocationCard(props) {
+  console.log(props.card.id)
+  console.log(props)
   return (
     <section className={props.isSubscribed ? "locationCard locationCard--subscribed" : "locationCard"}>
       <div className="locationCard__title-wrapper">
@@ -47,6 +49,7 @@ function LocationCard(props) {
           username={props.username}
           token={props.token}
           setSubscribedLocations={props.setSubscribedLocations}
+          isSubscribed={props.isSubscribed}
         />
       ) : (
         ""

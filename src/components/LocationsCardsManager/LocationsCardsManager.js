@@ -29,7 +29,7 @@ function LocationsCardsManager(props) {
   useEffect(() => {}, [subscribedLocations]);
 
   useEffect(() => {
-    if (props.token) {
+    if (props.token && props.username !== "admin") {
       axios
         .get(`http://127.0.0.1:8000/api/user/6`, {
           headers: {
