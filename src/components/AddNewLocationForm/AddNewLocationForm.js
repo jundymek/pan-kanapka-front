@@ -4,7 +4,7 @@ import PlacesAutocomplete, { geocodeByAddress, getLatLng } from "react-places-au
 import "./AddNewLocationForm.scss";
 import {addLocation} from '../../store/actions/locationActions'
 
-function AddNewLocationForm({ onAddLocation }) {
+function AddNewLocationForm({ onAddLocation, token }) {
   const [address, setAddress] = useState("");
   const [latLng, setLatLng] = useState("");
   const nameInput = useRef(null);
@@ -23,7 +23,7 @@ function AddNewLocationForm({ onAddLocation }) {
 
   const handleSubmit = e => {
     e.preventDefault();
-    onAddLocation(nameInput.current.value, address, latLng.lat, latLng.lng)
+    onAddLocation(nameInput.current.value, address, latLng.lat, latLng.lng, token)
   };
 
   return (
@@ -68,10 +68,11 @@ function AddNewLocationForm({ onAddLocation }) {
 
 const mapStateToProps = state => ({
   locations: state.locations.locations,
+  token: state.auth.token
 })
 
 const mapDispatchToProps = dispatch => ({
-  onAddLocation: (name, address, lat, lng) => dispatch(addLocation(name, address, lat, lng))
+  onAddLocation: (name, address, lat, lng, token) => dispatch(addLocation(name, address, lat, lng, token))
 })
 
 export default connect(

@@ -22,9 +22,9 @@ function LocationsCardsManager(props) {
 
   useEffect(() => {
     if (props.token) {
-      runServiceWorker(props.token);
+      runServiceWorker(props.token, props.username);
     }
-  }, [props.token]);
+  }, [props.token, props.username]);
 
   useEffect(() => {}, [subscribedLocations]);
 

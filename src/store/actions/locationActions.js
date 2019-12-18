@@ -34,14 +34,18 @@ export function removeLocation(id, token) {
   };
 }
 
-export function addLocation(name, address, lat, lng) {
+export function addLocation(name, address, lat, lng, token) {
   return dispatch => {
     axios.post('http://127.0.0.1:8000/api/places/', {
       name: name,
       address: address,
       latitude: lat,
       longitude: lng
-    })
+    }, {
+      headers: {
+          Authorization: `Token ${token}`
+      }
+  })
     .then(function (response) {
       console.log(response);
       dispatch(addNewLocation(response.data))
