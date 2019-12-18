@@ -31,7 +31,7 @@ function LocationsCardsManager(props) {
   useEffect(() => {
     if (props.token && props.username !== "admin") {
       axios
-        .get(`http://127.0.0.1:8000/api/user/6`, {
+        .get(`http://127.0.0.1:8000/api/user/${props.username}`, {
           headers: {
             Authorization: `Token ${props.token}`
           }
