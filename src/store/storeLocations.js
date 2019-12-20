@@ -3,7 +3,7 @@ import {
   FETCH_LOCATIONS_SUCCESS,
   FETCH_LOCATIONS_FAILURE,
   ADD_NEW_LOCATION,
-  DELETE_LOCATION
+  DELETE_LOCATION,
 } from "./actions/locationActions";
 
 const initialState = {
@@ -37,7 +37,7 @@ export const storeLocations = (state = initialState, action) => {
       };
 
     case ADD_NEW_LOCATION:
-      console.log(action)
+      console.log(action);
       return {
         ...state,
         locations: [...state.locations, action.payload.location]
@@ -46,7 +46,7 @@ export const storeLocations = (state = initialState, action) => {
     case DELETE_LOCATION:
       return {
         ...state,
-        locations: [...state.locations.filter((item) => item.id !== action.payload.locationId)]
+        locations: [...state.locations.filter(item => item.id !== action.payload.locationId)]
       };
 
     default:

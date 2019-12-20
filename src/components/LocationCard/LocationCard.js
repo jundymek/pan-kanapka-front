@@ -1,21 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import "./LocationCard.scss";
 import MapForCard from "./MapForCard";
 import { connect } from "react-redux";
 import { removeLocation } from "../../store/actions/locationActions";
 import { subscribeLocation } from "../../helpers/subscribeLocation";
 
-function handleSubsctibeLocation(cardId, token, setSubscribedLocations, isSubscribed) {
+function handleSubscribeLocation(
+  cardId,
+  token,
+  setSubscribedLocations,
+  isSubscribed,
+  setcurrentLocationSubscriptionsCounter
+) {
   subscribeLocation(cardId, token);
-  !isSubscribed ? setSubscribedLocations(prevState => [...prevState, cardId]) : setSubscribedLocations(prevState => prevState.filter((id) => id !== cardId));
+  if (!isSubscribed) {
+    setSubscribedLocations(prevState => [...prevState, cardId]);
+    setcurrentLocationSubscriptionsCounter(prevState => prevState + 1);
+  } else {
+    setSubscribedLocations(prevState => prevState.filter(id => id !== cardId));
+    setcurrentLocationSubscriptionsCounter(prevState => prevState - 1);
+  }
 }
 
-function CardButtons({ username, cardId, isSubscribed, token, deleteLocation, setSubscribedLocations }) {
+function CardButtons({
+  username,
+  cardId,
+  isSubscribed,
+  token,
+  deleteLocation,
+  setSubscribedLocations,
+  setcurrentLocationSubscriptionsCounter
+}) {
   if (username !== "admin") {
     return (
       <button
         className="locationCard__btn locationCard__btn--submit"
-        onClick={() => handleSubsctibeLocation(cardId, token, setSubscribedLocations, isSubscribed)}
+        onClick={() =>
+          handleSubscribeLocation(
+            cardId,
+            token,
+            setSubscribedLocations,
+            isSubscribed,
+            setcurrentLocationSubscriptionsCounter
+          )
+        }
       >
         {!isSubscribed ? "Subscribe" : "Unsubscribe"}
       </button>
@@ -29,9 +57,14 @@ function CardButtons({ username, cardId, isSubscribed, token, deleteLocation, se
   }
 }
 
+function checkNumberOfSubscriptionsForCard(cardId, allSubscriptions) {
+  return cardId in allSubscriptions ? allSubscriptions[cardId] : 0;
+}
+
 function LocationCard(props) {
-  console.log(props.card.id)
-  console.log(props)
+  const [currentLocationSubscriptionsCounter, setcurrentLocationSubscriptionsCounter] = useState(
+    checkNumberOfSubscriptionsForCard(props.card.id, props.numberSubscriptions)
+  );
   return (
     <section className={props.isSubscribed ? "locationCard locationCard--subscribed" : "locationCard"}>
       <div className="locationCard__title-wrapper">
@@ -50,17 +83,19 @@ function LocationCard(props) {
           token={props.token}
           setSubscribedLocations={props.setSubscribedLocations}
           isSubscribed={props.isSubscribed}
+          setcurrentLocationSubscriptionsCounter={setcurrentLocationSubscriptionsCounter}
         />
       ) : (
         ""
       )}
+      <p>Number of subscriptions: {currentLocationSubscriptionsCounter}</p>
     </section>
   );
 }
 
 const mapStateToProps = state => ({
   token: state.auth.token,
-  username: state.auth.username
+  username: state.auth.username,
 });
 
 const mapDispatchToProps = dispatch => ({

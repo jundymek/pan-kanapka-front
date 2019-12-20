@@ -20,43 +20,47 @@ export function fetchLocations() {
 }
 
 export function removeLocation(id, token) {
-  console.log('reeeeeeeeeee', id, token)
+  console.log("reeeeeeeeeee", id, token);
   return dispatch => {
     return axios
-    .delete(`http://127.0.0.1:8000/api/places/${id}`, {
-      headers: {
+      .delete(`http://127.0.0.1:8000/api/places/${id}`, {
+        headers: {
           Authorization: `Token ${token}`
-      }
-  })
-    .then(() => {
-      dispatch(deleteLocation(id));
-    });
+        }
+      })
+      .then(() => {
+        dispatch(deleteLocation(id));
+      });
   };
 }
 
 export function addLocation(name, address, lat, lng, token) {
   return dispatch => {
-    axios.post('http://127.0.0.1:8000/api/places/', {
-      name: name,
-      address: address,
-      latitude: lat,
-      longitude: lng
-    }, {
-      headers: {
-          Authorization: `Token ${token}`
-      }
-  })
-    .then(function (response) {
-      console.log(response);
-      dispatch(addNewLocation(response.data))
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    }); 
-  }
+    axios
+      .post(
+        "http://127.0.0.1:8000/api/places/",
+        {
+          name: name,
+          address: address,
+          latitude: lat,
+          longitude: lng
+        },
+        {
+          headers: {
+            Authorization: `Token ${token}`
+          }
+        }
+      )
+      .then(function(response) {
+        console.log(response);
+        dispatch(addNewLocation(response.data));
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  };
 }
-
 
 // Handle HTTP errors since fetch won't.
 function handleErrors(response) {
