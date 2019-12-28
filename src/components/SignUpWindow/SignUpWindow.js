@@ -37,7 +37,7 @@ function SignUpWindow({ handleLogin, error }) {
   };
 
   return (
-    <div className="signUp-wrapper">
+    <div className="signUp-wrapper signUp-wrapper--js">
       <section className="signUp">
         <button onClick={loginWindowHideShow} className="signUp__exit">
           X

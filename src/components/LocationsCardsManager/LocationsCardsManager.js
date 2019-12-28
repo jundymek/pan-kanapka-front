@@ -20,7 +20,7 @@ const renderLocationCard = (card, index, isSubscribed, setSubscribedLocations, n
 };
 
 function LocationsCardsManager(props) {
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
   const [subscribedLocations, setSubscribedLocations] = useState([]);
   const [numberSubscriptions, setnumberSubscriptions] = useState({});
 
@@ -57,17 +57,17 @@ function LocationsCardsManager(props) {
   }, [props.token, props.username]);
 
   function getSubscriptionData() {
-    setIsLoading(true)
+    setIsLoading(true);
     axios
       .get(`http://127.0.0.1:8000/api/get_number_of_subscriptions/`)
       .then(res => {
         console.log(res);
         setnumberSubscriptions(res.data);
-        setIsLoading(false)
+        setIsLoading(false);
       })
       .catch(error => {
-        console.log(error)
-        setIsLoading(false)
+        console.log(error);
+        setIsLoading(false);
       });
   }
 
@@ -95,7 +95,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onFetchLocations: () => dispatch(fetchLocations()),
+  onFetchLocations: () => dispatch(fetchLocations())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LocationsCardsManager);

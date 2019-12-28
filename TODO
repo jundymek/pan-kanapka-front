@@ -4,9 +4,13 @@ Todo:
   ✔ Card dla konkretnej lokalizacji (zamiast tabelki) @started(19-12-04 00:29) @done(19-12-06 23:08) @lasted(2d22h39m48s)
   ✔ LocationsCardManager dla ogarniania listy kart z lokalizacjami @started(19-12-06 23:09) @done(19-12-08 01:24) @lasted(1d2h15m8s)
   ✔ Wydzielenie uprawnień - osobne elementy dla admina, usera, niezalogowanego. @done(19-12-21 00:42)
-  ☐ Przeniesienie formularza logowania do topu strony dla desktopu
+  ✔ Przeniesienie formularza logowania do topu strony dla desktopu @done(19-12-29 00:23)
   ✔ Własciwe odswizanie subskrypcji dla karty lokalizacji @done(19-12-22 11:53)
-  ☐ Formularz rejestracji nowego użytkownika
+  ✔ Formularz rejestracji nowego użytkownika @done(19-12-29 00:23)
+  ☐ Utworzenie modala po zarejestrowaniu użytkownika
+  ☐ sortowanie (np. wyswietlanie tylko subskrybowanych lokalizacji)
+  ☐ top strony (stylowanie, logo)
+  ☐ style dla mobilek
 
 Błędy: 
   ✔ Po wygaszeniu buttonów i zalogowaniu nowego usera button logout jest "disabled" @done(19-12-04 01:12)

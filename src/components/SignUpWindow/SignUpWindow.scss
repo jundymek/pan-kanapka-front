@@ -1,36 +1,38 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 .signUp-wrapper {
-    transform: translateX(-200vw);
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    opacity: 1;
-    z-index: 2000;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.3s ease-in;
-    &--active {
-        display: fixed;
-        transform: translate(-50%, -50%);
-    }
+  transform: translateX(-200vw);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+  z-index: 2000;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease-in;
+  &--active {
+    transform: translate(-50%, -50%);
+  }
 }
 
 .signUp {
   opacity: 1;
   background: #fff;
   display: flex;
-  height: 100vh;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 30px;
   border: 1px solid black;
   position: relative;
   &__exit {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
   }
   &__image {
     width: 80px;

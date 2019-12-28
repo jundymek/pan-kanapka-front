@@ -18,11 +18,11 @@ function LoginForm(props) {
       <form className="header-form" onSubmit={handleSubmit}>
         <div className="form-field-wrapper">
           <label htmlFor="name">Username</label>
-          <input type="text" ref={usernameInput} required/>
+          <input type="text" ref={usernameInput} required />
         </div>
         <div className="form-field-wrapper">
           <label htmlFor="password">Password</label>
-          <input type="password" ref={passwordInput} required/>
+          <input type="password" ref={passwordInput} required />
         </div>
         <button className="header-form__submit-btn" type="submit">
           Login

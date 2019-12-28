@@ -4,7 +4,7 @@ import "./Header.scss";
 
 function Header(props) {
   return (
-    <section className="header">
+    <section className="header header--js">
       <h1>Pan Kanapka</h1>
       <LoginFormHeader />
     </section>

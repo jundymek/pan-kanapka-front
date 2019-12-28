@@ -11,7 +11,7 @@ function App(props) {
   return (
     <div>
       <Header />
-      <div className="App">
+      <div className="App App--js">
         <MyMap />
         {props.user === "admin" ? <AddNewLocationForm /> : ""}
         <LocationsCardsManager />
