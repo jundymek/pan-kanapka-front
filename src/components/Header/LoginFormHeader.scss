@@ -1,3 +1,9 @@
+.form-field-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+}
+
 .header-form {
   display: flex;
   flex-wrap: wrap;
@@ -13,16 +19,14 @@
   }
 }
 
-.form-field-wrapper {
+.logged-wrapper {
   display: flex;
-  flex-direction: column;
-  padding: 2px;
 }
 
-.signup-wrapper {
-  display: flex;
-  justify-content: flex-end;
+.logout-btn {
+  margin-left: 20px;
 }
+
 
 .signup {
   font-size: 14px;
@@ -40,4 +44,9 @@
       text-decoration: underline;
     }
   }
+}
+
+.signup-wrapper {
+  display: flex;
+  justify-content: flex-end;
 }

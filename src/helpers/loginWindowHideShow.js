@@ -9,6 +9,6 @@ export function loginWindowHideShow() {
 
 function disableButtonsOnLoginWindowShow() {
   const allButtons = [...document.querySelectorAll("button")]
-  const filteredButtons = allButtons.filter((btn) => !['signUp__exit', 'signUp-form__button', 'logout-button--js'].includes(btn.className));
+  const filteredButtons = allButtons.filter((btn) => !['signUp__exit', 'signUp-form__button'].includes(btn.className));
   filteredButtons.forEach((item) => item.disabled === true ? item.disabled = false : item.disabled = true)
 }

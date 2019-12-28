@@ -1,5 +1,4 @@
 import axios from "axios";
-import { loginWindowHideShow } from "../../helpers/loginWindowHideShow"
 
 export const LOGIN_REQUEST = "LOGIN_REQUEST";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
@@ -17,7 +16,6 @@ export function fetchLogin(username, password) {
         localStorage.setItem('token', res.data.key)
         localStorage.setItem('username', username)
         dispatch(receiveLogin(res.data, username));
-        loginWindowHideShow()
       })
       .catch(error => dispatch(loginError(error)));
   };
