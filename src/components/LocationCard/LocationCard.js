@@ -4,6 +4,7 @@ import MapForCard from "./MapForCard";
 import { connect } from "react-redux";
 import { removeLocation } from "../../store/actions/locationActions";
 import { subscribeLocation } from "../../helpers/subscribeLocation";
+import { sendNotification } from "../../helpers/sendNotification";
 
 function handleSubscribeLocation(
   cardId,
@@ -50,9 +51,14 @@ function CardButtons({
     );
   } else {
     return (
-      <button className="locationCard__btn locationCard__btn--delete" onClick={() => deleteLocation(cardId, token)}>
-        Delete
-      </button>
+      <div className="locationCard__btn-wrapper">
+        <button className="locationCard__btn locationCard__btn--delete" onClick={() => deleteLocation(cardId, token)}>
+          Delete
+        </button>
+        <button className="locationCard__btn locationCard__btn--submit" onClick={() => sendNotification(cardId, token)}>
+          Send notification
+        </button>
+      </div>
     );
   }
 }
@@ -95,7 +101,7 @@ function LocationCard(props) {
 
 const mapStateToProps = state => ({
   token: state.auth.token,
-  username: state.auth.username,
+  username: state.auth.username
 });
 
 const mapDispatchToProps = dispatch => ({

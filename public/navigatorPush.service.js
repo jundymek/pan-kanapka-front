@@ -1,6 +1,6 @@
 var getTitle = function(title) {
   if (title === "") {
-    title = "TITLE DEFAULT";
+    title = "Pan Kanapka";
   }
   return title;
 };

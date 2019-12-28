@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { fetchLogin } from "../../store/actions/authActions";
 import { connect } from "react-redux";
 import "./LoginFormHeader.scss";
+import { loginWindowHideShow } from "../../helpers/loginWindowHideShow";
 
 function LoginFormHeader(props) {
   const usernameInput = useRef(null);
@@ -31,6 +32,9 @@ function LoginFormHeader(props) {
         </button>
       </form>
       <div>{props.error ? "Wpisz poprawne dane" : ""}</div>
+      <div className="signup-wrapper">
+        <p className="signup">Nie masz konta: <button className="signup__btn" onClick={() => loginWindowHideShow()}>Zarejestruj się</button></p>
+      </div>
     </div>
   );
 }

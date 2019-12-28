@@ -18,3 +18,26 @@
   flex-direction: column;
   padding: 2px;
 }
+
+.signup-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.signup {
+  font-size: 14px;
+  justify-self: flex-end;
+  &__btn {
+    cursor: pointer;
+    border: none;
+    margin: 0;
+    padding: 0;
+    background: none;
+    font-size: 14px;
+    padding: 2px;
+    color: red;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

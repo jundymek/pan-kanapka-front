@@ -3,8 +3,10 @@ Todo:
   ✔ Ustawienie elementów na "disabled" przy wyswietleniu formularza logowania. @started(19-12-03 22:57) @done(19-12-03 23:44) @lasted(47m24s)
   ✔ Card dla konkretnej lokalizacji (zamiast tabelki) @started(19-12-04 00:29) @done(19-12-06 23:08) @lasted(2d22h39m48s)
   ✔ LocationsCardManager dla ogarniania listy kart z lokalizacjami @started(19-12-06 23:09) @done(19-12-08 01:24) @lasted(1d2h15m8s)
-  ☐ Wydzielenie uprawnień - osobne elementy dla admina, usera, niezalogowanego.
+  ✔ Wydzielenie uprawnień - osobne elementy dla admina, usera, niezalogowanego. @done(19-12-21 00:42)
   ☐ Przeniesienie formularza logowania do topu strony dla desktopu
+  ✔ Własciwe odswizanie subskrypcji dla karty lokalizacji @done(19-12-22 11:53)
+  ☐ Formularz rejestracji nowego użytkownika
 
 Błędy: 
   ✔ Po wygaszeniu buttonów i zalogowaniu nowego usera button logout jest "disabled" @done(19-12-04 01:12)

@@ -4,7 +4,7 @@ import "./App.scss";
 import MyMap from "./Map/Map";
 import AddNewLocationForm from "./AddNewLocationForm/AddNewLocationForm";
 import LoginLogout from "./LoginLogout/LoginLogout";
-import LoginWindow from "./LoginWindow/LoginWindow";
+import SignUpWindow from "./SignUpWindow/SignUpWindow"
 import LocationsCardsManager from "./LocationsCardsManager/LocationsCardsManager";
 import Header from "./Header/Header";
 
@@ -18,7 +18,7 @@ function App(props) {
         {props.user === "admin" ? <AddNewLocationForm /> : ""}
         <LocationsCardsManager />
       </div>
-      <LoginWindow />
+      <SignUpWindow />
     </div>
   );
 }
