@@ -1,8 +1,9 @@
 import subscribePush from "./subscribePush";
 import urlBase64ToUint8Array from "./urlBase64ToUint8Array";
 import loadVersionBrowser from "./loadVersionBrowser";
+require('dotenv').config()
 
-const applicationServerKey = "BKRlcJ1Y3laM2IXh6erl1N-CV9luHym-g0x0-IwuV0wHSFQGETVHIrnY7hNlo4uJV-9OCEe_t2whjEaR3k_3NC8";
+const applicationServerKey = process.env.REACT_APP_APPLICATION_SERVER_KEY;
 
 export default function runServiceWorker(token, username) {
   if ("serviceWorker" in navigator) {

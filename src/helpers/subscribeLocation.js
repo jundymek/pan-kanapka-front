@@ -2,7 +2,7 @@ import axios from "axios";
 
 export function subscribeLocation(id, token) {
   axios
-    .patch(`http://127.0.0.1:8000/subscribe/${id}/`, {}, {
+    .patch(`https://pan-kanapka-api.herokuapp.com/subscribe/${id}/`, {}, {
       headers: {
         Authorization: `Token ${token}`
       },

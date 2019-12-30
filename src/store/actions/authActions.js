@@ -8,7 +8,7 @@ export const LOGOUT_REQUEST = "LOGOUT_REQUEST";
 export function fetchLogin(username, password) {
   return dispatch => {
     return axios
-      .post("http://127.0.0.1:8000/rest-auth/login/", {
+      .post("https://pan-kanapka-api.herokuapp.com/rest-auth/login/", {
         username: username,
         password: password
       })
@@ -24,7 +24,7 @@ export function fetchLogin(username, password) {
 export function fetchLogout(token) {
   return dispatch => {
     return axios
-      .post("http://127.0.0.1:8000/rest-auth/logout/", {
+      .post("https://pan-kanapka-api.herokuapp.com/rest-auth/logout/", {
         headers: {
             'Authorization': token
         }

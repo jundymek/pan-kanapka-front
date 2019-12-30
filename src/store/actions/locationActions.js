@@ -10,7 +10,7 @@ export function fetchLocations() {
   return dispatch => {
     dispatch(fetchLocationsBegin());
     return axios
-      .get("http://127.0.0.1:8000/api/places/")
+      .get("https://pan-kanapka-api.herokuapp.com/api/places/")
       .then(handleErrors)
       .then(res => {
         dispatch(fetchLocationsSuccess(res.data));
@@ -23,7 +23,7 @@ export function removeLocation(id, token) {
   console.log("reeeeeeeeeee", id, token);
   return dispatch => {
     return axios
-      .delete(`http://127.0.0.1:8000/api/places/${id}`, {
+      .delete(`https://pan-kanapka-api.herokuapp.com/api/places/${id}`, {
         headers: {
           Authorization: `Token ${token}`
         }
@@ -38,7 +38,7 @@ export function addLocation(name, address, lat, lng, token) {
   return dispatch => {
     axios
       .post(
-        "http://127.0.0.1:8000/api/places/",
+        "https://pan-kanapka-api.herokuapp.com/api/places/",
         {
           name: name,
           address: address,

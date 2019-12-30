@@ -3,7 +3,7 @@ import axios from "axios";
 export default function subscribePush(data, token) {
   axios
     .post(
-      `http://127.0.0.1:8000/subscribe_for_push/`,
+      `https://pan-kanapka-api.herokuapp.com/subscribe_for_push/`,
       {
         name: data.name,
         browser: data.browser,
