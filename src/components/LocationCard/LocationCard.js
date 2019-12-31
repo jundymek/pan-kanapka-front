@@ -73,7 +73,7 @@ function LocationCard(props) {
   );
   return (
     <section className={props.isSubscribed ? "locationCard locationCard--subscribed" : "locationCard"}>
-      <div className="locationCard__title-wrapper">
+      <div className={props.isSubscribed ? "locationCard__title-wrapper locationCard__title-wrapper--subscribed" : "locationCard__title-wrapper"}>
         <h3 className="locationCard__title">{props.card.name}</h3>
         <div className="locationCard__address-wrapper">
           <i className="far fa-address-card locationCard__address--icon"></i>

@@ -9,9 +9,6 @@
   flex-direction: column;
   margin-bottom: 50px;
   padding-bottom: 20px;
-  -webkit-box-shadow: 0px 0px 15px 3px rgba(86, 181, 31, 1);
-  -moz-box-shadow: 0px 0px 15px 3px rgba(86, 181, 31, 1);
-  box-shadow: 0px 0px 15px 3px rgba(86, 181, 31, 1);
   &__address-wrapper {
     display: flex;
     justify-content: center;
@@ -37,16 +34,16 @@
     width: 100px;
     height: 40px;
     position: relative;
-    transition: transform .2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
     &:hover {
       transform: scale(1.1);
       color: #fff;
     }
     &--submit:hover::before {
-      background-color: rgb(46, 87, 6); 
+      background-color: rgb(46, 87, 6);
     }
     &--delete:hover::before {
-      background-color: rgb(243, 26, 26); 
+      background-color: rgb(243, 26, 26);
     }
     &:hover::before {
       display: block;
@@ -66,7 +63,7 @@
       width: 0px;
       height: 100%;
       border-radius: 10%;
-      transition: width .3s ease-in-out;
+      transition: width 0.3s ease-in-out;
     }
   }
   &__btn-wrapper {
@@ -74,20 +71,38 @@
   }
   &__title-wrapper {
     width: 100%;
-    height: 200px;
+    height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     background-color: rgb(46, 87, 6);
     clip-path: polygon(0 0, 100% 0, 100% 82%, 0% 100%);
+    position: relative;
+    &--subscribed {
+      &::after {
+        display: block;
+        content: "";
+        color: white;
+        width: 50px;
+        height: 50px;
+        mask: url("../../images/bell_icon.svg");
+        mask-repeat: no-repeat;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        background: #fff;
+      }
+    }
   }
   &__title {
     margin-top: -10px;
     color: #fff;
   }
   &--subscribed {
-    outline: 10px solid red;
+    -webkit-box-shadow: 0px 0px 15px 3px rgba(86, 181, 31, 1);
+    -moz-box-shadow: 0px 0px 15px 3px rgba(86, 181, 31, 1);
+    box-shadow: 0px 0px 15px 3px rgba(86, 181, 31, 1);
   }
 }
 
