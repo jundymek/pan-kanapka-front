@@ -26,6 +26,7 @@ function SignUpWindow({ handleLogin, error }) {
       .then(res => {
         console.log(res);
         handleLogin(usernameInput.current.value, passwordInput.current.value);
+        loginWindowHideShow()
         usernameInput.current.value = "";
         passwordInput.current.value = "";
         passwordInput1.current.value = "";
