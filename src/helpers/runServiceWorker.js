@@ -28,7 +28,6 @@ export default function runServiceWorker(token, username) {
               name: username,
               registration_id: registration_id
             };
-            console.log(data);
             subscribePush(data, token);
           });
       })

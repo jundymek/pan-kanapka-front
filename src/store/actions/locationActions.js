@@ -51,9 +51,7 @@ export function addLocation(name, address, lat, lng, token) {
         }
       )
       .then(function(response) {
-        console.log(response);
         dispatch(addNewLocation(response.data));
-        console.log(response);
       })
       .catch(function(error) {
         console.log(error);

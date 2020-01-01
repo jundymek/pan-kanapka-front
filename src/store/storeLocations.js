@@ -37,7 +37,6 @@ export const storeLocations = (state = initialState, action) => {
       };
 
     case ADD_NEW_LOCATION:
-      console.log(action);
       return {
         ...state,
         locations: [...state.locations, action.payload.location]

@@ -24,8 +24,6 @@ function LocationsCardsManager(props) {
   const [subscribedLocations, setSubscribedLocations] = useState([]);
   const [numberSubscriptions, setnumberSubscriptions] = useState({});
 
-  console.log(numberSubscriptions);
-
   useEffect(() => {
     getSubscriptionData();
     props.onFetchLocations();
@@ -61,7 +59,6 @@ function LocationsCardsManager(props) {
     axios
       .get(`${process.env.REACT_APP_API_URL}/api/get_number_of_subscriptions/`)
       .then(res => {
-        console.log(res);
         setnumberSubscriptions(res.data);
         setIsLoading(false);
       })
@@ -71,7 +68,6 @@ function LocationsCardsManager(props) {
       });
   }
 
-  console.log(props.subscriptions);
   return !isLoading ? (
     <div className="locations-cards">
       <LocationsCardsList

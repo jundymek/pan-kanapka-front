@@ -1,5 +1,4 @@
 export default function loadVersionBrowser(userAgent) {
-    console.log(`User AGENT: ${userAgent}`);
     var ua = userAgent;
     var tem;
     var M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];

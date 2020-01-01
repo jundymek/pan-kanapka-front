@@ -11,7 +11,8 @@ Todo:
   ☐ sortowanie (np. wyswietlanie tylko subskrybowanych lokalizacji)
   ☐ top strony (stylowanie, logo)
   ☐ style dla mobilek
+  ✔ PWA @done(20-01-02 00:20)
 
 Błędy: 
   ✔ Po wygaszeniu buttonów i zalogowaniu nowego usera button logout jest "disabled" @done(19-12-04 01:12)
-  ☐ Po przestawieniu na mobile i powrocie do desktopu nie przestawiają się karty
+  ✔ Po przestawieniu na mobile i powrocie do desktopu nie przestawiają się karty @done(19-12-31 19:32)

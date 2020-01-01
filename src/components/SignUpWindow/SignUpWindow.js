@@ -6,12 +6,11 @@ import { loginWindowHideShow } from "../../helpers/loginWindowHideShow";
 import cheesburger from "../../images/cheeseburger.svg";
 import signUp from "../../helpers/signUp";
 
-function SignUpWindow({ handleLogin, error }) {
+function SignUpWindow({ handleLogin }) {
   const usernameInput = useRef(null);
   const passwordInput = useRef(null);
   const passwordInput1 = useRef(null);
   const [formErrors, setformErrors] = useState(null);
-  console.log(formErrors);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -24,7 +23,6 @@ function SignUpWindow({ handleLogin, error }) {
 
     signUp(data)
       .then(res => {
-        console.log(res);
         handleLogin(usernameInput.current.value, passwordInput.current.value);
         loginWindowHideShow()
         usernameInput.current.value = "";
@@ -32,7 +30,6 @@ function SignUpWindow({ handleLogin, error }) {
         passwordInput1.current.value = "";
       })
       .catch(error => {
-        console.log(error.response.data);
         setformErrors(Object.values(error.response.data));
       });
   };
