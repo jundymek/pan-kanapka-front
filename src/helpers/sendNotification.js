@@ -2,7 +2,7 @@ import axios from "axios";
 
 export function sendNotification(id, token) {
   axios
-    .post(`https://pan-kanapka-api.herokuapp.com/api/send_notification/${id}`, {}, {
+    .post(`${process.env.REACT_APP_API_URL}/api/send_notification/${id}`, {}, {
       headers: {
         Authorization: `Token ${token}`
       },

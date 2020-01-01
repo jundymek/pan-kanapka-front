@@ -3,7 +3,7 @@ import axios from "axios";
 export default function signUp(data) {
   return axios
     .post(
-      `https://pan-kanapka-api.herokuapp.com/rest-auth/registration/`,
+      `${process.env.REACT_APP_API_URL}/rest-auth/registration/`,
       {
         username: data.username,
         password1: data.password1,

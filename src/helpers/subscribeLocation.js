@@ -2,7 +2,7 @@ import axios from "axios";
 
 export function subscribeLocation(id, token) {
   axios
-    .patch(`https://pan-kanapka-api.herokuapp.com/subscribe/${id}/`, {}, {
+    .patch(`${process.env.REACT_APP_API_URL}/subscribe/${id}/`, {}, {
       headers: {
         Authorization: `Token ${token}`
       },

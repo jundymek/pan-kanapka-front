@@ -10,7 +10,7 @@ export function fetchLocations() {
   return dispatch => {
     dispatch(fetchLocationsBegin());
     return axios
-      .get("https://pan-kanapka-api.herokuapp.com/api/places/")
+      .get(`${process.env.REACT_APP_API_URL}/api/places/`)
       .then(handleErrors)
       .then(res => {
         dispatch(fetchLocationsSuccess(res.data));
@@ -20,10 +20,9 @@ export function fetchLocations() {
 }
 
 export function removeLocation(id, token) {
-  console.log("reeeeeeeeeee", id, token);
   return dispatch => {
     return axios
-      .delete(`https://pan-kanapka-api.herokuapp.com/api/places/${id}`, {
+      .delete(`${process.env.REACT_APP_API_URL}/api/places/${id}`, {
         headers: {
           Authorization: `Token ${token}`
         }
@@ -38,7 +37,7 @@ export function addLocation(name, address, lat, lng, token) {
   return dispatch => {
     axios
       .post(
-        "https://pan-kanapka-api.herokuapp.com/api/places/",
+        `${process.env.REACT_APP_API_URL}/api/places/`,
         {
           name: name,
           address: address,

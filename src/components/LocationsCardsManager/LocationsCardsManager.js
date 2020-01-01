@@ -42,7 +42,7 @@ function LocationsCardsManager(props) {
   useEffect(() => {
     if (props.token && props.username !== "admin") {
       axios
-        .get(`https://pan-kanapka-api.herokuapp.com/api/user/${props.username}`, {
+        .get(`${process.env.REACT_APP_API_URL}/api/user/${props.username}`, {
           headers: {
             Authorization: `Token ${props.token}`
           }
@@ -59,7 +59,7 @@ function LocationsCardsManager(props) {
   function getSubscriptionData() {
     setIsLoading(true);
     axios
-      .get(`https://pan-kanapka-api.herokuapp.com/api/get_number_of_subscriptions/`)
+      .get(`${process.env.REACT_APP_API_URL}/api/get_number_of_subscriptions/`)
       .then(res => {
         console.log(res);
         setnumberSubscriptions(res.data);
