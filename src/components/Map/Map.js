@@ -1,7 +1,6 @@
 import React from "react";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import { connect } from "react-redux";
-import "./Map.scss";
 
 function MyMap(props) {
   const initialPosition = [52.237049, 21.017532];

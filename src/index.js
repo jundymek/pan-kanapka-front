@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
 import App from "./components/App";
 import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
 import reducer from "./store/reducer";
 import thunk from "redux-thunk";
 import * as serviceWorker from './serviceWorker';
+import '../src/styles/_main.scss'
 require('dotenv').config()
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

@@ -1,0 +1,33 @@
+@import "../styles/_variables";
+@import "../styles/_normalize";
+
+@import "../components/App.scss";
+@import "../components/Header/Header.scss";
+@import "../components/Header/LoginFormHeader.scss";
+@import "../components/LocationCard/LocationCard.scss";
+@import "../components/LocationsCardsManager/LocationsCardsManager.scss";
+@import "../components/Map/Map.scss";
+@import "../components/SignUpWindow/SignUpWindow.scss";
+
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400&display=swap&subset=latin-ext");
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Poppins";
+}

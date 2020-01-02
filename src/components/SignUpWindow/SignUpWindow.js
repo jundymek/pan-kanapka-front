@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import { fetchLogin } from "../../store/actions/authActions";
 import { connect } from "react-redux";
-import "./SignUpWindow.scss";
 import { loginWindowHideShow } from "../../helpers/loginWindowHideShow";
 import cheesburger from "../../images/cheeseburger.svg";
 import signUp from "../../helpers/signUp";

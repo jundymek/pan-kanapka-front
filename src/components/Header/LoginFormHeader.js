@@ -1,7 +1,6 @@
 import React from "react";
 import { fetchLogout } from "../../store/actions/authActions";
 import { connect } from "react-redux";
-import "./LoginFormHeader.scss";
 import LoginForm from "./LoginForm";
 
 function LoginFormHeader(props) {

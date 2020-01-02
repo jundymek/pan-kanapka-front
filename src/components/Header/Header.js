@@ -1,6 +1,5 @@
 import React from "react";
 import LoginFormHeader from "./LoginFormHeader";
-import "./Header.scss";
 
 function Header(props) {
   return (

@@ -3,7 +3,6 @@ import axios from "axios";
 import LocationCard from "../LocationCard/LocationCard";
 import { LocationsCardsList } from "../LocationsCardsList/LocationsCardsList";
 import { connect } from "react-redux";
-import "./LocationsCardsManager.scss";
 import { fetchLocations } from "../../store/actions/locationActions";
 import runServiceWorker from "../../helpers/runServiceWorker";
 

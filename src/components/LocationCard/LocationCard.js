@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./LocationCard.scss";
 import MapForCard from "./MapForCard";
 import { connect } from "react-redux";
 import { removeLocation } from "../../store/actions/locationActions";
