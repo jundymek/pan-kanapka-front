@@ -1,8 +1,8 @@
 import React, { useState, useRef } from "react";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 import "./AddNewLocationForm.scss";
-import {addLocation} from '../../store/actions/locationActions'
+import { addLocation } from "../../store/actions/locationActions";
 
 function AddNewLocationForm({ onAddLocation, token }) {
   const [address, setAddress] = useState("");
@@ -23,60 +23,72 @@ function AddNewLocationForm({ onAddLocation, token }) {
 
   const handleSubmit = e => {
     e.preventDefault();
-    onAddLocation(nameInput.current.value, address, latLng.lat, latLng.lng, token)
+    onAddLocation(nameInput.current.value, address, latLng.lat, latLng.lng, token);
   };
 
   return (
-    <div>
-      <PlacesAutocomplete value={address} onChange={handleChange} onSelect={handleSelect}>
-        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-          <div className="input-wrapper">
-            <form onSubmit={handleSubmit}>
-              <input
-                className="input"
-                {...getInputProps({
-                  placeholder: "Search Places ...",
-                  className: "location-search-input"
-                })}
-              />
-              <input type="text" placeholder="Location name" ref={nameInput} required />
-              <button type="submit">Submit</button>
-              <div className="autocomplete-dropdown-container">
-                {loading && <div>Loading...</div>}
-                {suggestions.map(suggestion => {
-                  const className = suggestion.active ? "suggestion-item--active" : "suggestion-item";
-                  return (
-                    <div
-                      {...getSuggestionItemProps(suggestion, {
-                        className
-                        /* style, */
+    <div className="add-new-location-wrapper">
+      <div className="wrap-collabsible">
+        <input id="collapsible" className="toggle" type="checkbox" />
+        <label htmlFor="collapsible" className="lbl-toggle">
+          Dodaj nową lokalizację
+        </label>
+        <div className="collapsible-content">
+          <div className="content-inner">
+            <PlacesAutocomplete value={address} onChange={handleChange} onSelect={handleSelect}>
+              {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+                <div className="input-wrapper">
+                  <form onSubmit={handleSubmit} className="add-new-site-form">
+                    <input
+                      {...getInputProps({
+                        placeholder: "Wyszukaj lokalizację...",
+                        className: "add-new-site-form__input"
                       })}
-                    >
-                      <span>{suggestion.description}</span>
+                    />
+                    <div className="autocomplete-dropdown-container">
+                      {loading && <div>Loading...</div>}
+                      {suggestions.map(suggestion => {
+                        const className = suggestion.active ? "suggestion-item--active" : "suggestion-item";
+                        return (
+                          <div
+                            {...getSuggestionItemProps(suggestion, {
+                              className
+                              /* style, */
+                            })}
+                          >
+                            <span>{suggestion.description}ddd</span>
+                          </div>
+                        );
+                      })}
                     </div>
-                  );
-                })}
-              </div>
-            </form>
+                    <input
+                      type="text"
+                      className="add-new-site-form__input"
+                      placeholder="Podaj nazwę dla użytkownika"
+                      ref={nameInput}
+                      required
+                    />
+                    <button type="submit" className="add-new-site-form__button">
+                      Dodaj lokalizację
+                    </button>
+                  </form>
+                </div>
+              )}
+            </PlacesAutocomplete>
           </div>
-        )}
-      </PlacesAutocomplete>
+        </div>
+      </div>
     </div>
   );
 }
 
-
 const mapStateToProps = state => ({
   locations: state.locations.locations,
   token: state.auth.token
-})
+});
 
 const mapDispatchToProps = dispatch => ({
   onAddLocation: (name, address, lat, lng, token) => dispatch(addLocation(name, address, lat, lng, token))
-})
+});
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AddNewLocationForm);
-
+export default connect(mapStateToProps, mapDispatchToProps)(AddNewLocationForm);
