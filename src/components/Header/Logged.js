@@ -4,10 +4,11 @@ import { connect } from "react-redux";
 
 function Logged(props) {
   return (
-    <div className="logged-wrapper">
-      <span>Logged as {props.username}</span>
-      <button className="logout-btn" onClick={() => props.handleLogout(props.token)}>
-        Logout
+    <div className="logged">
+      <img className="logged__image" src={require("../../images/user_icon.svg")} alt="User icon" />
+      <span>{props.username}</span>
+      <button className="logged__logout-btn" onClick={() => props.handleLogout(props.token)}>
+        <img src={require("../../images/log-out_icon.svg")} alt="Submit" />
       </button>
     </div>
   );

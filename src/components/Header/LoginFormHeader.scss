@@ -22,7 +22,7 @@
     padding-top: 2px;
     padding-right: 0;
     height: 29px;
-    background-color:transparent;
+    background-color: transparent;
     border: none;
     cursor: pointer;
     &:hover {
@@ -31,12 +31,25 @@
   }
 }
 
-.logged-wrapper {
+.logged {
   display: flex;
-}
-
-.logout-btn {
-  margin-left: 20px;
+  justify-content: center;
+  align-items: center;
+  &__image {
+    width: 52px;
+    height: 52px;
+  }
+  &__logout-btn {
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 }
 
 .signup {
