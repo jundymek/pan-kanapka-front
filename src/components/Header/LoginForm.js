@@ -20,7 +20,7 @@ function LoginForm(props) {
           <input placeholder="Username" className="header-form__input" type="text" ref={usernameInput} required />
           <input placeholder="Password" className="header-form__input" type="password" ref={passwordInput} required />
         <button className="header-form__submit-btn" type="submit">
-          Login
+          <img width="24px" height="29px" src={require("../../images/log-in_icon.svg")} alt="Submit"/>
         </button>
         </div>
       </form>
