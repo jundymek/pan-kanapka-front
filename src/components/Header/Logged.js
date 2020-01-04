@@ -1,18 +1,15 @@
 import React from "react";
 import { fetchLogout } from "../../store/actions/authActions";
 import { connect } from "react-redux";
-import LoginForm from "./LoginForm";
-import Logged from "./Logged";
 
-function LoginFormHeader(props) {
+function Logged(props) {
   return (
-    <>
-      {props.username ? (
-        <Logged />
-      ) : (
-        <LoginForm />
-      )}
-    </>
+    <div className="logged-wrapper">
+      <span>Logged as {props.username}</span>
+      <button className="logout-btn" onClick={() => props.handleLogout(props.token)}>
+        Logout
+      </button>
+    </div>
   );
 }
 
@@ -24,4 +21,4 @@ const mapDispatchToProps = dispatch => ({
   handleLogout: token => dispatch(fetchLogout(token))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginFormHeader);
+export default connect(mapStateToProps, mapDispatchToProps)(Logged);

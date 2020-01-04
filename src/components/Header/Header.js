@@ -4,7 +4,10 @@ import LoginFormHeader from "./LoginFormHeader";
 function Header(props) {
   return (
     <section className="header header--js">
-      <h1>Pan Kanapka</h1>
+      <div className="header-logo">
+        <img src={require("../../images/cheeseburger.png")} width="100px" height="100px" alt="Cheesburger logo" />
+        <h1 className="header-logo__title">Pan Kanapka</h1>
+      </div>
       <LoginFormHeader />
     </section>
   );

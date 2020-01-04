@@ -17,16 +17,12 @@ function LoginForm(props) {
     <div>
       <form className="header-form" onSubmit={handleSubmit}>
         <div className="form-field-wrapper">
-          <label htmlFor="name">Username</label>
-          <input type="text" ref={usernameInput} required />
-        </div>
-        <div className="form-field-wrapper">
-          <label htmlFor="password">Password</label>
-          <input type="password" ref={passwordInput} required />
-        </div>
+          <input placeholder="Username" className="header-form__input" type="text" ref={usernameInput} required />
+          <input placeholder="Password" className="header-form__input" type="password" ref={passwordInput} required />
         <button className="header-form__submit-btn" type="submit">
           Login
         </button>
+        </div>
       </form>
       <div>{props.error ? "Wpisz poprawne dane" : ""}</div>
       <div className="signup-wrapper">

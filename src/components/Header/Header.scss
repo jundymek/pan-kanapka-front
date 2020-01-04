@@ -2,9 +2,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 120px;
     background-color: $brightsun;
+    height: 128px;
     &--disabled {
         display: none;
+    }
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    &__title {
+        margin-left: 30px;
+        padding: 0;
     }
 }

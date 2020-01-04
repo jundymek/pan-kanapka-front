@@ -1,21 +1,30 @@
 .form-field-wrapper {
   display: flex;
-  flex-direction: column;
   padding: 2px;
+  flex-wrap: wrap;
 }
 
 .header-form {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 16px;
+  &__input {
+    width: 281px;
+    height: 48px;
+    background: #ffffff;
+    border: 1px solid #a1a4b1;
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
   &__submit-btn {
-    height: 19px;
-    align-self: flex-end;
-    border: none;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-    margin: 0 0 2px 2px;
-    background-color: rgb(46, 87, 6);
-    color: #fff;
+    width: 200px;
+    height: 48px;
+    background: #121232;
+    border-radius: 4px;
+    color: #FFFFFF;
+    margin-left: 7px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 }
 
@@ -26,7 +35,6 @@
 .logout-btn {
   margin-left: 20px;
 }
-
 
 .signup {
   font-size: 14px;
