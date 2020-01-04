@@ -9,8 +9,9 @@ Todo:
   ✔ Formularz rejestracji nowego użytkownika @done(19-12-29 00:23)
   ☐ Utworzenie modala po zarejestrowaniu użytkownika
   ☐ sortowanie (np. wyswietlanie tylko subskrybowanych lokalizacji)
-  ☐ top strony (stylowanie, logo)
+  ✔ top strony (stylowanie, logo) @done(20-01-04 20:36)
   ☐ style dla mobilek
+  ☐ hamburger menu @started(20-01-04 20:36)
   ✔ PWA @done(20-01-02 00:20)
 
 Błędy: 
