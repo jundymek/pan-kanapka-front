@@ -14,9 +14,9 @@ function LoginFormHeader(props) {
           <LoginForm />
         )}
       </div>
-      <div className="login-section-mobile">
-        <HamburgerMenu />
-      </div>
+        <div className="login-section-mobile">
+          <HamburgerMenu />
+        </div>
     </>
   );
 }

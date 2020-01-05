@@ -1,28 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { mobileMenuWindowHideShow } from "../../helpers/mobileMenuWindowHideShow";
+import LogInMobile from "../LogInMobile/LogInMobile";
 
 function HamburgerMenu(props) {
+  const [isLogInOpen, setisLogInOpen] = useState(false)
 
   const handleOpen = () => {
-    mobileMenuWindowHideShow();
+    if (!isLogInOpen) {
+      mobileMenuWindowHideShow();
+    }
+    setisLogInOpen(false)
   };
+
+  const handleLogInFormOpen = () => {
+    setisLogInOpen(true)
+  }
   return (
     <div className="hamburger-wrapper">
-      <button id="burger" className="open-main-nav" onClick={handleOpen}>
+      <button id="burger" className="open-hamburger-nav" onClick={handleOpen}>
         <span className="burger"></span>
         <span className="burger-text">Menu</span>
       </button>
-      <nav className="main-nav" id="main-nav">
+      <nav className="hamburger-nav" id="hamburger-nav">
         <ul>
           <li>
-            <a href="#">Zaloguj się</a>
+            <button onClick={handleLogInFormOpen}>Zaloguj się</button>
+            {/* <a href="#">Zaloguj się</a> */}
           </li>
           <li>
-            <a href="#">Zarejestruj się</a>
+          <button >Zarejestruj się</button>
           </li>
         </ul>
       </nav>
+      <LogInMobile isOpen={isLogInOpen}/>
     </div>
   );
 }

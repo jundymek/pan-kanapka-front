@@ -8,7 +8,7 @@ import Header from "./Header/Header";
 
 function App(props) {
   return (
-    <div>
+    <div className="main">
       <Header />
       <div className="App App--js">
         <MyMap />

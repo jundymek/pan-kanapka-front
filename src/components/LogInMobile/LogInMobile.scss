@@ -1,0 +1,74 @@
+.login-mobile {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    background: #fff;
+    opacity: 0;
+    z-index: -1;
+    visibility: hidden;
+  }
+  
+  .login-mobile.is-open {
+    opacity: 1;
+    z-index: 1001;
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Yellow band effect */
+  .login-mobile::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: -15px;
+    background: #fedc2a;
+    transform-origin: 0 0;
+    transform: skew(-14deg) translateX(-120%);
+    transition: transform 0.275s 0.1s;
+  }
+  
+  .login-mobile.is-open::before {
+    transform: skew(-14deg) translateX(0);
+  }
+
+ .login-mobile-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1002;
+    // transform: translateX(-24%);
+    &__button {
+        align-self: center;
+    }
+    &__error {
+        z-index: 1002;
+    }
+    &__input {
+        width: 173px;
+        height: 29px;
+        margin-top: 10px;
+        background: #ffffff;
+        border: 1px solid #a1a4b1;
+        box-sizing: border-box;
+        border-radius: 4px;
+        font-size: 13px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+}
+
+.login-mobile-form-wrapper {
+    z-index: 1002;
+    display: flex;
+    height: 100%;
+    width: 100vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
