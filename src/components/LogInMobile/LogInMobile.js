@@ -14,23 +14,29 @@ function LogInMobile(props) {
     passwordInput.current.value = "";
   };
 
-  console.log(props.isOpen)
-  return (
-      props.isOpen ? 
+  console.log(props.isOpen);
+  return props.isOpen ? (
     <div className="login-mobile is-open">
-      <div className="login-mobile-form-wrapper">
-          <form className="login-mobile-form" onSubmit={handleSubmit}>
-              <input className="login-mobile-form__input" placeholder="Username" type="text" ref={usernameInput} required />
-              <input className="login-mobile-form__input" placeholder="Password" type="password" ref={passwordInput} required />
-            <button  className="login-mobile-form__button" type="submit">
-              <img width="24px" height="29px" src={require("../../images/log-in_icon.svg")} alt="Submit"/>
-            </button>
-          </form>
-          <div className="login-mobile-form__error">{props.error ? "Wpisz poprawne dane" : ""}</div>
-      </div>
+      <section className="login-mobile-window">
+        <img src={require("../../images/cheeseburger.png")} width="100px" height="100px" alt="Cheesburger logo" />
+        <h2 className="login-mobile-window__title">Zaloguj się</h2>
+        <form className="login-mobile-form" onSubmit={handleSubmit}>
+          <input className="login-mobile-form__input" placeholder="Username" type="text" ref={usernameInput} required />
+          <input
+            className="login-mobile-form__input"
+            placeholder="Password"
+            type="password"
+            ref={passwordInput}
+            required
+          />
+          <button className="login-mobile-form__button" type="submit">
+            <img width="24px" height="29px" src={require("../../images/log-in_icon.svg")} alt="Submit" />
+          </button>
+        </form>
+        <div className="login-mobile-form__error">{props.error ? "Wpisz poprawne dane" : ""}</div>
+      </section>
     </div>
-    : null
-  );
+  ) : null;
 }
 
 const mapStateToProps = state => ({
