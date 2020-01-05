@@ -1,9 +1,8 @@
 import React from "react";
-import { fetchLogout } from "../../store/actions/authActions";
 import { connect } from "react-redux";
 import LoginForm from "./LoginForm";
 import Logged from "./Logged";
-import Hamburger from "./Hamburger/Hamburger";
+import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 
 function LoginFormHeader(props) {
   return (
@@ -16,7 +15,7 @@ function LoginFormHeader(props) {
         )}
       </div>
       <div className="login-section-mobile">
-        <Hamburger />
+        <HamburgerMenu />
       </div>
     </>
   );
@@ -26,8 +25,4 @@ const mapStateToProps = state => ({
   username: state.auth.username
 });
 
-const mapDispatchToProps = dispatch => ({
-  handleLogout: token => dispatch(fetchLogout(token))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(LoginFormHeader);
+export default connect(mapStateToProps)(LoginFormHeader);

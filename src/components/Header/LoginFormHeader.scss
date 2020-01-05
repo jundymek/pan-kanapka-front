@@ -1,7 +1,10 @@
 .form-field-wrapper {
   display: flex;
   flex-wrap: wrap;
-}
+  @media (max-width: 1024px) {
+    flex-direction: column;
+      }
+  }
 
 .header-form {
   display: flex;
