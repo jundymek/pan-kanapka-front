@@ -68,7 +68,7 @@ function LocationsCardsManager(props) {
   }
 
   return !isLoading ? (
-    <div className="locations-cards">
+    <div className="locations-cards" id="locations-cards">
       <LocationsCardsList
         setSubscribedLocations={setSubscribedLocations}
         locations={props.locations}

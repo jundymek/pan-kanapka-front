@@ -33,10 +33,12 @@ function HamburgerMenu(props) {
         <ul>
           <li>
             <button onClick={handleLogInFormOpen}>Zaloguj się</button>
-            {/* <a href="#">Zaloguj się</a> */}
           </li>
           <li>
           <button onClick={handleSignUpFormOpen}>Zarejestruj się</button>
+          </li>
+          <li>
+            <a href="#locations-cards" onClick={handleOpen}>Zobacz karty lokalizacji</a>
           </li>
         </ul>
       </nav>

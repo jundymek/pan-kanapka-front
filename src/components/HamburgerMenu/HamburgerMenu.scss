@@ -63,30 +63,30 @@
 }
 
 /* Apparition effect on links */
-// .hamburger-nav a {
-//   opacity: 0;
-//   transform: translateY(-10px);
-// }
+.hamburger-nav a {
+  opacity: 0;
+  transform: translateY(-10px);
+}
 
-// .hamburger-nav.is-open a {
-//   opacity: 1;
-//   transform: translateY(0);
-// }
-// .hamburger-nav li:nth-child(1) a {
-//   transition: all 275ms 175ms;
-// }
-// .hamburger-nav li:nth-child(2) a {
-//   transition: all 275ms 225ms;
-// }
-// .hamburger-nav li:nth-child(3) a {
-//   transition: all 275ms 275ms;
-// }
-// .hamburger-nav li:nth-child(4) a {
-//   transition: all 275ms 325ms;
-// }
-// .hamburger-nav li:nth-child(5) a {
-//   transition: all 275ms 375ms;
-// }
+.hamburger-nav.is-open a {
+  opacity: 1;
+  transform: translateY(0);
+}
+.hamburger-nav li:nth-child(1) a {
+  transition: all 275ms 175ms;
+}
+.hamburger-nav li:nth-child(2) a {
+  transition: all 275ms 225ms;
+}
+.hamburger-nav li:nth-child(3) a {
+  transition: all 275ms 275ms;
+}
+.hamburger-nav li:nth-child(4) a {
+  transition: all 275ms 325ms;
+}
+.hamburger-nav li:nth-child(5) a {
+  transition: all 275ms 375ms;
+}
 
 /* Apparition effect on buttons */
 .hamburger-nav button {
@@ -131,14 +131,15 @@
   border: none;
 }
 
-// .hamburger-nav a {
-//   display: block;
-//   padding: 12px 0;
-//   color: #5a3b5d;
-//   font-size: 1.4em;
-//   text-decoration: none;
-//   font-weight: bold;
-// }
+.hamburger-nav a {
+  display: block;
+  padding: 12px 0;
+  color: #5a3b5d;
+  font-size: 1.4em;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0;
+}
 
 /* Burger Style: @see: https://codepen.io/CreativeJuiz/full/oMZNXy */
 .open-hamburger-nav {
