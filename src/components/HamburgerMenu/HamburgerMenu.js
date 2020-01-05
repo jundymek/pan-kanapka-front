@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { mobileMenuWindowHideShow } from "../../helpers/mobileMenuWindowHideShow";
 import LogInMobile from "../LogInMobile/LogInMobile";
 import SignUpMobile from "../SignUpMobile/SignUpMobile";
+import HamburgerLogged from "./HamburgerLogged";
 
 function HamburgerMenu(props) {
   const [isLogInOpen, setisLogInOpen] = useState(false);
@@ -30,12 +31,19 @@ function HamburgerMenu(props) {
       </button>
       <nav className="hamburger-nav" id="hamburger-nav">
         <ul>
-          <li>
-            <button onClick={handleLogInFormOpen}>Zaloguj się</button>
-          </li>
-          <li>
-            <button onClick={handleSignUpFormOpen}>Zarejestruj się</button>
-          </li>
+          {!props.username ? (
+            <>
+              <li>
+                <button onClick={handleLogInFormOpen}>Zaloguj się</button>
+              </li>
+              <li>
+                <button onClick={handleSignUpFormOpen}>Zarejestruj się</button>
+              </li>
+            </>
+          ) : (
+            <HamburgerLogged closeHamburgerMenu={() => mobileMenuWindowHideShow()} />
+          )}
+
           <li>
             <a href="#locations-cards" onClick={handleOpen}>
               Zobacz karty lokalizacji
