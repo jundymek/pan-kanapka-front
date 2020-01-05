@@ -1,21 +1,25 @@
 import React, { useRef } from "react";
 import { connect } from "react-redux";
 import { fetchLogin } from "../../store/actions/authActions";
+import PropTypes from 'prop-types';
 
 function LogInMobile(props) {
   const usernameInput = useRef(null);
   const passwordInput = useRef(null);
+//   console.log(props.closeHamburgerMenu())
 
   const handleSubmit = e => {
     e.preventDefault();
     props.handleLogin(usernameInput.current.value, passwordInput.current.value);
     usernameInput.current.value = "";
     passwordInput.current.value = "";
+    props.setisLogInOpen(false)
+    props.closeHamburgerMenu()
   };
 
   console.log(props.isOpen);
   return props.isOpen ? (
-    <div className="login-mobile is-open">
+    <div className="login-mobile">
       <section className="login-mobile-window">
         <img src={require("../../images/cheeseburger.png")} width="100px" height="100px" alt="Cheesburger logo" />
         <h2 className="login-mobile-window__title">Zaloguj się</h2>
@@ -46,5 +50,10 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   handleLogin: (username, password) => dispatch(fetchLogin(username, password))
 });
+
+LogInMobile.propTypes = {
+    closeHamburgerMenu: PropTypes.func,
+    setisLogInOpen: PropTypes.func
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogInMobile);

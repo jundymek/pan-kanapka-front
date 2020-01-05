@@ -5,24 +5,23 @@ import LogInMobile from "../LogInMobile/LogInMobile";
 import SignUpMobile from "../SignUpMobile/SignUpMobile";
 
 function HamburgerMenu(props) {
-  const [isLogInOpen, setisLogInOpen] = useState(false)
-  const [isSignUpOpen, setIsSignUpOpen] = useState(false)
-  console.log(isSignUpOpen)
+  const [isLogInOpen, setisLogInOpen] = useState(false);
+  const [isSignUpOpen, setIsSignUpOpen] = useState(false);
 
   const handleOpen = () => {
     if (!isLogInOpen && !isSignUpOpen) {
       mobileMenuWindowHideShow();
     }
-    setisLogInOpen(false)
-    setIsSignUpOpen(false)
+    setisLogInOpen(false);
+    setIsSignUpOpen(false);
   };
 
   const handleLogInFormOpen = () => {
-    setisLogInOpen(true)
-  }
+    setisLogInOpen(true);
+  };
   const handleSignUpFormOpen = () => {
-    setIsSignUpOpen(true)
-  }
+    setIsSignUpOpen(true);
+  };
   return (
     <div className="hamburger-wrapper">
       <button id="burger" className="open-hamburger-nav" onClick={handleOpen}>
@@ -35,15 +34,30 @@ function HamburgerMenu(props) {
             <button onClick={handleLogInFormOpen}>Zaloguj się</button>
           </li>
           <li>
-          <button onClick={handleSignUpFormOpen}>Zarejestruj się</button>
+            <button onClick={handleSignUpFormOpen}>Zarejestruj się</button>
           </li>
           <li>
-            <a href="#locations-cards" onClick={handleOpen}>Zobacz karty lokalizacji</a>
+            <a href="#locations-cards" onClick={handleOpen}>
+              Zobacz karty lokalizacji
+            </a>
+          </li>
+          <li>
+            <a href="#locations-cards" onClick={handleOpen}>
+              Zobacz karty lokalizacji
+            </a>
           </li>
         </ul>
       </nav>
-      <LogInMobile isOpen={isLogInOpen}/>
-      <SignUpMobile isOpen={isSignUpOpen}/>
+      <LogInMobile
+        isOpen={isLogInOpen}
+        setisLogInOpen={() => setisLogInOpen()}
+        closeHamburgerMenu={() => mobileMenuWindowHideShow()}
+      />
+      <SignUpMobile
+        isOpen={isSignUpOpen}
+        setIsSignUpOpen={() => setIsSignUpOpen()}
+        closeHamburgerMenu={() => mobileMenuWindowHideShow()}
+      />
     </div>
   );
 }

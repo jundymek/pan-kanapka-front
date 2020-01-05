@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { connect } from "react-redux";
 import { fetchLogin } from "../../store/actions/authActions";
 import signUp from "../../helpers/signUp";
+import PropTypes from 'prop-types';
 
 function SignUpMobile({ handleLogin, isOpen }) {
   const usernameInput = useRef(null);
@@ -68,5 +69,10 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   handleLogin: (username, password) => dispatch(fetchLogin(username, password))
 });
+
+SignUpMobile.propTypes = {
+    closeHamburgerMenu: PropTypes.func,
+    setIsSignUpOpen : PropTypes.func
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpMobile);
