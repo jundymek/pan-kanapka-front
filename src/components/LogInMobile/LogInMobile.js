@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import { connect } from "react-redux";
 import { fetchLogin } from "../../store/actions/authActions";
-import { loginWindowHideShow } from "../../helpers/loginWindowHideShow";
 
 function LogInMobile(props) {
   const usernameInput = useRef(null);

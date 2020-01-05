@@ -2,19 +2,26 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { mobileMenuWindowHideShow } from "../../helpers/mobileMenuWindowHideShow";
 import LogInMobile from "../LogInMobile/LogInMobile";
+import SignUpMobile from "../SignUpMobile/SignUpMobile";
 
 function HamburgerMenu(props) {
   const [isLogInOpen, setisLogInOpen] = useState(false)
+  const [isSignUpOpen, setIsSignUpOpen] = useState(false)
+  console.log(isSignUpOpen)
 
   const handleOpen = () => {
-    if (!isLogInOpen) {
+    if (!isLogInOpen && !isSignUpOpen) {
       mobileMenuWindowHideShow();
     }
     setisLogInOpen(false)
+    setIsSignUpOpen(false)
   };
 
   const handleLogInFormOpen = () => {
     setisLogInOpen(true)
+  }
+  const handleSignUpFormOpen = () => {
+    setIsSignUpOpen(true)
   }
   return (
     <div className="hamburger-wrapper">
@@ -29,11 +36,12 @@ function HamburgerMenu(props) {
             {/* <a href="#">Zaloguj się</a> */}
           </li>
           <li>
-          <button >Zarejestruj się</button>
+          <button onClick={handleSignUpFormOpen}>Zarejestruj się</button>
           </li>
         </ul>
       </nav>
       <LogInMobile isOpen={isLogInOpen}/>
+      <SignUpMobile isOpen={isSignUpOpen}/>
     </div>
   );
 }
