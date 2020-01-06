@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import { connect } from "react-redux";
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from "react-places-autocomplete";
-import "./AddNewLocationForm.scss";
 import { addLocation } from "../../store/actions/locationActions";
 
 function AddNewLocationForm({ onAddLocation, token }) {
@@ -42,6 +41,7 @@ function AddNewLocationForm({ onAddLocation, token }) {
                     <input
                       {...getInputProps({
                         placeholder: "Wyszukaj lokalizację...",
+                        title: "Po adresie lub nazwie lokalizacji",
                         className: "add-new-site-form__input"
                       })}
                     />

@@ -6,6 +6,7 @@
 @import "../components/Header/LoginFormHeader.scss";
 @import "../components/LocationCard/LocationCard.scss";
 @import "../components/LocationsCardsManager/LocationsCardsManager.scss";
+@import "../components/AddNewLocationForm/AddNewLocationForm.scss";
 @import "../components/Map/Map.scss";
 @import "../components/SignUpWindow/SignUpWindow.scss";
 @import "../components/HamburgerMenu/HamburgerMenu.scss";
@@ -19,6 +20,7 @@
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
+  background-color: $pipi;
 }
 
 *,

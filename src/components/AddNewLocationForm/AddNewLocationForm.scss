@@ -1,5 +1,6 @@
 .add-new-location-wrapper {
   width: 90%;
+  margin-bottom: 100px;
 }
 
 .input-wrapper {
@@ -41,9 +42,9 @@
   &__input {
     border: none;
     border-bottom: 1px solid black;
-    background: #fef9d9;
+    background: $drover;
     position: relative;
-    width: 300px;
+    width: 280px;
     height: 50px;
     margin-top: 20px;
     font-size: 20px;
@@ -51,7 +52,7 @@
 }
 
 .autocomplete-dropdown-container {
-    background-color: #fef9d9;
+    background-color: $drover;
 }
 
 .suggestion-item {

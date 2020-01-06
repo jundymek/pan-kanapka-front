@@ -161,7 +161,7 @@
   width: 28px;
   height: 4px;
   margin: 0 auto;
-  background: #5a3b5d;
+  background: #8c7d8d;
   transform: skew(5deg);
   transition: transform 0.275s;
 }
@@ -171,7 +171,7 @@
   content: "";
   display: block;
   height: 100%;
-  background: #5a3b5d;
+  background: $voodoo;
   transition: all 0.275s;
 }
 
