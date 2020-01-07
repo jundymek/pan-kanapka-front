@@ -30,6 +30,7 @@ function HamburgerMenu(props) {
         <span className="burger-text">Menu</span>
       </button>
       <nav className="hamburger-nav" id="hamburger-nav">
+        {props.username ? <HamburgerLogged closeHamburgerMenu={() => mobileMenuWindowHideShow()} /> : null}
         <ul>
           {!props.username ? (
             <>
@@ -40,9 +41,7 @@ function HamburgerMenu(props) {
                 <button onClick={handleSignUpFormOpen}>Zarejestruj się</button>
               </li>
             </>
-          ) : (
-            <HamburgerLogged closeHamburgerMenu={() => mobileMenuWindowHideShow()} />
-          )}
+          ) : null}
 
           <li>
             <a href="#locations-cards" onClick={handleOpen}>

@@ -9,9 +9,9 @@ function HamburgerLogged(props) {
   };
   return (
     <div className="hamburger-nav-logged">
-      Jesteś zalogowany jako <span className="hamburger-nav-logged__username">{props.username}</span>
+      <div className="hamburger-nav-logged__text">Jesteś zalogowany jako <span className="hamburger-nav-logged__username">{props.username}</span></div>
       <button className="hamburger-nav-logged__logout-btn" onClick={onLogout}>
-        <img src={require("../../images/log-out_icon.svg")} alt="Submit" />
+        <img src={require("../../images/log-out_icon.svg")} alt="Submit" title="Wyloguj" />
       </button>
     </div>
   );
