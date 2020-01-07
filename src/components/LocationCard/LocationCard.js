@@ -45,17 +45,17 @@ function CardButtons({
           )
         }
       >
-        {!isSubscribed ? "Subscribe" : "Unsubscribe"}
+        {!isSubscribed ? "Powiadamiaj" : "Nie powiadamiaj"}
       </button>
     );
   } else {
     return (
       <div className="locationCard__btn-wrapper">
         <button className="locationCard__btn locationCard__btn--delete" onClick={() => deleteLocation(cardId, token)}>
-          Delete
+          Usuń kartę
         </button>
         <button className="locationCard__btn locationCard__btn--submit" onClick={() => sendNotification(cardId, token)}>
-          Send notification
+          Powiadom
         </button>
       </div>
     );
@@ -72,7 +72,13 @@ function LocationCard(props) {
   );
   return (
     <section className={props.isSubscribed ? "locationCard locationCard--subscribed" : "locationCard"}>
-      <div className={props.isSubscribed ? "locationCard__title-wrapper locationCard__title-wrapper--subscribed" : "locationCard__title-wrapper"}>
+      <div
+        className={
+          props.isSubscribed
+            ? "locationCard__title-wrapper locationCard__title-wrapper--subscribed"
+            : "locationCard__title-wrapper"
+        }
+      >
         <h3 className="locationCard__title">{props.card.name}</h3>
         <div className="locationCard__address-wrapper">
           <i className="far fa-address-card locationCard__address--icon"></i>
@@ -93,7 +99,7 @@ function LocationCard(props) {
       ) : (
         ""
       )}
-      <p>Number of subscriptions: {currentLocationSubscriptionsCounter}</p>
+      <p>Liczba zapisanych klientów: {currentLocationSubscriptionsCounter}</p>
     </section>
   );
 }

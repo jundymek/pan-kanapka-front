@@ -26,46 +26,45 @@
     }
   }
   &__btn {
-    padding: 0;
+    padding: 0 10px;
     margin: 20px 10px;
     font-size: 16px;
     background: #fff;
-    border-radius: 10%;
+    border-radius: 4px;
     cursor: pointer;
-    width: 100px;
+    width: auto;
     height: 40px;
+    text-align: right;
     position: relative;
+    background-color: $brightsun;
+    color: $voodoo;
     transition: transform 0.2s ease-in-out;
-    &:hover {
-      transform: scale(1.1);
-      color: #fff;
+    &::before {
+      display: inline-block;
+      position: relative;
+      content: "";
+      width: 24px;
+      height: 24px;
+      margin: 0 4px -8px 0px;
+      mask: url("../../images/bell_icon.svg") no-repeat;
+      background: $voodoo;
+      transition: width 0.3s ease-in-out;
     }
-    &--submit:hover::before {
-      background-color: rgb(46, 87, 6);
+    &:hover {
+      transform: scale(1.2);
+    }
+    &--delete::before {
+      mask: url("../../images/delete_icon.svg") no-repeat;
     }
     &--delete:hover::before {
       background-color: rgb(243, 26, 26);
     }
-    &:hover::before {
-      display: block;
-      position: absolute;
-      content: " ";
-      top: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 10%;
-      z-index: -1;
+    &--submit:hover::before {
+      transition: transform 0.2s ease-in-out;
+      transform: scale(1.4);
+      background-color: rgb(46, 87, 6);
     }
-    &::before {
-      display: block;
-      position: absolute;
-      content: " ";
-      top: 0;
-      width: 0px;
-      height: 100%;
-      border-radius: 10%;
-      transition: width 0.3s ease-in-out;
-    }
+
   }
   &__btn-wrapper {
     display: flex;
@@ -84,7 +83,6 @@
       &::after {
         display: block;
         content: "";
-        color: white;
         width: 50px;
         height: 50px;
         mask: url("../../images/bell_icon.svg");
@@ -92,7 +90,7 @@
         position: absolute;
         right: 5px;
         top: 5px;
-        background: #fff;
+        background: $voodoo;
       }
     }
   }
