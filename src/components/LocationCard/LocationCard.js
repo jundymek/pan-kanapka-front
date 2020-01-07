@@ -35,6 +35,7 @@ function CardButtons({
     return (
       <button
         className="locationCard__btn locationCard__btn--submit"
+        title={!isSubscribed ? "Włącz powiadomienia" : "Wyłącz powiadomienia"}
         onClick={() =>
           handleSubscribeLocation(
             cardId,
@@ -79,6 +80,10 @@ function LocationCard(props) {
             : "locationCard__title-wrapper"
         }
       >
+        <div className="locationCard__clients-icon-wrapper" title="Liczba osób zapisanych na powiadomienia">
+          <img className="locationCard__clients-icon" src={require("../../images/clients_icon.svg")} alt="Klienci" />
+          <span className="locationCard__clients-icon-counter">{currentLocationSubscriptionsCounter}</span>
+        </div>
         <h3 className="locationCard__title">{props.card.name}</h3>
         <div className="locationCard__address-wrapper">
           <i className="far fa-address-card locationCard__address--icon"></i>
@@ -99,7 +104,6 @@ function LocationCard(props) {
       ) : (
         ""
       )}
-      <p>Liczba zapisanych klientów: {currentLocationSubscriptionsCounter}</p>
     </section>
   );
 }

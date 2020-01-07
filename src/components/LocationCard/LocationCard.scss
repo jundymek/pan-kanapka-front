@@ -33,7 +33,7 @@
     border-radius: 4px;
     cursor: pointer;
     width: auto;
-    height: 40px;
+    height: 50px;
     text-align: right;
     position: relative;
     background-color: $brightsun;
@@ -64,10 +64,30 @@
       transform: scale(1.4);
       background-color: rgb(46, 87, 6);
     }
-
   }
   &__btn-wrapper {
     display: flex;
+  }
+  &__clients-icon-wrapper {
+    position: absolute;
+    color: $voodoo;
+    top: 10px;
+    left: 10px;
+  }
+  &__clients-icon {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    fill: red;
+    top: 10px;
+    left: 10px;
+  }
+  &__clients-icon-counter {
+    position: absolute;
+    top: 0px;
+    left: 50px;
+    font-size: 22px;
+    font-weight: bold;
   }
   &__title-wrapper {
     width: 100%;
