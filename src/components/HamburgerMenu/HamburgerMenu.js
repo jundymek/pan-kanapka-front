@@ -29,8 +29,8 @@ function HamburgerMenu(props) {
         <span className="burger"></span>
         <span className="burger-text">Menu</span>
       </button>
+      {props.username ? <HamburgerLogged closeHamburgerMenu={() => mobileMenuWindowHideShow()} /> : null}
       <nav className="hamburger-nav" id="hamburger-nav">
-        {props.username ? <HamburgerLogged closeHamburgerMenu={() => mobileMenuWindowHideShow()} /> : null}
         <ul>
           {!props.username ? (
             <>

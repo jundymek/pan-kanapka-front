@@ -226,6 +226,12 @@
   font-weight: bold;
   padding: 0;
   z-index: 1222;
+  opacity: 0;
+  transition: opacity .2s ease-in;
+  &--is-open {
+    opacity: 1;
+    transition: opacity 0 ease-in;
+  }
   @media (orientation: landscape) {
     top: 20px;
     right: 40px;
