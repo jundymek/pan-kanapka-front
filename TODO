@@ -14,6 +14,7 @@ Todo:
   ✔ hamburger menu @started(20-01-04 20:36) @done(20-01-06 01:23) @lasted(1d4h47m18s)
   ✔ PWA @done(20-01-02 00:20)
   ☐ Dokumentacja na githuba
+  ☐ Modal z potwierdzeniem (np. usuniecia lokalizacji)
 
 Błędy: 
   ✔ Po wygaszeniu buttonów i zalogowaniu nowego usera button logout jest "disabled" @done(19-12-04 01:12)

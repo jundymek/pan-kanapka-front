@@ -23,44 +23,47 @@ function SignUpWindow({ handleLogin }) {
     signUp(data)
       .then(res => {
         handleLogin(usernameInput.current.value, passwordInput.current.value);
-        loginWindowHideShow()
+        loginWindowHideShow();
         usernameInput.current.value = "";
         passwordInput.current.value = "";
         passwordInput1.current.value = "";
       })
       .catch(error => {
+        const errorField = document.querySelector(".signUp-form__error--js");
+        errorField.classList.toggle("signUp-form__error--active");
         setformErrors(Object.values(error.response.data));
       });
   };
 
   return (
-    <div className="signUp-wrapper signUp-wrapper--js">
-      <section className="signUp">
-        <button onClick={loginWindowHideShow} className="signUp__exit">
-          X
+    <section className="signUp signUp--js">
+      <button onClick={loginWindowHideShow} className="signUp__exit">
+        <img src={require("../../images/exit_icon.svg")} alt="Wyjście" />
+      </button>
+      <img className="signUp__image" src={cheesburger} alt="Cheesburger" />
+      <h3 className="signUp__title">Zarejestruj się</h3>
+      <form className="signUp-form" onSubmit={handleSubmit}>
+        <input
+          className="signUp-form__input"
+          placeholder="Nazwa użytkownika"
+          type="text"
+          ref={usernameInput}
+          required
+        />
+        <input className="signUp-form__input" placeholder="Hasło" type="password" ref={passwordInput} required />
+        <input
+          className="signUp-form__input"
+          placeholder="Powtórz hasło"
+          type="password"
+          ref={passwordInput1}
+          required
+        />
+        <div className="signUp-form__error signUp-form__error--js">{formErrors ? "Wpisz poprawne dane" : ""}</div>
+        <button className="signUp-form__button" type="submit">
+          Zarejestruj się
         </button>
-        <h3 className="signUp__title">Zarejestruj się</h3>
-        <img className="signUp__image" src={cheesburger} alt="Cheesburger" />
-        <form className="signUp-form" onSubmit={handleSubmit}>
-          <label className="signUp-form__label" htmlFor="name">
-            Username
-          </label>
-          <input className="signUp-form__input" type="text" ref={usernameInput} required />
-          <label className="signUp-form__label" htmlFor="password">
-            Password
-          </label>
-          <input className="signUp-form__input" type="password" ref={passwordInput} required />
-          <label className="signUp-form__label" htmlFor="password1">
-            Password1
-          </label>
-          <input className="signUp-form__input" type="password" ref={passwordInput1} required />
-          <button className="signUp-form__button" type="submit">
-            Zarejestruj się
-          </button>
-        </form>
-        <div className="error">{formErrors ? "Wpisz poprawne dane" : ""}</div>
-      </section>
-    </div>
+      </form>
+    </section>
   );
 }
 
