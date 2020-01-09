@@ -86,7 +86,7 @@ function LocationCard(props) {
         </div>
         <h3 className="locationCard__title">{props.card.name}</h3>
         <div className="locationCard__address-wrapper">
-          <i className="far fa-address-card locationCard__address--icon"></i>
+          <img className="locationCard__address--icon" src={require("../../images/address_icon.svg")} alt="Adres" />
           <p className="locationCard__address">{props.card.address}</p>
         </div>
       </div>
