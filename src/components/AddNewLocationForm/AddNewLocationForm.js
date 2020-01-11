@@ -1,4 +1,5 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { useScript } from "../../hooks/useScript";
 import { connect } from "react-redux";
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 import { addLocation } from "../../store/actions/locationActions";
@@ -7,6 +8,13 @@ function AddNewLocationForm({ onAddLocation, token }) {
   const [address, setAddress] = useState("");
   const [latLng, setLatLng] = useState("");
   const nameInput = useRef(null);
+  const [loaded, error] = useScript(
+    "https://maps.googleapis.com/maps/api/js?key=AIzaSyDgNgxfwxU2uxt5pfqnRlaS5n73LnPRL14&libraries=places"
+  );
+
+  useEffect(() => {
+    if (!loaded) return;
+  }, [loaded, error]);
 
   const handleChange = address => {
     setAddress(address);
@@ -34,6 +42,7 @@ function AddNewLocationForm({ onAddLocation, token }) {
         </label>
         <div className="collapsible-content">
           <div className="content-inner">
+          {loaded && !error ? 
             <PlacesAutocomplete value={address} onChange={handleChange} onSelect={handleSelect}>
               {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                 <div className="input-wrapper">
@@ -74,7 +83,7 @@ function AddNewLocationForm({ onAddLocation, token }) {
                   </form>
                 </div>
               )}
-            </PlacesAutocomplete>
+            </PlacesAutocomplete> : <b>Something went wrong!</b>}
           </div>
         </div>
       </div>
