@@ -19,7 +19,6 @@ const renderLocationCard = (card, index, isSubscribed, setSubscribedLocations, n
 };
 
 function LocationsCardsManager(props) {
-  const [isLoading, setIsLoading] = useState(false);
   const [subscribedLocations, setSubscribedLocations] = useState([]);
   const [numberSubscriptions, setnumberSubscriptions] = useState({});
 
@@ -54,20 +53,17 @@ function LocationsCardsManager(props) {
   }, [props.token, props.username]);
 
   function getSubscriptionData() {
-    setIsLoading(true);
     axios
       .get(`${process.env.REACT_APP_API_URL}/api/get_number_of_subscriptions/`)
       .then(res => {
         setnumberSubscriptions(res.data);
-        setIsLoading(false);
       })
       .catch(error => {
         console.log(error);
-        setIsLoading(false);
       });
   }
 
-  return !isLoading ? (
+  return  (
     <div className="locations-cards" id="locations-cards">
       <LocationsCardsList
         setSubscribedLocations={setSubscribedLocations}
@@ -77,8 +73,6 @@ function LocationsCardsManager(props) {
         numberSubscriptions={numberSubscriptions}
       />
     </div>
-  ) : (
-    <div>LOADING</div>
   );
 }
 
