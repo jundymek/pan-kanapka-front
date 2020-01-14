@@ -19,24 +19,21 @@ const renderLocationCard = (card, index, isSubscribed, setSubscribedLocations, n
 };
 
 function LocationsCardsManager(props) {
+  const { onFetchLocations } = props;
   const [subscribedLocations, setSubscribedLocations] = useState([]);
   const [numberSubscriptions, setnumberSubscriptions] = useState({});
 
   useEffect(() => {
-    getSubscriptionData();
-    props.onFetchLocations();
-  }, []);
+    const fetchData = async () => {
+      await getNumberOfSubscriptionsForLocations();
+      await onFetchLocations();
+    };
+    fetchData();
+  }, [onFetchLocations]);
 
   useEffect(() => {
     if (props.token) {
       runServiceWorker(props.token, props.username);
-    }
-  }, [props.token, props.username]);
-
-  useEffect(() => {}, [subscribedLocations]);
-
-  useEffect(() => {
-    if (props.token && props.username !== "admin") {
       axios
         .get(`${process.env.REACT_APP_API_URL}/api/user/${props.username}`, {
           headers: {
@@ -52,8 +49,8 @@ function LocationsCardsManager(props) {
     }
   }, [props.token, props.username]);
 
-  function getSubscriptionData() {
-    axios
+  function getNumberOfSubscriptionsForLocations() {
+    return axios
       .get(`${process.env.REACT_APP_API_URL}/api/get_number_of_subscriptions/`)
       .then(res => {
         setnumberSubscriptions(res.data);
@@ -63,7 +60,7 @@ function LocationsCardsManager(props) {
       });
   }
 
-  return  (
+  return (
     <div className="locations-cards" id="locations-cards">
       <LocationsCardsList
         setSubscribedLocations={setSubscribedLocations}
