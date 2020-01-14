@@ -216,7 +216,7 @@
   color: #5a3b5d;
 }
 
-.hamburger-nav-logged{
+.hamburger-nav-logged {
   display: flex;
   position: absolute;
   text-align: center;
@@ -232,7 +232,7 @@
   padding: 0;
   z-index: 1222;
   opacity: 0;
-  transition: opacity .2s ease-in;
+  transition: opacity 0.2s ease-in;
   &--is-open {
     opacity: 1;
     transition: opacity 0 ease-in;
@@ -247,6 +247,8 @@
     flex-direction: column;
   }
   &__logout-btn {
+    background: none;
+    border: none;
     width: 100px;
     height: 100px;
   }

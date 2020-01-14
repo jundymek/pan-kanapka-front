@@ -20,3 +20,4 @@ Błędy:
   ✔ Po wygaszeniu buttonów i zalogowaniu nowego usera button logout jest "disabled" @done(19-12-04 01:12)
   ✔ Po przestawieniu na mobile i powrocie do desktopu nie przestawiają się karty @done(19-12-31 19:32)
   ☐ Błąd w api polegający na dodawaniu zduplikowanego urządzenia
+  ☐ Przy zalogowanym userze nie wyswietla się poprawnie licznik subskrypcji przy karcie

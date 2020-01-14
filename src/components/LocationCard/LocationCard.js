@@ -1,65 +1,32 @@
 import React, { useState } from "react";
+import Modal from "react-modal";
+import MyModal from "../Modal/Modal"
 import MapForCard from "./MapForCard";
 import { connect } from "react-redux";
 import { removeLocation } from "../../store/actions/locationActions";
 import { subscribeLocation } from "../../helpers/subscribeLocation";
-import { sendNotification } from "../../helpers/sendNotification";
+import { CardButtons } from "./CardButtons";
 
-function handleSubscribeLocation(
+export function handleSubscribeLocation(
   cardId,
   token,
   setSubscribedLocations,
   isSubscribed,
-  setcurrentLocationSubscriptionsCounter
+  setcurrentLocationSubscriptionsCounter,
+  setisModalOpen,
+  setmodalStyle
 ) {
   subscribeLocation(cardId, token);
   if (!isSubscribed) {
     setSubscribedLocations(prevState => [...prevState, cardId]);
     setcurrentLocationSubscriptionsCounter(prevState => prevState + 1);
+    setisModalOpen(true)
+    setmodalStyle("Subscribed")
   } else {
     setSubscribedLocations(prevState => prevState.filter(id => id !== cardId));
     setcurrentLocationSubscriptionsCounter(prevState => prevState - 1);
-  }
-}
-
-function CardButtons({
-  username,
-  cardId,
-  isSubscribed,
-  token,
-  deleteLocation,
-  setSubscribedLocations,
-  setcurrentLocationSubscriptionsCounter
-}) {
-  if (username !== "admin") {
-    return (
-      <button
-        className="locationCard__btn locationCard__btn--submit"
-        title={!isSubscribed ? "Włącz powiadomienia" : "Wyłącz powiadomienia"}
-        onClick={() =>
-          handleSubscribeLocation(
-            cardId,
-            token,
-            setSubscribedLocations,
-            isSubscribed,
-            setcurrentLocationSubscriptionsCounter
-          )
-        }
-      >
-        {!isSubscribed ? "Powiadamiaj" : "Nie powiadamiaj"}
-      </button>
-    );
-  } else {
-    return (
-      <div className="locationCard__btn-wrapper">
-        <button className="locationCard__btn locationCard__btn--delete" onClick={() => deleteLocation(cardId, token)}>
-          Usuń kartę
-        </button>
-        <button className="locationCard__btn locationCard__btn--submit" onClick={() => sendNotification(cardId, token)}>
-          Powiadom
-        </button>
-      </div>
-    );
+    setisModalOpen(true)
+    setmodalStyle("Unsubscribed")
   }
 }
 
@@ -68,9 +35,14 @@ function checkNumberOfSubscriptionsForCard(cardId, allSubscriptions) {
 }
 
 function LocationCard(props) {
+  console.log(props)
   const [currentLocationSubscriptionsCounter, setcurrentLocationSubscriptionsCounter] = useState(
     checkNumberOfSubscriptionsForCard(props.card.id, props.numberSubscriptions)
   );
+  const [isModalOpen, setisModalOpen] = useState(false);
+  const [modalStyle, setmodalStyle] = useState(null)
+
+  Modal.setAppElement('.App')
   return (
     <section className={props.isSubscribed ? "locationCard locationCard--subscribed" : "locationCard"}>
       <div
@@ -100,10 +72,22 @@ function LocationCard(props) {
           setSubscribedLocations={props.setSubscribedLocations}
           isSubscribed={props.isSubscribed}
           setcurrentLocationSubscriptionsCounter={setcurrentLocationSubscriptionsCounter}
+          setisModalOpen={setisModalOpen}
+          setmodalStyle={setmodalStyle}
         />
       ) : (
         ""
       )}
+      {isModalOpen ? 
+      <MyModal
+          isModalOpen={isModalOpen}
+          modalStyle={modalStyle}
+          loactionName={props.card.name}
+          setisModalOpen={setisModalOpen}
+        >
+      </MyModal>
+      : null
+      }
     </section>
   );
 }
