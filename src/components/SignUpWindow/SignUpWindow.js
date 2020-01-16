@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { fetchLogin } from "../../store/actions/authActions";
 import { connect } from "react-redux";
-import { loginWindowHideShow } from "../../helpers/loginWindowHideShow";
+import { signUpWindowHideShow } from "../../helpers/signUpWindowHideShow";
 import cheesburger from "../../images/cheeseburger.svg";
 import signUp from "../../helpers/signUp";
 
@@ -23,7 +23,7 @@ function SignUpWindow({ handleLogin }) {
     signUp(data)
       .then(res => {
         handleLogin(usernameInput.current.value, passwordInput.current.value);
-        loginWindowHideShow();
+        signUpWindowHideShow();
         usernameInput.current.value = "";
         passwordInput.current.value = "";
         passwordInput1.current.value = "";
@@ -37,8 +37,9 @@ function SignUpWindow({ handleLogin }) {
 
   return (
     <section className="signUp signUp--js">
-      <button onClick={loginWindowHideShow} className="signUp__exit">
-        <img src={require("../../images/exit_icon.svg")} alt="Wyjście" />
+      <button id="burger" className="open-hamburger-nav is-open" onClick={signUpWindowHideShow}>
+        <span className="burger"></span>
+        <span className="burger-text">Menu</span>
       </button>
       <img className="signUp__image" src={cheesburger} alt="Cheesburger" />
       <h3 className="signUp__title">Zarejestruj się</h3>

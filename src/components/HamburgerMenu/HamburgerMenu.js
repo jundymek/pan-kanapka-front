@@ -1,27 +1,20 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { mobileMenuWindowHideShow } from "../../helpers/mobileMenuWindowHideShow";
-import LogInMobile from "../LogInMobile/LogInMobile";
-import SignUpMobile from "../SignUpMobile/SignUpMobile";
+import { signUpWindowHideShow } from "../../helpers/signUpWindowHideShow";
+import { loginMobileWindowHideShow } from "../../helpers/loginMobileWindowHideShow";
 import HamburgerLogged from "./HamburgerLogged";
 
 function HamburgerMenu(props) {
-  const [isLogInOpen, setisLogInOpen] = useState(false);
-  const [isSignUpOpen, setIsSignUpOpen] = useState(false);
-
   const handleOpen = () => {
-    if (!isLogInOpen && !isSignUpOpen) {
-      mobileMenuWindowHideShow();
-    }
-    setisLogInOpen(false);
-    setIsSignUpOpen(false);
+    mobileMenuWindowHideShow();
   };
 
   const handleLogInFormOpen = () => {
-    setisLogInOpen(true);
+    loginMobileWindowHideShow();
   };
   const handleSignUpFormOpen = () => {
-    setIsSignUpOpen(true);
+    signUpWindowHideShow();
   };
   return (
     <div className="hamburger-wrapper">
@@ -55,16 +48,6 @@ function HamburgerMenu(props) {
           </li>
         </ul>
       </nav>
-      <LogInMobile
-        isOpen={isLogInOpen}
-        setisLogInOpen={() => setisLogInOpen()}
-        closeHamburgerMenu={() => mobileMenuWindowHideShow()}
-      />
-      <SignUpMobile
-        isOpen={isSignUpOpen}
-        setIsSignUpOpen={() => setIsSignUpOpen()}
-        closeHamburgerMenu={() => mobileMenuWindowHideShow()}
-      />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchLogin } from "../../store/actions/authActions";
-import { loginWindowHideShow } from "../../helpers/loginWindowHideShow";
+import { signUpWindowHideShow } from "../../helpers/signUpWindowHideShow";
 
 function LoginForm(props) {
   const usernameInput = useRef(null);
@@ -22,7 +22,9 @@ function LoginForm(props) {
   };
   return (
     <div>
-      {props.error && isLoginError && <p className="login-error-msg text-focus-in">Wpisz poprawne dane</p>}
+      {props.error && isLoginError && (
+        <p className="login-error-msg text-focus-in">Nazwa użytkownika lub hasło nie są poprawne</p>
+      )}
       <form className="header-form" onSubmit={handleSubmit}>
         <div className="form-field-wrapper">
           <input
@@ -50,7 +52,7 @@ function LoginForm(props) {
       <div className="signup-wrapper">
         <p className="signup">
           Nie masz konta:{" "}
-          <button className="signup__btn" onClick={() => loginWindowHideShow()}>
+          <button className="signup__btn" onClick={() => signUpWindowHideShow()}>
             Zarejestruj się
           </button>
         </p>

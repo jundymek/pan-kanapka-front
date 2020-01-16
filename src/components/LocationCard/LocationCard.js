@@ -78,7 +78,7 @@ function LocationCard(props) {
       ) : (
         ""
       )}
-      {isModalOpen ? 
+      {isModalOpen && 
       <MyModal
           isModalOpen={isModalOpen}
           modalStyle={modalStyle}
@@ -86,7 +86,6 @@ function LocationCard(props) {
           setisModalOpen={setisModalOpen}
         >
       </MyModal>
-      : null
       }
     </section>
   );

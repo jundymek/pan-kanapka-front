@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 // import MyMap from "./Map/Map";
 import AddNewLocationForm from "./AddNewLocationForm/AddNewLocationForm";
 import SignUpWindow from "./SignUpWindow/SignUpWindow";
+import LogInMobile from "./LogInMobile/LogInMobile";
 // import LocationsCardsManager from "./LocationsCardsManager/LocationsCardsManager";
 import Header from "./Header/Header";
 
@@ -21,6 +22,7 @@ function App(props) {
         {props.user === "admin" ? <AddNewLocationForm /> : ""}
       </div>
       <SignUpWindow />
+      <LogInMobile />
     </div>
   );
 }

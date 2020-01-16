@@ -1,26 +1,107 @@
-.login-mobile {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    text-align: center;
-    background: #fff;
-    opacity: 0;
-    z-index: -1;
-    visibility: hidden;
-  }
-  
-  .login-mobile.is-open {
-    opacity: 1;
-    z-index: 1001;
-    visibility: visible;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* Yellow band effect */
-  .login-mobile::before {
+// .login-mobile {
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     left: 0;
+//     bottom: 0;
+//     text-align: center;
+//     background: #fff;
+//     opacity: 0;
+//     z-index: -1;
+//     visibility: hidden;
+//   }
+
+//   .login-mobile.is-open {
+//     opacity: 1;
+//     z-index: 1001;
+//     visibility: visible;
+//     display: flex;
+//     flex-direction: column;
+//   }
+
+//   /* Yellow band effect */
+//   .login-mobile::before {
+//     content: "";
+//     position: absolute;
+//     top: 0;
+//     bottom: 0;
+//     left: 0;
+//     right: -15px;
+//     background: #fedc2a;
+//     transform-origin: 0 0;
+//     transform: skew(-14deg) translateX(-120%);
+//     transition: transform 0.275s 0.1s;
+//   }
+
+//   .login-mobile.is-open::before {
+//     transform: skew(-14deg) translateX(0);
+//   }
+
+//  .login-mobile-form {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     width: 90%;
+//     z-index: 1002;
+//     // transform: translateX(-24%);
+//     &__button {
+//         padding-top: 12px;
+//         padding-right: 0;
+//         height: 29px;
+//         background-color: transparent;
+//         border: none;
+//         cursor: pointer;
+//         &:hover {
+//         transform: scale(1.1);
+//         }
+//     }
+//     &__error {
+//         margin-top: 30px;
+//     }
+//     &__input {
+//         width: 70%;
+//         height: 39px;
+//         margin-top: 10px;
+//         background: #ffffff;
+//         border: 1px solid #a1a4b1;
+//         box-sizing: border-box;
+//         border-radius: 4px;
+//         font-size: 13px;
+//         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+//     }
+// }
+
+// .login-mobile-window {
+//     z-index: 1002;
+//     display: flex;
+//     height: 100%;
+//     width: 100vw;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+// }
+
+.loginMobile {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  height: 100%;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  opacity: 0;
+  z-index: -1;
+  visibility: hidden;
+  z-index: -1;
+  margin-left: -20%;
+  overflow: hidden;
+  transition: opacity 0.3s ease-in;
+  &::before {
     content: "";
     position: absolute;
     top: 0;
@@ -29,55 +110,120 @@
     right: -15px;
     background: #fedc2a;
     transform-origin: 0 0;
-    transform: skew(-14deg) translateX(-120%);
+    transform: skew(-24deg) translateX(-120%);
     transition: transform 0.275s 0.1s;
   }
-  
-  .login-mobile.is-open::before {
-    transform: skew(-14deg) translateX(0);
+  &--active {
+    opacity: 1;
+    z-index: 1502;
+    visibility: visible;
+    position: fixed;
+    &::before {
+      transform: skew(-24deg) translateX(0);
+    }
   }
 
- .login-mobile-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 90%;
+  &__exit {
+    position: absolute;
+    background: none;
+    border: none;
+    top: 40px;
+    right: 40px;
+    cursor: pointer;
+  }
+  &__image {
+    position: absolute;
+    right: 30px;
+    bottom: 50px;
+    width: 242px;
+    height: 223px;
     z-index: 1002;
-    // transform: translateX(-24%);
-    &__button {
-        padding-top: 12px;
-        padding-right: 0;
-        height: 29px;
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-        &:hover {
-        transform: scale(1.1);
-        }
-    }
-    &__error {
-        margin-top: 30px;
-    }
-    &__input {
-        width: 70%;
-        height: 39px;
-        margin-top: 10px;
-        background: #ffffff;
-        border: 1px solid #a1a4b1;
-        box-sizing: border-box;
-        border-radius: 4px;
-        font-size: 13px;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    }
+  }
+  &__title {
+    font-size: 36px;
+    margin-top: 10vh;
+    color: $voodoo;
+    z-index: 1002;
+  }
 }
 
-.login-mobile-window {
+.loginMobile-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1002;
+  transform: translateX(-18%);
+  transition: transform 0.125s ease-in;
+  &--active {
+    transform: translateX(0%);
+  }
+  &__button {
+    margin-right: -40px;
+    font-size: 16px;
+    background: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 200px;
+    height: 48px;
+    text-align: center;
+    padding-left: 40px;
+    position: relative;
+    background-color: #fff;
+    color: $voodoo;
+    transition: transform 0.2s ease-in-out;
+    &::before {
+      display: inline-block;
+      position: absolute;
+      content: "";
+      width: 36px;
+      height: 48px;
+      left: 5px;
+      top: -4px;
+      mask: url("../../images/add_user_icon.svg") no-repeat;
+      background: $voodoo;
+    }
+    &:hover {
+      transform: scale(1.2);
+    }
+    align-self: flex-end;
+  }
+  &__error {
+    margin-bottom: 28px;
     z-index: 1002;
-    display: flex;
-    height: 100%;
-    width: 100vw;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    display: none;
+    &--active {
+      display: block;
+    }
+  }
+  &__input {
+    border: 1px solid #a1a4b1;
+    background-color: #fedc2a;
+    border-radius: 4px;
+    position: relative;
+    width: 70vw;
+    height: 48px;
+    margin-bottom: 28px;
+    padding: 10px;
+    &:nth-child(2) {
+      margin-left: 40px;
+    }
+    &:nth-child(3) {
+      margin-left: 80px;
+    }
+  }
+  &__label {
+    align-self: flex-start;
+  }
+}
+
+.loginMobile-error-msg {
+  margin-top: 20px;
+  margin-left: 20%;
+  font-size: 12px;
+  color: #bf1650;
+  &::before {
+    display: inline;
+    content: "⚠";
+  }
 }

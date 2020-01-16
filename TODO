@@ -15,9 +15,10 @@ Todo:
   ✔ PWA @done(20-01-02 00:20)
   ☐ Dokumentacja na githuba
   ☐ Modal z potwierdzeniem (np. usuniecia lokalizacji)
+  ☐ SignupWindow - z mobile na wersje desktop przerzucic
 
 Błędy: 
   ✔ Po wygaszeniu buttonów i zalogowaniu nowego usera button logout jest "disabled" @done(19-12-04 01:12)
   ✔ Po przestawieniu na mobile i powrocie do desktopu nie przestawiają się karty @done(19-12-31 19:32)
   ☐ Błąd w api polegający na dodawaniu zduplikowanego urządzenia
-  ☐ Przy zalogowanym userze nie wyswietla się poprawnie licznik subskrypcji przy karcie
+  ✔ Przy zalogowanym userze nie wyswietla się poprawnie licznik subskrypcji przy karcie @done(20-01-16 01:16)
