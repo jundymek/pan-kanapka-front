@@ -3,5 +3,4 @@ export function signUpWindowHideShow() {
   const signUpForm = document.querySelector(".signUp-form")
   signUpWindow.classList.toggle("signUp--active");
   signUpForm.classList.toggle("signUp-form--active");
-  document.body.classList.toggle("no-scroll")
 }

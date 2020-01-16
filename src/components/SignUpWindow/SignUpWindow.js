@@ -5,7 +5,7 @@ import { signUpWindowHideShow } from "../../helpers/signUpWindowHideShow";
 import cheesburger from "../../images/cheeseburger.svg";
 import signUp from "../../helpers/signUp";
 
-function SignUpWindow({ handleLogin }) {
+function SignUpWindow({ handleLogin, setIsSignupWindowVisible }) {
   const usernameInput = useRef(null);
   const passwordInput = useRef(null);
   const passwordInput1 = useRef(null);
@@ -29,15 +29,13 @@ function SignUpWindow({ handleLogin }) {
         passwordInput1.current.value = "";
       })
       .catch(error => {
-        const errorField = document.querySelector(".signUp-form__error--js");
-        errorField.classList.toggle("signUp-form__error--active");
         setformErrors(Object.values(error.response.data));
       });
   };
 
   return (
     <section className="signUp signUp--js">
-      <button id="burger" className="open-hamburger-nav is-open" onClick={signUpWindowHideShow}>
+      <button id="burger" className="open-hamburger-nav is-open" onClick={() => setIsSignupWindowVisible(false)}>
         <span className="burger"></span>
         <span className="burger-text">Menu</span>
       </button>
@@ -51,15 +49,23 @@ function SignUpWindow({ handleLogin }) {
           ref={usernameInput}
           required
         />
-        <input className="signUp-form__input" placeholder="Hasło" type="password" ref={passwordInput} required />
+        <input
+          className="signUp-form__input"
+          placeholder="Hasło (minimum 8 znaków)"
+          type="password"
+          ref={passwordInput}
+          minlength="8"
+          required
+        />
         <input
           className="signUp-form__input"
           placeholder="Powtórz hasło"
           type="password"
+          minlength="8"
           ref={passwordInput1}
           required
         />
-        <div className="signUp-form__error signUp-form__error--js">{formErrors ? "Wpisz poprawne dane" : ""}</div>
+        {formErrors && <div className="signUp-form__error signUp-form__error--js blink-1">{formErrors}</div>}
         <button className="signUp-form__button" type="submit">
           Zarejestruj się
         </button>

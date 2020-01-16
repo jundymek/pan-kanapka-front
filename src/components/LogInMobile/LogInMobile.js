@@ -1,7 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { fetchLogin } from "../../store/actions/authActions";
-import { loginMobileWindowHideShow } from "../../helpers/loginMobileWindowHideShow";
 import cheesburger from "../../images/cheeseburger.svg";
 import PropTypes from "prop-types";
 
@@ -25,7 +24,7 @@ function LogInMobile(props) {
 
   return (
     <section className="loginMobile loginMobile--js">
-      <button id="burger" className="open-hamburger-nav is-open" onClick={loginMobileWindowHideShow}>
+      <button id="burger" className="open-hamburger-nav is-open" onClick={() => props.setisLoginWindowVisible(false)}>
         <span className="burger"></span>
         <span className="burger-text">Menu</span>
       </button>
@@ -48,13 +47,12 @@ function LogInMobile(props) {
           ref={passwordInput}
           required
         />
-        {/* <div className="loginMobile-form__error loginMobile-form__error--js">{formErrors ? "Wpisz poprawne dane" : ""}</div> */}
         <button className="loginMobile-form__button" type="submit">
           Zaloguj się
         </button>
       </form>
       {props.error && isLoginError && (
-        <p className="loginMobile-error-msg text-focus-in">Nazwa użytkownika lub hasło nie są poprawne</p>
+        <p className="loginMobile-error-msg blink-1">Nazwa użytkownika lub hasło nie są poprawne</p>
       )}
     </section>
   );

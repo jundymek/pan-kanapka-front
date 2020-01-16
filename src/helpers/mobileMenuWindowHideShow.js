@@ -6,7 +6,7 @@ export function mobileMenuWindowHideShow() {
     bb.classList.toggle('hamburger-wrapper--open')
     burger.classList.toggle('is-open');
     nav.classList.toggle('is-open');
-    document.body.classList.toggle("no-scroll")
+    // document.body.classList.toggle("no-scroll")
     if (loggedHamburger) {
         loggedHamburger.classList.toggle('hamburger-nav-logged--is-open');
     }

@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 function HamburgerLogged(props) {
   const onLogout = () => {
     props.handleLogout(props.token);
-    props.closeHamburgerMenu();
   };
   return (
     <div className="hamburger-nav-logged">

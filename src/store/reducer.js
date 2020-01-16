@@ -4,7 +4,7 @@ import { storeAuth } from "./storeAuth";
 
 const reducer = combineReducers({
   locations: storeLocations,
-  auth: storeAuth
+  auth: storeAuth,
 });
 
 export default reducer;

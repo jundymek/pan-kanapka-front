@@ -2,16 +2,24 @@ import React, { useState, useRef, useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchLogin } from "../../store/actions/authActions";
 import { signUpWindowHideShow } from "../../helpers/signUpWindowHideShow";
+import SignUpWindow from "../SignUpWindow/SignUpWindow";
 
 function LoginForm(props) {
   const usernameInput = useRef(null);
   const passwordInput = useRef(null);
   const [isLoginError, setisLoginError] = useState(false);
+  const [isSignupWindowVisible, setIsSignupWindowVisible] = useState(false);
   console.log(isLoginError);
 
   useEffect(() => {
     setisLoginError(prevState => !prevState);
   }, [props.error]);
+
+  useEffect(() => {
+    if (isSignupWindowVisible) {
+      signUpWindowHideShow();
+    }
+  }, [isSignupWindowVisible]);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -20,10 +28,17 @@ function LoginForm(props) {
     usernameInput.current.value = "";
     passwordInput.current.value = "";
   };
+
+  const handleSignUpWindowOpen = () => {
+    const loadWindow = async () => {
+      await setIsSignupWindowVisible(true);
+    };
+    loadWindow();
+  };
   return (
     <div>
       {props.error && isLoginError && (
-        <p className="login-error-msg text-focus-in">Nazwa użytkownika lub hasło nie są poprawne</p>
+        <p className="login-error-msg blink-1">Nazwa użytkownika lub hasło nie są poprawne</p>
       )}
       <form className="header-form" onSubmit={handleSubmit}>
         <div className="form-field-wrapper">
@@ -52,11 +67,12 @@ function LoginForm(props) {
       <div className="signup-wrapper">
         <p className="signup">
           Nie masz konta:{" "}
-          <button className="signup__btn" onClick={() => signUpWindowHideShow()}>
+          <button className="signup__btn" onClick={handleSignUpWindowOpen}>
             Zarejestruj się
           </button>
         </p>
       </div>
+      {isSignupWindowVisible && <SignUpWindow setIsSignupWindowVisible={setIsSignupWindowVisible} />}
     </div>
   );
 }

@@ -106,9 +106,11 @@
   &__error {
     margin-bottom: 28px;
     z-index: 1002;
-    display: none;
-    &--active {
-      display: block;
+    color: $maroon-flush;
+    &::before {
+      display: inline;
+      padding-right: 2px;
+      content: "⚠";
     }
   }
   &__input {
@@ -131,3 +133,4 @@
     align-self: flex-start;
   }
 }
+
