@@ -17,7 +17,7 @@
   margin-left: -20%;
   overflow: hidden;
   transition: opacity 0.3s ease-in;
-  @media (max-width: 1024px ) and (orientation: portrait) {
+  @media (max-width: $desktop ) and (orientation: portrait) {
     justify-content: flex-start;
     padding-top: 50px;
   }
@@ -91,7 +91,7 @@
     background-color: #fff;
     color: $voodoo;
     transition: transform 0.2s ease-in-out;
-    @media (max-width: 1024px ) and (orientation: landscape) {
+    @media (max-width: $desktop ) and (orientation: landscape) {
       height: 30px;
       padding: 5px;
     }
@@ -105,7 +105,7 @@
       top: -4px;
       mask: url("../../images/add_user_icon.svg") no-repeat;
       background: $voodoo;
-      @media (max-width: 1024px ) and (orientation: landscape) {
+      @media (max-width: $desktop ) and (orientation: landscape) {
         display: none;
       }
     }
@@ -133,7 +133,7 @@
     height: 48px;
     margin-bottom: 28px;
     padding: 10px;
-    @media (max-width: 1024px ) and (orientation: landscape) {
+    @media (max-width: $desktop ) and (orientation: landscape) {
       height: 30px;
       padding: 5px;
     }

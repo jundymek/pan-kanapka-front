@@ -1,7 +1,7 @@
 .form-field-wrapper {
   display: flex;
   flex-wrap: wrap;
-  @media (max-width: 1024px) {
+  @media (max-width: $desktop) {
     flex-direction: column;
   }
 }

@@ -59,6 +59,9 @@
   justify-content: center;
   transform: translateX(-18%) skew(-16deg);
   margin-left: 34px;
+  @media (max-width: $small-phone) {
+    transform: translateX(-8%) skew(-16deg);
+  }
 }
 
 .hamburger-nav li {

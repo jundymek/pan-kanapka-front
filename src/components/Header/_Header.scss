@@ -23,14 +23,14 @@
 
 .login-section-desktop {
     display:block;
-    @media (max-width: 1024px) {
+    @media (max-width: $desktop) {
     display: none;
       }
 }
 
 .login-section-mobile {
     display:block;
-    @media (min-width: 1024px) {
+    @media (min-width: $desktop) {
     display: none;
       }
 }
