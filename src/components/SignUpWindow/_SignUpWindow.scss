@@ -17,6 +17,10 @@
   margin-left: -20%;
   overflow: hidden;
   transition: opacity 0.3s ease-in;
+  @media (max-width: 1024px ) and (orientation: portrait) {
+    justify-content: flex-start;
+    padding-top: 50px;
+  }
   &::before {
     content: "";
     position: absolute;
@@ -87,6 +91,10 @@
     background-color: #fff;
     color: $voodoo;
     transition: transform 0.2s ease-in-out;
+    @media (max-width: 1024px ) and (orientation: landscape) {
+      height: 30px;
+      padding: 5px;
+    }
     &::before {
       display: inline-block;
       position: absolute;
@@ -97,6 +105,9 @@
       top: -4px;
       mask: url("../../images/add_user_icon.svg") no-repeat;
       background: $voodoo;
+      @media (max-width: 1024px ) and (orientation: landscape) {
+        display: none;
+      }
     }
     &:hover {
       transform: scale(1.2);
@@ -122,6 +133,10 @@
     height: 48px;
     margin-bottom: 28px;
     padding: 10px;
+    @media (max-width: 1024px ) and (orientation: landscape) {
+      height: 30px;
+      padding: 5px;
+    }
     &:nth-child(2) {
       margin-left: 40px;
     }

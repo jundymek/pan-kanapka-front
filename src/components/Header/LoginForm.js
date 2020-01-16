@@ -9,7 +9,6 @@ function LoginForm(props) {
   const passwordInput = useRef(null);
   const [isLoginError, setisLoginError] = useState(false);
   const [isSignupWindowVisible, setIsSignupWindowVisible] = useState(false);
-  console.log(isLoginError);
 
   useEffect(() => {
     setisLoginError(prevState => !prevState);
@@ -24,7 +23,6 @@ function LoginForm(props) {
   const handleSubmit = e => {
     e.preventDefault();
     props.handleLogin(usernameInput.current.value, passwordInput.current.value);
-    console.log(props);
     usernameInput.current.value = "";
     passwordInput.current.value = "";
   };

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import MyModal from "../Modal/Modal"
+import MyModal from "../Modal/Modal";
 import MapForCard from "./MapForCard";
 import { connect } from "react-redux";
 import { removeLocation } from "../../store/actions/locationActions";
@@ -20,13 +20,13 @@ export function handleSubscribeLocation(
   if (!isSubscribed) {
     setSubscribedLocations(prevState => [...prevState, cardId]);
     setcurrentLocationSubscriptionsCounter(prevState => prevState + 1);
-    setisModalOpen(true)
-    setmodalStyle("Subscribed")
+    setisModalOpen(true);
+    setmodalStyle("Subscribed");
   } else {
     setSubscribedLocations(prevState => prevState.filter(id => id !== cardId));
     setcurrentLocationSubscriptionsCounter(prevState => prevState - 1);
-    setisModalOpen(true)
-    setmodalStyle("Unsubscribed")
+    setisModalOpen(true);
+    setmodalStyle("Unsubscribed");
   }
 }
 
@@ -35,14 +35,13 @@ function checkNumberOfSubscriptionsForCard(cardId, allSubscriptions) {
 }
 
 function LocationCard(props) {
-  console.log(props)
   const [currentLocationSubscriptionsCounter, setcurrentLocationSubscriptionsCounter] = useState(
     checkNumberOfSubscriptionsForCard(props.card.id, props.numberSubscriptions)
   );
   const [isModalOpen, setisModalOpen] = useState(false);
-  const [modalStyle, setmodalStyle] = useState(null)
+  const [modalStyle, setmodalStyle] = useState(null);
 
-  Modal.setAppElement('.App')
+  Modal.setAppElement(".App");
   return (
     <section className={props.isSubscribed ? "locationCard locationCard--subscribed" : "locationCard"}>
       <div
@@ -78,15 +77,14 @@ function LocationCard(props) {
       ) : (
         ""
       )}
-      {isModalOpen && 
-      <MyModal
+      {isModalOpen && (
+        <MyModal
           isModalOpen={isModalOpen}
           modalStyle={modalStyle}
           loactionName={props.card.name}
           setisModalOpen={setisModalOpen}
-        >
-      </MyModal>
-      }
+        ></MyModal>
+      )}
     </section>
   );
 }

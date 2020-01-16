@@ -6,9 +6,7 @@ import Header from "./Header/Header";
 const MyMap = lazy(() => import("./Map/Map"));
 const LocationsCardsManager = lazy(() => import("./LocationsCardsManager/LocationsCardsManager"));
 
-
 function App(props) {
-  console.log(props)
   return (
     <div className="main">
       <Header />
@@ -17,14 +15,14 @@ function App(props) {
           <MyMap />
           <LocationsCardsManager />
         </Suspense>
-        {props.user === "admin" ? <AddNewLocationForm /> : ""}
+        {props.user === "admin" && <AddNewLocationForm />}
       </div>
     </div>
   );
 }
 
 const mapStateToProps = state => ({
-  user: state.auth.username,
+  user: state.auth.username
 });
 
 export default connect(mapStateToProps)(App);
