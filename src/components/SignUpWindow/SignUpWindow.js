@@ -54,14 +54,14 @@ function SignUpWindow({ handleLogin, setIsSignupWindowVisible }) {
           placeholder="Hasło (minimum 8 znaków)"
           type="password"
           ref={passwordInput}
-          minlength="8"
+          minLength="8"
           required
         />
         <input
           className="signUp-form__input"
           placeholder="Powtórz hasło"
           type="password"
-          minlength="8"
+          minLength="8"
           ref={passwordInput1}
           required
         />

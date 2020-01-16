@@ -4,17 +4,27 @@ import { mobileMenuWindowHideShow } from "../../helpers/mobileMenuWindowHideShow
 import { signUpWindowHideShow } from "../../helpers/signUpWindowHideShow";
 import { loginMobileWindowHideShow } from "../../helpers/loginMobileWindowHideShow";
 import LogInMobile from "../LogInMobile/LogInMobile";
-import HamburgerLogged from "./HamburgerLogged";
 import SignUpWindow from "../SignUpWindow/SignUpWindow";
+import { HamburgerMenuNav } from "./HamburgerMenuNav";
 
 function HamburgerMenu(props) {
-  console.log(props);
   const [isLoginWindowVisible, setisLoginWindowVisible] = useState(false);
   const [isSignupWindowVisible, setIsSignupWindowVisible] = useState(false);
+  const [isMenuOpen, setisMenuOpen] = useState(false);
 
   useEffect(() => {
+    const loggedHamburger = document.querySelector(".hamburger-nav-logged");
+    if (loggedHamburger) {
+      loggedHamburger.classList.toggle("hamburger-nav-logged--is-open");
+    }
     setisLoginWindowVisible(false);
   }, [props.username]);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      mobileMenuWindowHideShow();
+    }
+  }, [isMenuOpen]);
 
   useEffect(() => {
     if (isLoginWindowVisible) {
@@ -25,8 +35,19 @@ function HamburgerMenu(props) {
     }
   }, [isLoginWindowVisible, isSignupWindowVisible]);
 
-  const handleOpen = () => {
-    mobileMenuWindowHideShow();
+  const handleMobileMenuOpen = () => {
+    if (isMenuOpen) {
+      mobileMenuWindowHideShow();
+      const loadWindow = async () => {
+        await setisMenuOpen(!isMenuOpen);
+      };
+      loadWindow();
+    } else {
+      const loadWindow = async () => {
+        await setisMenuOpen(!isMenuOpen);
+      };
+      loadWindow();
+    }
   };
 
   const handleLogInFormOpen = () => {
@@ -43,36 +64,19 @@ function HamburgerMenu(props) {
   };
   return (
     <div className="hamburger-wrapper">
-      <button id="burger" className="open-hamburger-nav" onClick={handleOpen}>
+      <button id="burger" className="open-hamburger-nav" onClick={handleMobileMenuOpen}>
         <span className="burger"></span>
         <span className="burger-text">Menu</span>
       </button>
-      {props.username && <HamburgerLogged />}
-      <nav className="hamburger-nav" id="hamburger-nav">
-        <ul>
-          {!props.username ? (
-            <>
-              <li>
-                <button onClick={handleLogInFormOpen}>Zaloguj się</button>
-              </li>
-              <li>
-                <button onClick={handleSignUpWindowOpen}>Zarejestruj się</button>
-              </li>
-            </>
-          ) : null}
+      {isMenuOpen && (
+        <HamburgerMenuNav
+          username={props.username}
+          handleLogInFormOpen={handleLogInFormOpen}
+          handleSignUpWindowOpen={handleSignUpWindowOpen}
+          handleMobileMenuOpen={handleMobileMenuOpen}
+        />
+      )}
 
-          <li>
-            <a href="#locations-cards" onClick={handleOpen}>
-              Zobacz karty lokalizacji
-            </a>
-          </li>
-          <li>
-            <a href="#locations-cards" onClick={handleOpen}>
-              Zobacz karty lokalizacji
-            </a>
-          </li>
-        </ul>
-      </nav>
       {isLoginWindowVisible && <LogInMobile setisLoginWindowVisible={setisLoginWindowVisible} />}
       {isSignupWindowVisible && <SignUpWindow setIsSignupWindowVisible={setIsSignupWindowVisible} />}
     </div>

@@ -17,7 +17,7 @@ function App(props) {
           <MyMap />
           <LocationsCardsManager />
         </Suspense>
-        {props.user === "admin" ? <AddNewLocationForm /> : ""}
+        {props.user === "admin" && <AddNewLocationForm />}
       </div>
     </div>
   );
