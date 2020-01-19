@@ -11,7 +11,7 @@ function App(props) {
     <div className="main">
       <Header />
       <div className="App App--js">
-        <Suspense fallback={<div class="loader">Wczytywanie...</div>}>
+        <Suspense fallback={<div className="loader">Wczytywanie...</div>}>
           <MyMap />
           <LocationsCardsManager />
         </Suspense>

@@ -81,8 +81,12 @@ function LocationCard(props) {
         <MyModal
           isModalOpen={isModalOpen}
           modalStyle={modalStyle}
-          loactionName={props.card.name}
+          locationName={props.card.name}
           setisModalOpen={setisModalOpen}
+          deleteLocation={props.onRemoveLocation}
+          token={props.token}
+          locationId={props.card.id}
+          setmodalStyle={setmodalStyle}
         ></MyModal>
       )}
     </section>

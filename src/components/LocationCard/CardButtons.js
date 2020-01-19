@@ -6,12 +6,16 @@ export function CardButtons({
   cardId,
   isSubscribed,
   token,
-  deleteLocation,
   setSubscribedLocations,
   setcurrentLocationSubscriptionsCounter,
   setisModalOpen,
   setmodalStyle
 }) {
+  const handleDeleteLocation = () => {
+    setisModalOpen(true);
+    setmodalStyle("DeleteConfirmation");
+  };
+
   if (username !== "admin") {
     return (
       <button
@@ -35,7 +39,10 @@ export function CardButtons({
   } else {
     return (
       <div className="locationCard__btn-wrapper">
-        <button className="locationCard__btn locationCard__btn--delete" onClick={() => deleteLocation(cardId, token)}>
+        <button
+          className="locationCard__btn locationCard__btn--delete"
+          onClick={() => handleDeleteLocation(cardId, token)}
+        >
           Usuń kartę
         </button>
         <button className="locationCard__btn locationCard__btn--submit" onClick={() => sendNotification(cardId, token)}>
