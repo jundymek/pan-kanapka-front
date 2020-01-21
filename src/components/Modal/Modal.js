@@ -1,5 +1,6 @@
 import React from "react";
 import Modal from "react-modal";
+import { modalBlurBackground } from "../../helpers/modalBlurBackground";
 
 Modal.setAppElement(".App");
 
@@ -14,8 +15,12 @@ function MyModal({
   setmodalStyle
 }) {
   const handleCloseModal = () => {
+    modalBlurBackground()
     setisModalOpen(false);
   };
+  if (isModalOpen) {
+    modalBlurBackground()
+  }
   switch (modalStyle) {
     case "Subscribed":
       return (
@@ -57,19 +62,23 @@ function MyModal({
 export default MyModal;
 
 export function ModalSubscribed({ isOpen, locationName, handleCloseModal }) {
+  setTimeout(() => {
+    handleCloseModal();
+  }, 3000);
   return (
     <Modal isOpen={isOpen} className="modal fade-in" overlayClassName="modal-wrapper">
-      <p>Dodałeś lokalizację o nazwie {locationName}: do listy subskrybowanych.</p>
-      <button onClick={handleCloseModal}>X</button>
+      <p>Dodałeś lokalizację o nazwie {locationName} do listy subskrybowanych.</p>
     </Modal>
   );
 }
 
 export function ModalUnSubscribed({ isOpen, locationName, handleCloseModal }) {
+  setTimeout(() => {
+    handleCloseModal();
+  }, 3000);
   return (
     <Modal isOpen={isOpen} className="modal fade-in" overlayClassName="modal-wrapper">
-      <p>Wypisałeś się z subskrybowania lokalizacji o nazwie {locationName}</p>
-      <button onClick={handleCloseModal}>X</button>
+      <p>Wypisałeś się z subskrybowania lokalizacji o nazwie {locationName}.</p>
     </Modal>
   );
 }
@@ -101,8 +110,10 @@ export function ModalDeleteConfirmation({
   return (
     <Modal isOpen={isOpen} locationName="locationName" className="modal fade-in" overlayClassName="modal-wrapper">
       <p>Czy usunąć kartę lokalizacji {locationName} ?</p>
-      <button onClick={handleCloseModal}>Anuluj</button>
-      <button onClick={handleConfirm}>Potwiedź</button>
+      <div className="modal-buttons-wrapper">
+        <button className="button button--confirm"onClick={handleConfirm}>Potwiedź</button>
+        <button className="button button--cancel" onClick={handleCloseModal}>Anuluj</button>
+      </div>
     </Modal>
   );
 }

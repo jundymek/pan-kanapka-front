@@ -3,9 +3,25 @@
   flex-direction: column;
   align-items: center;
   width: 50%;
-  height: 50%;
+  height: auto;
   background-color: $brightsun;
-  opacity: 1;
+  border: 1px solid $voodoo;
+  padding: 20px;
+  border-radius: 4px;
+  -webkit-box-shadow: 3px 4px 40px -1px rgba(0, 0, 0, 0.64);
+  -moz-box-shadow: 3px 4px 40px -1px rgba(0, 0, 0, 0.64);
+  box-shadow: 3px 4px 40px -1px rgba(0, 0, 0, 0.64);
+  @media (max-width: $desktop) {
+    position: fixed;
+    width: 90%;
+    height: 50%;
+    justify-content: center;
+    padding: 10px;
+  }
+}
+
+.modal-buttons-wrapper {
+  display: flex;
 }
 
 .modal-wrapper {

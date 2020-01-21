@@ -1,0 +1,51 @@
+.button {
+  padding: 0 10px;
+  margin: 20px 10px;
+  font-size: 16px;
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  width: auto;
+  height: 50px;
+  text-align: right;
+  position: relative;
+  background-color: $brightsun;
+  color: $voodoo;
+  transition: transform 0.2s ease-in-out;
+  &::before {
+    display: inline-block;
+    position: relative;
+    content: "";
+    width: 24px;
+    height: 24px;
+    margin: 0 4px -6px 0px;
+    background: $voodoo;
+    transition: width 0.3s ease-in-out;
+  }
+  &:hover {
+    transform: scale(1.2);
+  }
+  &--cancel::before {
+    mask: url("../images/cancel_icon.svg") no-repeat;
+  }
+  &--cancel:hover::before {
+    background-color: rgb(243, 26, 26);
+  }
+  &--confirm::before {
+    mask: url("../images/confirm_icon.svg") no-repeat;
+  }
+  &--confirm:hover::before {
+    background-color: rgb(243, 26, 26);
+  }
+  &--delete::before {
+    mask: url("../images/delete_icon.svg") no-repeat;
+  }
+  &--delete:hover::before {
+    background-color: rgb(243, 26, 26);
+  }
+  &--submit:hover::before {
+    transition: transform 0.2s ease-in-out;
+    transform: scale(1.4);
+    background-color: rgb(46, 87, 6);
+  }
+}

@@ -8,7 +8,7 @@ const LocationsCardsManager = lazy(() => import("./LocationsCardsManager/Locatio
 
 function App(props) {
   return (
-    <div className="main">
+    <div className="main main--js">
       <Header />
       <div className="App App--js">
         <Suspense fallback={<div className="loader">Wczytywanie...</div>}>
