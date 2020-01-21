@@ -4,7 +4,7 @@ const initialState = {
   isFetching: false,
   token: localStorage.getItem('token'),
   error: null,
-  username: localStorage.getItem('username')
+  username: localStorage.getItem('username'),
 };
 
 export const storeAuth = (state = initialState, action) => {
@@ -21,7 +21,7 @@ export const storeAuth = (state = initialState, action) => {
         ...state,
         isFetching: false,
         token: action.token,
-        username: action.username
+        username: action.username,
       };
     case LOGIN_FAILURE:
       return {
@@ -35,7 +35,7 @@ export const storeAuth = (state = initialState, action) => {
         isFetching: false,
         token: null,
         username: null,
-        error: action.error
+        error: action.error,
       };
     default:
       return state;

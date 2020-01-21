@@ -20,6 +20,7 @@ function LoginForm(props) {
     }
   }, [isSignupWindowVisible]);
 
+
   const handleSubmit = e => {
     e.preventDefault();
     props.handleLogin(usernameInput.current.value, passwordInput.current.value);
@@ -71,6 +72,7 @@ function LoginForm(props) {
         </p>
       </div>
       {isSignupWindowVisible && <SignUpWindow setIsSignupWindowVisible={setIsSignupWindowVisible} />}
+      
     </div>
   );
 }

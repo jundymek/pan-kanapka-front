@@ -2,7 +2,7 @@ import React from "react";
 import Modal from "react-modal";
 import { modalBlurBackground } from "../../helpers/modalBlurBackground";
 
-Modal.setAppElement(".App");
+Modal.setAppElement("body");
 
 function MyModal({
   isModalOpen,
@@ -12,7 +12,8 @@ function MyModal({
   locationId,
   token,
   deleteLocation,
-  setmodalStyle
+  setmodalStyle,
+  username
 }) {
   const handleCloseModal = () => {
     modalBlurBackground()
@@ -37,6 +38,23 @@ function MyModal({
           isOpen={isModalOpen}
           setisModalOpen={setisModalOpen}
           locationName={locationName}
+          handleCloseModal={handleCloseModal}
+        />
+      );
+    case "LoggedIn":
+      return (
+        <ModalLogged
+          isOpen={isModalOpen}
+          setisModalOpen={setisModalOpen}
+          username={username}
+          handleCloseModal={handleCloseModal}
+        />
+      );
+    case "LoggedOut":
+      return (
+        <ModalLoggedOut
+          isOpen={isModalOpen}
+          setisModalOpen={setisModalOpen}
           handleCloseModal={handleCloseModal}
         />
       );
@@ -87,6 +105,26 @@ export function ModalDeleted({ locationName }) {
   return (
     <Modal isOpen={true} locationName={locationName} className="modal fade-in" overlayClassName="modal-wrapper">
       <p>Lokalizacja {locationName} zostałą usunięta</p>
+    </Modal>
+  );
+}
+export function ModalLogged({ username, handleCloseModal }) {
+  setTimeout(() => {
+    handleCloseModal();
+  }, 3000);
+  return (
+    <Modal isOpen={true} username={username} className="modal fade-in" overlayClassName="modal-wrapper">
+      <p>Zostałeś pomyślnie zalogowany jako {username}</p>
+    </Modal>
+  );
+}
+export function ModalLoggedOut({ handleCloseModal }) {
+  setTimeout(() => {
+    handleCloseModal();
+  }, 3000);
+  return (
+    <Modal isOpen={true} className="modal fade-in" overlayClassName="modal-wrapper">
+      <p>Zostałeś pomyślnie wylogowany</p>
     </Modal>
   );
 }

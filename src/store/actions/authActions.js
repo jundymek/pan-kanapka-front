@@ -49,14 +49,14 @@ export const receiveLogin = (data, username) => ({
   type: LOGIN_SUCCESS,
   isFetching: false,
   token: data.key,
-  username: username
+  username: username,
 });
 
 export const handleLogout = () => ({
   type: LOGOUT_REQUEST,
   isFetching: false,
   token: null,
-  username: null
+  username: null,
 });
 
 export const loginError = message => ({

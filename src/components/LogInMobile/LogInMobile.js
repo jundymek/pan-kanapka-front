@@ -9,8 +9,6 @@ function LogInMobile(props) {
   const passwordInput = useRef(null);
   const [isLoginError, setisLoginError] = useState(false);
 
-  console.log(isLoginError);
-
   useEffect(() => {
     setisLoginError(prevState => !prevState);
   }, [props.error]);
