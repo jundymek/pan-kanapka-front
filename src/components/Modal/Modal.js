@@ -84,8 +84,8 @@ export function ModalSubscribed({ isOpen, locationName, handleCloseModal }) {
     handleCloseModal();
   }, 3000);
   return (
-    <Modal isOpen={isOpen} className="modal fade-in" overlayClassName="modal-wrapper">
-      <p>Dodałeś lokalizację o nazwie {locationName} do listy subskrybowanych.</p>
+    <Modal isOpen={isOpen} className="modal modal--info fade-in " overlayClassName="modal-wrapper">
+      <p className="modal__paragraph">Dodałeś lokalizację o nazwie {locationName} do listy subskrybowanych.</p>
     </Modal>
   );
 }
@@ -95,16 +95,16 @@ export function ModalUnSubscribed({ isOpen, locationName, handleCloseModal }) {
     handleCloseModal();
   }, 3000);
   return (
-    <Modal isOpen={isOpen} className="modal fade-in" overlayClassName="modal-wrapper">
-      <p>Wypisałeś się z subskrybowania lokalizacji o nazwie {locationName}.</p>
+    <Modal isOpen={isOpen} className="modal modal--info fade-in" overlayClassName="modal-wrapper">
+      <p className="modal__paragraph">Wypisałeś się z subskrybowania lokalizacji o nazwie {locationName}.</p>
     </Modal>
   );
 }
 
 export function ModalDeleted({ locationName }) {
   return (
-    <Modal isOpen={true} locationName={locationName} className="modal fade-in" overlayClassName="modal-wrapper">
-      <p>Lokalizacja {locationName} zostałą usunięta</p>
+    <Modal isOpen={true} locationName={locationName} className="modal modal--info fade-in" overlayClassName="modal-wrapper">
+      <p className="modal__paragraph">Lokalizacja {locationName} zostałą usunięta</p>
     </Modal>
   );
 }
@@ -113,8 +113,8 @@ export function ModalLogged({ username, handleCloseModal }) {
     handleCloseModal();
   }, 3000);
   return (
-    <Modal isOpen={true} username={username} className="modal fade-in" overlayClassName="modal-wrapper">
-      <p>Zostałeś pomyślnie zalogowany jako {username}</p>
+    <Modal isOpen={true} username={username} className="modal modal--info fade-in" overlayClassName="modal-wrapper">
+      <p className="modal__paragraph">Zostałeś pomyślnie zalogowany jako {username}</p>
     </Modal>
   );
 }
@@ -123,8 +123,8 @@ export function ModalLoggedOut({ handleCloseModal }) {
     handleCloseModal();
   }, 3000);
   return (
-    <Modal isOpen={true} className="modal fade-in" overlayClassName="modal-wrapper">
-      <p>Zostałeś pomyślnie wylogowany</p>
+    <Modal isOpen={true} className="modal modal--info fade-in" overlayClassName="modal-wrapper">
+      <p className="modal__paragraph">Zostałeś pomyślnie wylogowany</p>
     </Modal>
   );
 }
@@ -146,8 +146,8 @@ export function ModalDeleteConfirmation({
     }, 3000);
   };
   return (
-    <Modal isOpen={isOpen} locationName="locationName" className="modal fade-in" overlayClassName="modal-wrapper">
-      <p>Czy usunąć kartę lokalizacji {locationName} ?</p>
+    <Modal isOpen={isOpen} locationName="locationName" className="modal modal--confirm fade-in" overlayClassName="modal-wrapper">
+      <p className="modal__paragraph">Czy usunąć kartę lokalizacji {locationName} ?</p>
       <div className="modal-buttons-wrapper">
         <button className="button button--confirm"onClick={handleConfirm}>Potwiedź</button>
         <button className="button button--cancel" onClick={handleCloseModal}>Anuluj</button>
