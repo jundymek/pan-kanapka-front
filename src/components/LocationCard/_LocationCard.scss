@@ -9,9 +9,9 @@
   margin-bottom: 50px;
   color: $voodoo;
   padding-bottom: 20px;
-  -webkit-box-shadow: 2px -2px 4px 0px rgba(0,0,0,0.32);
--moz-box-shadow: 2px -2px 4px 0px rgba(0,0,0,0.32);
-box-shadow: 2px -2px 4px 0px rgba(0,0,0,0.32);
+  -webkit-box-shadow: 2px -2px 4px 0px rgba(0, 0, 0, 0.32);
+  -moz-box-shadow: 2px -2px 4px 0px rgba(0, 0, 0, 0.32);
+  box-shadow: 2px -2px 4px 0px rgba(0, 0, 0, 0.32);
   &__address-wrapper {
     display: flex;
     justify-content: center;
@@ -136,4 +136,3 @@ box-shadow: 2px -2px 4px 0px rgba(0,0,0,0.32);
   max-height: 300px;
   clip-path: polygon(33% 0, 100% 4%, 100% 61%, 85% 100%, 0 84%, 0 2%);
 }
-

@@ -29,6 +29,7 @@ function App(props) {
       <Header />
       <div className="App App--js">
         <Suspense fallback={<div className="loader">Wczytywanie...</div>}>
+          <p className="subtitle-text">Dowiozę kanapki gdzie tylko chcesz...</p>
           <MyMap />
           {props.user === "admin" && <AddNewLocationForm />}
           <LocationsCardsManager />

@@ -5,4 +5,27 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  position: relative;
+}
+
+.subtitle-text {
+  position: absolute;
+  font-size: 28px;
+  font-weight: bold;
+  background: $brightsun;
+  top: 0;
+  max-width: 60%;
+  right: 140px;
+  margin: 0 0 20px 0;
+  transform: rotate(5deg);
+  @media (max-width: 840px) {
+    font-size: 24px;
+    right: 10px;
+    top:-20px;
+  }
+  @media (max-width: $tablet) {
+    font-size: 18px;
+    right: 10px;
+    top:-20px;
+  }
 }
