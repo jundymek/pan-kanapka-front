@@ -1,7 +1,6 @@
-
 .add-new-location-wrapper {
   width: 90%;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .input-wrapper {
@@ -13,7 +12,6 @@
 }
 
 .add-new-site-form {
-  margin-bottom: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,11 +24,12 @@
     border-radius: 4px;
     cursor: pointer;
     width: auto;
-    height: 50px;
+    height: 70px;
     text-align: right;
     position: relative;
     background-color: $brightsun;
     color: $voodoo;
+    clip-path: polygon(33% 0, 100% 4%, 97% 57%, 100% 88%, 4% 100%, 0 6%);
     transition: transform 0.2s ease-in-out;
     &::before {
       display: inline-block;
@@ -49,27 +48,34 @@
   }
   &__input {
     border: none;
-    border-bottom: 1px solid black;
     background: $drover;
     position: relative;
-    width: 280px;
-    height: 50px;
+    width: 500px;
+    max-width: 90vw;
+    height: 60px;
     margin-top: 20px;
-    font-size: 20px;
+    font-size: 18px;
+    padding: 20px;
+    clip-path: polygon(50% 0%, 100% 5%, 100% 94%, 50% 100%, 0 93%, 0 4%);
+    transform: rotate(-2deg);
+    transition: transform 1s ease;
+    &:nth-of-type(2) {
+      clip-path: polygon(18% 0, 100% 5%, 100% 89%, 50% 100%, 0 77%, 0 4%);
+      transform: rotate(1deg);
+    }
+    &:focus {
+      transform: rotate(0deg);
+    }
   }
 }
 
 .autocomplete-dropdown-container {
-    background-color: $drover;
+  margin-top: 10px;
 }
 
 .suggestion-item {
   cursor: pointer;
   text-align: left;
-  &--active {
-    background-color: #c5c3c3;
-    cursor: pointer;
-  }
 }
 
 .wrap-collabsible {
@@ -83,26 +89,18 @@ input[type="checkbox"] {
 
 .lbl-toggle {
   display: block;
-
   font-weight: bold;
   font-family: monospace;
-  font-size: 1.2rem;
+  font-size: 28px;
   text-transform: uppercase;
   text-align: center;
-
   padding: 1rem;
-
-  color: #a77b0e;
-  background: #fae042;
-
   cursor: pointer;
-
-  border-radius: 7px;
   transition: all 0.25s ease-out;
 }
 
 .lbl-toggle:hover {
-  color: #7c5a0b;
+  color: $voodoo;
 }
 
 .lbl-toggle::before {
@@ -139,8 +137,8 @@ input[type="checkbox"] {
 }
 
 .collapsible-content .content-inner {
-  background: rgba(250, 224, 66, 0.2);
-  border-bottom: 1px solid rgba(250, 224, 66, 0.45);
+  // background: rgba(250, 224, 66, 0.2);
+  // border-bottom: 1px solid rgba(250, 224, 66, 0.45);
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
   padding: 0.5rem 1rem;

@@ -42,48 +42,51 @@ function AddNewLocationForm({ onAddLocation, token }) {
         </label>
         <div className="collapsible-content">
           <div className="content-inner">
-          {loaded && !error ? 
-            <PlacesAutocomplete value={address} onChange={handleChange} onSelect={handleSelect}>
-              {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-                <div className="input-wrapper">
-                  <form onSubmit={handleSubmit} className="add-new-site-form">
-                    <input
-                      {...getInputProps({
-                        placeholder: "Wyszukaj lokalizację...",
-                        title: "Po adresie lub nazwie lokalizacji",
-                        className: "add-new-site-form__input"
-                      })}
-                    />
-                    <div className="autocomplete-dropdown-container">
-                      {loading && <div>Loading...</div>}
-                      {suggestions.map(suggestion => {
-                        const className = suggestion.active ? "suggestion-item--active" : "suggestion-item";
-                        return (
-                          <div
-                            {...getSuggestionItemProps(suggestion, {
-                              className
-                              /* style, */
-                            })}
-                          >
-                            <span>{suggestion.description}ddd</span>
-                          </div>
-                        );
-                      })}
-                    </div>
-                    <input
-                      type="text"
-                      className="add-new-site-form__input"
-                      placeholder="Podaj nazwę dla użytkownika"
-                      ref={nameInput}
-                      required
-                    />
-                    <button type="submit" className="add-new-site-form__button">
-                      Dodaj lokalizację
-                    </button>
-                  </form>
-                </div>
-              )}
-            </PlacesAutocomplete> : <b>Something went wrong!</b>}
+            {loaded && !error ? (
+              <PlacesAutocomplete value={address} onChange={handleChange} onSelect={handleSelect}>
+                {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+                  <div className="input-wrapper">
+                    <form onSubmit={handleSubmit} className="add-new-site-form">
+                      <input
+                        {...getInputProps({
+                          placeholder: "Wyszukaj lokalizację...",
+                          title: "Po adresie lub nazwie lokalizacji",
+                          className: "add-new-site-form__input"
+                        })}
+                      />
+                      <div className="autocomplete-dropdown-container">
+                        {loading && <div>Loading...</div>}
+                        {suggestions.map(suggestion => {
+                          const className = suggestion.active ? "suggestion-item--active" : "suggestion-item";
+                          return (
+                            <div
+                              {...getSuggestionItemProps(suggestion, {
+                                className
+                                /* style, */
+                              })}
+                            >
+                              <span>{suggestion.description}ddd</span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                      <input
+                        type="text"
+                        className="add-new-site-form__input"
+                        placeholder="Podaj nazwę dla użytkownika"
+                        ref={nameInput}
+                        required
+                      />
+                      <button type="submit" className="add-new-site-form__button">
+                        Dodaj lokalizację
+                      </button>
+                    </form>
+                  </div>
+                )}
+              </PlacesAutocomplete>
+            ) : (
+              <b>Something went wrong!</b>
+            )}
           </div>
         </div>
       </div>
