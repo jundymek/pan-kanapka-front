@@ -12,17 +12,20 @@
   margin-top: 16px;
 
   &__input {
-    width: 173px;
-    height: 29px;
-    background: #ffffff;
-    border: 1px solid #a1a4b1;
-    box-sizing: border-box;
-    border-radius: 4px;
-    font-size: 13px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 193px;
+    height: 59px;
+    border: none;
+    background: $brightsun;
+    padding: 16px;
+    font-size: 14px;
+    color: $voodoo;
+    clip-path: polygon(8% 11%, 100% 0%, 94% 91%, 0% 100%);
+    &--password {
+      clip-path: polygon(5% 0, 100% 8%, 94% 91%, 0% 100%);
+    }
   }
   &__submit-btn {
-    padding-top: 2px;
+    padding-top: 12px;
     padding-right: 0;
     height: 29px;
     background-color: transparent;
@@ -65,9 +68,11 @@
     padding: 0;
     background: none;
     font-size: 14px;
+    text-decoration: underline;
     padding: 2px;
     &:hover {
       text-decoration: underline;
+      color: $maroon-flush;
     }
   }
 }

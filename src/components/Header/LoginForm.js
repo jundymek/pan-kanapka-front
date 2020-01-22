@@ -52,7 +52,7 @@ function LoginForm(props) {
           <input
             onChange={() => setisLoginError(false)}
             placeholder="Password"
-            className="header-form__input"
+            className="header-form__input header-form__input--password"
             type="password"
             ref={passwordInput}
             required
