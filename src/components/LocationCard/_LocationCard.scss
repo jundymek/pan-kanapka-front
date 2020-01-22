@@ -1,5 +1,4 @@
 .locationCard {
-  border: 1px solid $voodoo;
   width: 400px;
   max-width: 90%;
   max-height: 600px;
@@ -10,6 +9,9 @@
   margin-bottom: 50px;
   color: $voodoo;
   padding-bottom: 20px;
+  -webkit-box-shadow: 2px -2px 4px 0px rgba(0,0,0,0.32);
+-moz-box-shadow: 2px -2px 4px 0px rgba(0,0,0,0.32);
+box-shadow: 2px -2px 4px 0px rgba(0,0,0,0.32);
   &__address-wrapper {
     display: flex;
     justify-content: center;
@@ -33,11 +35,12 @@
     border-radius: 4px;
     cursor: pointer;
     width: auto;
-    height: 50px;
+    height: 70px;
     text-align: right;
     position: relative;
     background-color: $brightsun;
     color: $voodoo;
+    clip-path: polygon(33% 0, 100% 4%, 100% 61%, 98% 100%, 0 96%, 0 6%);
     transition: transform 0.2s ease-in-out;
     &::before {
       display: inline-block;
@@ -52,6 +55,9 @@
     }
     &:hover {
       transform: scale(1.2);
+    }
+    &--delete {
+      clip-path: polygon(33% 0, 100% 4%, 97% 57%, 100% 88%, 4% 100%, 0 6%);
     }
     &--delete::before {
       mask: url("../../images/delete_icon.svg") no-repeat;
@@ -128,4 +134,6 @@
 .mapForCard {
   margin-top: 50px;
   max-height: 300px;
+  clip-path: polygon(33% 0, 100% 4%, 100% 61%, 85% 100%, 0 84%, 0 2%);
 }
+

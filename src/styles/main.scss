@@ -18,13 +18,15 @@
 
 @import url("https://unpkg.com/leaflet@1.0.1/dist/leaflet.css");
 
-// @import url("https://fonts.googleapis.com/css?family=Poppins:300,400&display=swap&subset=latin-ext");
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400&display=swap&subset=latin-ext");
 @import url("https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap&subset=latin-ext");
 
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
-  background-color: $pipi;
+  background-color: #fff;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 *,

@@ -5,7 +5,7 @@ function Header(props) {
   return (
     <section className="header header--js">
       <div className="header-logo">
-        <a href="/"><img src={require("../../images/cheeseburger.svg")} width="100px" height="100px" alt="Cheesburger logo" /></a>
+        <a className="header-logo__image-link" href="/"><img className="header-logo__image" src={require("../../images/cheeseburger.svg")}  alt="Cheesburger logo" /></a>
         <h1 className="header-logo__title">Pan Kanapka</h1>
       </div>
       <LoginFormHeader />

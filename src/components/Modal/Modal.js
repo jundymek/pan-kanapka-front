@@ -95,7 +95,7 @@ export function ModalUnSubscribed({ isOpen, locationName, handleCloseModal }) {
     handleCloseModal();
   }, 3000);
   return (
-    <Modal isOpen={isOpen} className="modal modal--info fade-in" overlayClassName="modal-wrapper">
+    <Modal isOpen={isOpen} className="modal modal--info tilt-in-top-1" overlayClassName="modal-wrapper">
       <p className="modal__paragraph">Wypisałeś się z subskrybowania lokalizacji o nazwie {locationName}.</p>
     </Modal>
   );

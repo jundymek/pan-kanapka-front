@@ -1,36 +1,59 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 5%;
-    background-color: $brightsun;
-    height: 128px;
-    &--disabled {
-        display: none;
-    }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  // background-color: $brightsun;
+  height: 158px;
+  position: relative;
+  &--disabled {
+    display: none;
+  }
 }
 
 .header-logo {
-    display: flex;
-    align-items: center;
-    width: 50%;
-    &__title {
-        margin-left: 30px;
-        padding: 0;
-        color: $voodoo;
+  display: flex;
+  align-items: center;
+  width: 50%;
+  &__image {
+    width: 100px;
+    height: 100px;
+  }
+  &__image-link {
+    position: relative;
+    &::before {
+      z-index: -1;
+      position: absolute;
+      top: -20px;
+      display: block;
+      content: "";
+      background-color: $brightsun;
+      width: 140px;
+      height: 140%;
+      animation: .8s polygon;
+      animation-delay: 0s;
+      animation-fill-mode: forwards;
     }
+  }
+  &__title {
+    margin-left: 30px;
+    padding: 0;
+    color: $voodoo;
+    -webkit-animation: slide-left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: slide-left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
 }
 
 .login-section-desktop {
-    display:block;
-    @media (max-width: $desktop) {
+  display: block;
+  @media (max-width: $desktop) {
     display: none;
-      }
+  }
 }
 
 .login-section-mobile {
-    display:block;
-    @media (min-width: $desktop) {
+  display: block;
+  @media (min-width: $desktop) {
     display: none;
-      }
+  }
 }
