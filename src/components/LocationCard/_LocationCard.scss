@@ -41,7 +41,7 @@
     background-color: $brightsun;
     color: $voodoo;
     clip-path: polygon(33% 0, 100% 4%, 100% 61%, 98% 100%, 0 96%, 0 6%);
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.3s ease-in-out;
     &::before {
       display: inline-block;
       position: relative;
@@ -51,11 +51,13 @@
       margin: 0 4px -8px 0px;
       mask: url("../../images/bell_icon.svg") no-repeat;
       background: $voodoo;
-      transition: width 0.3s ease-in-out;
+      transition: transform 0.3s ease-in-out;
     }
     &:hover {
+      transition: transform 0.3s ease-in-out;
       transform: scale(1.2);
     }
+
     &--delete {
       clip-path: polygon(33% 0, 100% 4%, 97% 57%, 100% 88%, 4% 100%, 0 6%);
     }
@@ -68,6 +70,7 @@
     &--submit:hover::before {
       transition: transform 0.2s ease-in-out;
       transform: scale(1.4);
+      transform: rotate(10deg);
       background-color: rgb(46, 87, 6);
     }
   }

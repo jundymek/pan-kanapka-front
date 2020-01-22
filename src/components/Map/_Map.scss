@@ -11,4 +11,7 @@
   clip-path: polygon(33% 0, 100% 15%, 100% 75%, 85% 100%, 0% 75%, 0% 25%);
   -webkit-animation: puff-in-center 1s cubic-bezier(0.47, 0, 0.745, 0.715) both;
   animation: puff-in-center 1s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+  @media (max-width: $desktop) {
+    clip-path: polygon(0 0, 100% 15%, 100% 75%, 85% 100%, 0% 75%, 0% 25%);
+  }
 }
