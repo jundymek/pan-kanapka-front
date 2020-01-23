@@ -47,7 +47,7 @@
 }
 
 .hamburger-nav.is-open::before {
-  transform: skew(-14deg) translateX(0);
+  transform: skew(-10deg) translateX(0);
 }
 
 /* Skewing effect on menu links */
@@ -65,7 +65,11 @@
 }
 
 .hamburger-nav li {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  background: #fff;
   margin: 0.5rem 0;
   text-align: right;
   transform: skew(16deg);
@@ -81,19 +85,23 @@
   opacity: 1;
   transform: translateY(0);
 }
-.hamburger-nav li:nth-child(1) a {
+.hamburger-nav li:nth-child(1) {
   transition: all 275ms 175ms;
+  clip-path: polygon(18% 0, 100% 5%, 100% 89%, 50% 100%, 0 96%, 0 4%);
 }
-.hamburger-nav li:nth-child(2) a {
+.hamburger-nav li:nth-child(2) {
   transition: all 275ms 225ms;
+  clip-path: polygon(57% 0, 100% 5%, 100% 89%, 74% 100%, 0 92%, 0 4%);
 }
-.hamburger-nav li:nth-child(3) a {
+.hamburger-nav li:nth-child(3) {
   transition: all 275ms 275ms;
+  clip-path: polygon(24% 0, 100% 5%, 100% 89%, 22% 100%, 0 92%, 0 9%);
 }
-.hamburger-nav li:nth-child(4) a {
+.hamburger-nav li:nth-child(4) {
   transition: all 275ms 325ms;
+  clip-path: polygon(24% 0, 100% 5%, 100% 97%, 22% 100%, 0 85%, 0 14%);
 }
-.hamburger-nav li:nth-child(5) a {
+.hamburger-nav li:nth-child(5) {
   transition: all 275ms 375ms;
 }
 
@@ -235,6 +243,7 @@
   padding: 0;
   z-index: 1222;
   opacity: 0;
+  transform: rotate(-2deg);
   transition: opacity 0.2s ease-in;
   &--is-open {
     opacity: 1;
@@ -246,17 +255,24 @@
     left: unset;
   }
   &__text {
-    display: flex;
-    flex-direction: column;
+    font-size: 20px;
+    margin: 0;
   }
   &__logout-btn {
-    background: none;
-    border: none;
-    width: 100px;
-    height: 100px;
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    background-color: transparent;
+    background: #fff;
+    clip-path: polygon(77% 1%, 100% 25%, 100% 75%, 50% 100%, 0 86%, 0% 25%);
+    margin-left: 10px;
+    transition: transform 0.5s ease-in;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
   &__username {
     text-decoration: underline;
-    text-decoration-style: double;
   }
 }

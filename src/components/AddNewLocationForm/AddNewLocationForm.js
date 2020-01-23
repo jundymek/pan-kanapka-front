@@ -34,7 +34,7 @@ function AddNewLocationForm({ onAddLocation, token }) {
   };
 
   return (
-    <div className="add-new-location-wrapper">
+    <div className="add-new-location-wrapper" id="add-new-location">
       <div className="wrap-collabsible">
         <input id="collapsible" className="toggle" type="checkbox" />
         <label htmlFor="collapsible" className="lbl-toggle">

@@ -17,17 +17,23 @@ export function HamburgerMenuNav(props) {
               </li>
             </>
           ) : null}
-
           <li>
-            <a href="#locations-cards" onClick={props.handleMobileMenuOpen}>
-              Zobacz karty lokalizacji
+            <a href="#map" onClick={props.handleMobileMenuOpen}>
+              Mapa
             </a>
           </li>
           <li>
             <a href="#locations-cards" onClick={props.handleMobileMenuOpen}>
-              Zobacz karty lokalizacji
+              Karty lokalizacji
             </a>
           </li>
+          {props.username && props.username === "admin" && (
+            <li>
+              <a href="#add-new-location" onClick={props.handleMobileMenuOpen}>
+                Dodaj nową lokalizację
+              </a>
+            </li>
+          )}
         </ul>
       </nav>
     </section>
