@@ -28,6 +28,9 @@ function LogInMobile(props) {
       </button>
       <img className="loginMobile__image" src={cheesburger} alt="Cheesburger" />
       <h3 className="loginMobile__title">Zaloguj się</h3>
+      {props.error && isLoginError && (
+        <p className="loginMobile-error-msg blink-1">Nazwa użytkownika lub hasło nie są poprawne</p>
+      )}
       <form className="loginMobile-form" onSubmit={handleSubmit}>
         <input
           onChange={() => setisLoginError(false)}
@@ -46,12 +49,8 @@ function LogInMobile(props) {
           required
         />
         <button className="loginMobile-form__button" type="submit">
-          Zaloguj się
         </button>
       </form>
-      {props.error && isLoginError && (
-        <p className="loginMobile-error-msg blink-1">Nazwa użytkownika lub hasło nie są poprawne</p>
-      )}
     </section>
   );
 }
