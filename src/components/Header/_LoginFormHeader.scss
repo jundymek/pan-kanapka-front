@@ -11,9 +11,23 @@
   flex-wrap: wrap;
   margin-top: 16px;
 
-  &__input {
+  &__input-wrapper {
     width: 193px;
     height: 59px;
+    background-color: $voodoo;
+    padding-top: 3px;
+    padding-left: 3px;
+    &--username {
+      clip-path: polygon(8% 11%, 100% 0%, 94% 91%, 0% 100%);
+    }
+    &--password {
+      clip-path: polygon(5% 0, 100% 8%, 94% 91%, 0% 100%);
+    }
+  }
+
+  &__input {
+    width: calc(100% - 3px);
+    height: calc(100% - 3px);
     border: none;
     background: $brightsun;
     padding: 16px;
@@ -50,6 +64,7 @@
     width: 52px;
     height: 52px;
     padding: 0;
+    border: none;
     background-color: transparent;
     background: $brightsun;
     clip-path: polygon(77% 1%, 100% 25%, 100% 75%, 50% 100%, 0 86%, 0% 25%);

@@ -13,11 +13,10 @@
   opacity: 0;
   z-index: -1;
   visibility: hidden;
-  z-index: -1;
   margin-left: -20%;
   overflow: hidden;
   transition: opacity 0.3s ease-in;
-  @media (max-width: $desktop ) and (orientation: portrait) {
+  @media (max-width: $desktop) and (orientation: portrait) {
     justify-content: flex-start;
     padding-top: 50px;
   }
@@ -39,7 +38,7 @@
     visibility: visible;
     position: fixed;
     &::before {
-      transform: skew(-24deg) translateX(0);
+      transform: skew(-10deg) translateX(0);
     }
   }
 
@@ -55,8 +54,8 @@
     position: absolute;
     right: 30px;
     bottom: 50px;
-    width: 242px;
-    height: 223px;
+    width: 142px;
+    height: 123px;
     z-index: 1002;
   }
   &__title {
@@ -77,45 +76,9 @@
   &--active {
     transform: translateX(0%);
   }
-  &__button {
-    margin-right: -40px;
-    font-size: 16px;
-    background: #fff;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 200px;
-    height: 48px;
-    text-align: center;
-    padding-left: 40px;
-    position: relative;
-    background-color: #fff;
-    color: $voodoo;
-    transition: transform 0.2s ease-in-out;
-    @media (max-width: $desktop ) and (orientation: landscape) {
-      height: 30px;
-      padding: 5px;
-    }
-    &::before {
-      display: inline-block;
-      position: absolute;
-      content: "";
-      width: 36px;
-      height: 48px;
-      left: 5px;
-      top: -4px;
-      mask: url("../../images/add_user_icon.svg") no-repeat;
-      background: $voodoo;
-      @media (max-width: $desktop ) and (orientation: landscape) {
-        display: none;
-      }
-    }
-    &:hover {
-      transform: scale(1.2);
-    }
-    align-self: flex-end;
-  }
   &__error {
     margin-bottom: 28px;
+    margin-left: 40px;
     z-index: 1002;
     color: $maroon-flush;
     &::before {
@@ -124,28 +87,44 @@
       content: "⚠";
     }
   }
-  &__input {
-    border: 1px solid #a1a4b1;
-    background-color: #fedc2a;
-    border-radius: 4px;
-    position: relative;
-    width: 50vw;
+  &__input-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    max-width: 60vw;
     height: 48px;
+    background-color: $voodoo;
     margin-bottom: 28px;
-    padding: 10px;
-    @media (max-width: $desktop ) and (orientation: landscape) {
-      height: 30px;
-      padding: 5px;
+    clip-path: polygon(50% 0%, 100% 6%, 100% 90%, 50% 100%, 0 90%, 0 9%);
+    @media (max-width: $desktop) and (orientation: landscape) {
+      height: 40px;
     }
-    &:nth-child(2) {
+    &--username {
+      clip-path: polygon(50% 0%, 100% 6%, 100% 90%, 50% 100%, 0 90%, 0 9%);
+    }
+    &--password {
       margin-left: 40px;
+      clip-path: polygon(19% 12%, 100% 6%, 100% 90%, 79% 97%, 0 95%, 0 9%);
     }
-    &:nth-child(3) {
+    &--password1 {
       margin-left: 80px;
+      clip-path: polygon(24% 0, 100% 6%, 100% 90%, 49% 94%, 0% 100%, 0 20%);
     }
   }
-  &__label {
-    align-self: flex-start;
+  &__input {
+    background-color: #fff;
+    border: none;
+    width: calc(100% - 3px);
+    height: calc(100% - 3px);
+    &--username {
+      clip-path: polygon(50% 0%, 100% 6%, 100% 90%, 50% 100%, 0 90%, 0 9%);
+    }
+    &--password {
+      clip-path: polygon(19% 12%, 100% 6%, 100% 90%, 79% 97%, 0 95%, 0 9%);
+    }
+    &--password1 {
+      clip-path: polygon(24% 0, 100% 6%, 100% 90%, 49% 94%, 0% 100%, 0 20%);
+    }
   }
 }
-

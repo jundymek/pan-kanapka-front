@@ -22,3 +22,4 @@ Błędy:
   ✔ Po przestawieniu na mobile i powrocie do desktopu nie przestawiają się karty @done(19-12-31 19:32)
   ☐ Błąd w api polegający na dodawaniu zduplikowanego urządzenia
   ✔ Przy zalogowanym userze nie wyswietla się poprawnie licznik subskrypcji przy karcie @done(20-01-16 01:16)
+  ☐ Przy usówaniu lokacji błąd w modalu

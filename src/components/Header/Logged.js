@@ -5,7 +5,9 @@ import { connect } from "react-redux";
 function Logged(props) {
   return (
     <div className="logged">
-      <p className="logged__text">Zalogowany jako <span className="logged__username">{props.username}</span></p>
+      <p className="logged__text">
+        Zalogowany jako <span className="logged__username">{props.username}</span>
+      </p>
       <button className="logged__logout-btn" onClick={() => props.handleLogout(props.token)}>
         <img src={require("../../images/log-out_icon.svg")} alt="Submit" />
       </button>

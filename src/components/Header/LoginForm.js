@@ -20,7 +20,6 @@ function LoginForm(props) {
     }
   }, [isSignupWindowVisible]);
 
-
   const handleSubmit = e => {
     e.preventDefault();
     props.handleLogin(usernameInput.current.value, passwordInput.current.value);
@@ -41,22 +40,26 @@ function LoginForm(props) {
       )}
       <form className="header-form" onSubmit={handleSubmit}>
         <div className="form-field-wrapper">
-          <input
-            onChange={() => setisLoginError(false)}
-            placeholder="Username"
-            className="header-form__input"
-            type="text"
-            ref={usernameInput}
-            required
-          />
-          <input
-            onChange={() => setisLoginError(false)}
-            placeholder="Password"
-            className="header-form__input header-form__input--password"
-            type="password"
-            ref={passwordInput}
-            required
-          />
+          <div className="header-form__input-wrapper header-form__input-wrapper--username">
+            <input
+              onChange={() => setisLoginError(false)}
+              placeholder="Username"
+              className="header-form__input"
+              type="text"
+              ref={usernameInput}
+              required
+            />
+          </div>
+          <div className="header-form__input-wrapper header-form__input-wrapper--password">
+            <input
+              onChange={() => setisLoginError(false)}
+              placeholder="Password"
+              className="header-form__input header-form__input--password"
+              type="password"
+              ref={passwordInput}
+              required
+            />
+          </div>
           <button className="header-form__submit-btn" type="submit">
             <img width="24px" height="29px" src={require("../../images/log-in_icon.svg")} alt="Submit" />
           </button>
@@ -72,7 +75,6 @@ function LoginForm(props) {
         </p>
       </div>
       {isSignupWindowVisible && <SignUpWindow setIsSignupWindowVisible={setIsSignupWindowVisible} />}
-      
     </div>
   );
 }

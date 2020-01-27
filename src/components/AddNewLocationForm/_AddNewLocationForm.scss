@@ -21,7 +21,7 @@
     margin: 40px 0 0 10px;
     font-size: 16px;
     background: #fff;
-    border-radius: 4px;
+    border: none;
     cursor: pointer;
     width: auto;
     height: 70px;
@@ -46,25 +46,40 @@
       transform: scale(1.2);
     }
   }
-  &__input {
-    border: none;
-    background: $drover;
-    position: relative;
+  &__input-wrapper {
     width: 500px;
     max-width: 90vw;
     height: 60px;
     margin-top: 20px;
-    font-size: 18px;
-    padding: 20px;
-    clip-path: polygon(50% 0%, 100% 5%, 100% 94%, 50% 100%, 0 93%, 0 4%);
-    transform: rotate(-2deg);
+    padding-top: 3px;
+    padding-left: 3px;
+    background: $voodoo;
     transition: transform 1s ease;
-    &:nth-of-type(2) {
+    &--search {
+      clip-path: polygon(50% 0%, 100% 5%, 100% 94%, 50% 100%, 0 93%, 0 4%);
+      transform: rotate(-2deg);
+    }
+    &--name {
       clip-path: polygon(18% 0, 100% 5%, 100% 89%, 50% 100%, 0 77%, 0 4%);
       transform: rotate(1deg);
     }
-    &:focus {
-      transform: rotate(0deg);
+    &:focus-within {
+      transform: rotate(0);
+    }
+  }
+  &__input {
+    border: none;
+    background: $drover;
+    width: calc(100% - 3px);
+    max-width: 90vw;
+    height: calc(100% - 3px);
+    font-size: 18px;
+    padding: 20px;
+    &--search {
+      clip-path: polygon(50% 0%, 100% 5%, 100% 94%, 50% 100%, 0 93%, 0 4%);
+    }
+    &--name {
+      clip-path: polygon(18% 0, 100% 5%, 100% 89%, 50% 100%, 0 77%, 0 4%);
     }
   }
 }

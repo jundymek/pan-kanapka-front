@@ -47,13 +47,15 @@ function AddNewLocationForm({ onAddLocation, token }) {
                 {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                   <div className="input-wrapper">
                     <form onSubmit={handleSubmit} className="add-new-site-form">
-                      <input
-                        {...getInputProps({
-                          placeholder: "Wyszukaj lokalizację...",
-                          title: "Po adresie lub nazwie lokalizacji",
-                          className: "add-new-site-form__input"
-                        })}
-                      />
+                      <div className="add-new-site-form__input-wrapper add-new-site-form__input-wrapper--search">
+                        <input
+                          {...getInputProps({
+                            placeholder: "Wyszukaj lokalizację...",
+                            title: "Po adresie lub nazwie lokalizacji",
+                            className: "add-new-site-form__input add-new-site-form__input--search"
+                          })}
+                        />
+                      </div>
                       <div className="autocomplete-dropdown-container">
                         {loading && <div>Loading...</div>}
                         {suggestions.map(suggestion => {
@@ -65,18 +67,20 @@ function AddNewLocationForm({ onAddLocation, token }) {
                                 /* style, */
                               })}
                             >
-                              <span>{suggestion.description}ddd</span>
+                              <span>{suggestion.description}</span>
                             </div>
                           );
                         })}
                       </div>
-                      <input
-                        type="text"
-                        className="add-new-site-form__input"
-                        placeholder="Podaj nazwę dla użytkownika"
-                        ref={nameInput}
-                        required
-                      />
+                      <div className="add-new-site-form__input-wrapper add-new-site-form__input-wrapper--name">
+                        <input
+                          type="text"
+                          className="add-new-site-form__input add-new-site-form__input--name"
+                          placeholder="Podaj nazwę dla użytkownika"
+                          ref={nameInput}
+                          required
+                        />
+                      </div>
                       <button type="submit" className="add-new-site-form__button">
                         Dodaj lokalizację
                       </button>

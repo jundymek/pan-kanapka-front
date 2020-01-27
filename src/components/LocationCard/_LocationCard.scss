@@ -8,7 +8,11 @@
   flex-direction: column;
   margin-bottom: 50px;
   color: $voodoo;
+  box-sizing: content-box;
   padding-bottom: 20px;
+  border-left: 4px solid black;
+  border-right: 4px solid black;
+  border-bottom: 4px solid black;
   -webkit-box-shadow: 2px -2px 4px 0px rgba(0, 0, 0, 0.32);
   -moz-box-shadow: 2px -2px 4px 0px rgba(0, 0, 0, 0.32);
   box-shadow: 2px -2px 4px 0px rgba(0, 0, 0, 0.32);
@@ -36,6 +40,7 @@
     cursor: pointer;
     width: auto;
     height: 70px;
+    border: none;
     text-align: right;
     position: relative;
     background-color: $brightsun;
@@ -99,15 +104,25 @@
     font-weight: bold;
   }
   &__title-wrapper {
-    width: 100%;
+    width: calc(100% + 8px);
     height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
     background-color: $brightsun;
     clip-path: polygon(0 0, 100% 0, 100% 82%, 0% 100%);
     position: relative;
+    &--inner {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      top: 4px;
+      left: 4px;
+      z-index: -1;
+      background-color: #fff;
+      width: calc(100% - 8px);
+      height: calc(100% - 8px);
+      clip-path: polygon(0 0, 100% 0, 100% 82%, 0% 100%);
+    }
     &--subscribed {
       &::after {
         display: block;

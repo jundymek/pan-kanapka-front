@@ -43,14 +43,15 @@ function LocationCard(props) {
 
   Modal.setAppElement(".App");
   return (
-      <section className={props.isSubscribed ? "locationCard locationCard--subscribed" : "locationCard"}>
-        <div
-          className={
-            props.isSubscribed
-              ? "locationCard__title-wrapper locationCard__title-wrapper--subscribed"
-              : "locationCard__title-wrapper"
-          }
-        >
+    <section className={props.isSubscribed ? "locationCard locationCard--subscribed" : "locationCard"}>
+      <div
+        className={
+          props.isSubscribed
+            ? "locationCard__title-wrapper locationCard__title-wrapper--subscribed"
+            : "locationCard__title-wrapper"
+        }
+      >
+        <div className="locationCard__title-wrapper--inner">
           <div className="locationCard__clients-icon-wrapper" title="Liczba osób zapisanych na powiadomienia">
             <img className="locationCard__clients-icon" src={require("../../images/clients_icon.svg")} alt="Klienci" />
             <span className="locationCard__clients-icon-counter">{currentLocationSubscriptionsCounter}</span>
@@ -61,35 +62,36 @@ function LocationCard(props) {
             <p className="locationCard__address">{props.card.address}</p>
           </div>
         </div>
-        <MapForCard location={props.card} />
-        {props.token ? (
-          <CardButtons
-            cardId={props.card.id}
-            deleteLocation={props.onRemoveLocation}
-            username={props.username}
-            token={props.token}
-            setSubscribedLocations={props.setSubscribedLocations}
-            isSubscribed={props.isSubscribed}
-            setcurrentLocationSubscriptionsCounter={setcurrentLocationSubscriptionsCounter}
-            setisModalOpen={setisModalOpen}
-            setmodalStyle={setmodalStyle}
-          />
-        ) : (
-          ""
-        )}
-        {isModalOpen && (
-          <MyModal
-            isModalOpen={isModalOpen}
-            modalStyle={modalStyle}
-            locationName={props.card.name}
-            setisModalOpen={setisModalOpen}
-            deleteLocation={props.onRemoveLocation}
-            token={props.token}
-            locationId={props.card.id}
-            setmodalStyle={setmodalStyle}
-          ></MyModal>
-        )}
-      </section>
+      </div>
+      <MapForCard location={props.card} />
+      {props.token ? (
+        <CardButtons
+          cardId={props.card.id}
+          deleteLocation={props.onRemoveLocation}
+          username={props.username}
+          token={props.token}
+          setSubscribedLocations={props.setSubscribedLocations}
+          isSubscribed={props.isSubscribed}
+          setcurrentLocationSubscriptionsCounter={setcurrentLocationSubscriptionsCounter}
+          setisModalOpen={setisModalOpen}
+          setmodalStyle={setmodalStyle}
+        />
+      ) : (
+        ""
+      )}
+      {isModalOpen && (
+        <MyModal
+          isModalOpen={isModalOpen}
+          modalStyle={modalStyle}
+          locationName={props.card.name}
+          setisModalOpen={setisModalOpen}
+          deleteLocation={props.onRemoveLocation}
+          token={props.token}
+          locationId={props.card.id}
+          setmodalStyle={setmodalStyle}
+        ></MyModal>
+      )}
+    </section>
   );
 }
 

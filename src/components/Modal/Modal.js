@@ -16,11 +16,11 @@ function MyModal({
   username
 }) {
   const handleCloseModal = () => {
-    modalBlurBackground()
+    modalBlurBackground();
     setisModalOpen(false);
   };
   if (isModalOpen) {
-    modalBlurBackground()
+    modalBlurBackground();
   }
   switch (modalStyle) {
     case "Subscribed":
@@ -52,11 +52,7 @@ function MyModal({
       );
     case "LoggedOut":
       return (
-        <ModalLoggedOut
-          isOpen={isModalOpen}
-          setisModalOpen={setisModalOpen}
-          handleCloseModal={handleCloseModal}
-        />
+        <ModalLoggedOut isOpen={isModalOpen} setisModalOpen={setisModalOpen} handleCloseModal={handleCloseModal} />
       );
     case "Deleted":
       return <ModalDeleted locationName={locationName} />;
@@ -103,7 +99,12 @@ export function ModalUnSubscribed({ isOpen, locationName, handleCloseModal }) {
 
 export function ModalDeleted({ locationName }) {
   return (
-    <Modal isOpen={true} locationName={locationName} className="modal modal--info fade-in" overlayClassName="modal-wrapper">
+    <Modal
+      isOpen={true}
+      locationName={locationName}
+      className="modal modal--info fade-in"
+      overlayClassName="modal-wrapper"
+    >
       <p className="modal__paragraph">Lokalizacja {locationName} zostałą usunięta</p>
     </Modal>
   );
@@ -146,11 +147,20 @@ export function ModalDeleteConfirmation({
     }, 3000);
   };
   return (
-    <Modal isOpen={isOpen} locationName="locationName" className="modal modal--confirm fade-in" overlayClassName="modal-wrapper">
+    <Modal
+      isOpen={isOpen}
+      locationName="locationName"
+      className="modal modal--confirm fade-in"
+      overlayClassName="modal-wrapper"
+    >
       <p className="modal__paragraph">Czy usunąć kartę lokalizacji {locationName} ?</p>
       <div className="modal-buttons-wrapper">
-        <button className="button button--confirm"onClick={handleConfirm}>Potwiedź</button>
-        <button className="button button--cancel" onClick={handleCloseModal}>Anuluj</button>
+        <button className="button button--confirm" onClick={handleConfirm}>
+          Potwiedź
+        </button>
+        <button className="button button--cancel" onClick={handleCloseModal}>
+          Anuluj
+        </button>
       </div>
     </Modal>
   );

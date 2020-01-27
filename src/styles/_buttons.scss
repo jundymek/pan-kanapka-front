@@ -49,3 +49,48 @@
     background-color: rgb(46, 87, 6);
   }
 }
+
+.login-signup-mobile-button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  padding-bottom: 2px;
+  align-self: flex-end;
+  margin-top: 40px;
+  background: $voodoo;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  &--signup {
+    margin-top: 0;
+    @media (orientation: landscape) {
+      margin-top: -20px;
+    }
+  }
+}
+.login-signup-mobile-button {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  font-size: 16px;
+  background: #fff;
+  cursor: pointer;
+  width: calc(100% - 3px);
+  height: calc(100% - 3px);
+  color: $voodoo;
+  transition: transform 0.2s ease-in-out;
+
+  &::before {
+    display: block;
+    content: "";
+    width: 36px;
+    height: 48px;
+    transform: translate(0, -10%);
+    mask: url("../images/add_user_icon.svg") no-repeat;
+    background: $voodoo;
+  }
+  &:hover {
+    transform: scale(1.2);
+  }
+  &:hover {
+    transform: scale(1.2);
+  }
+}

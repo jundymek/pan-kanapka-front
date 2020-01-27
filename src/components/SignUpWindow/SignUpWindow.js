@@ -42,33 +42,39 @@ function SignUpWindow({ handleLogin, setIsSignupWindowVisible }) {
       <img className="signUp__image" src={cheesburger} alt="Cheesburger" />
       <h3 className="signUp__title">Zarejestruj się</h3>
       <form className="signUp-form" onSubmit={handleSubmit}>
-        <input
-          className="signUp-form__input"
-          placeholder="Nazwa użytkownika"
-          type="text"
-          ref={usernameInput}
-          required
-        />
-        <input
-          className="signUp-form__input"
-          placeholder="Hasło (minimum 8 znaków)"
-          type="password"
-          ref={passwordInput}
-          minLength="8"
-          required
-        />
-        <input
-          className="signUp-form__input"
-          placeholder="Powtórz hasło"
-          type="password"
-          minLength="8"
-          ref={passwordInput1}
-          required
-        />
+        <div className="signUp-form__input-wrapper signUp-form__input-wrapper--username">
+          <input
+            className="signUp-form__input signUp-form__input--username"
+            placeholder="Nazwa użytkownika"
+            type="text"
+            ref={usernameInput}
+            required
+          />
+        </div>
+        <div className="signUp-form__input-wrapper signUp-form__input-wrapper--password">
+          <input
+            className="signUp-form__input signUp-form__input--password"
+            placeholder="Hasło (minimum 8 znaków)"
+            type="password"
+            ref={passwordInput}
+            minLength="8"
+            required
+          />
+        </div>
+        <div className="signUp-form__input-wrapper signUp-form__input-wrapper--password1">
+          <input
+            className="signUp-form__input signUp-form__input--password1"
+            placeholder="Powtórz hasło"
+            type="password"
+            minLength="8"
+            ref={passwordInput1}
+            required
+          />
+        </div>
         {formErrors && <div className="signUp-form__error signUp-form__error--js blink-1">{formErrors}</div>}
-        <button className="signUp-form__button" type="submit">
-          Zarejestruj się
-        </button>
+        <div className="login-signup-mobile-button-wrapper login-signup-mobile-button-wrapper--signup">
+          <button className="login-signup-mobile-button login-signup-mobile-button" type="submit"></button>
+        </div>
       </form>
     </section>
   );

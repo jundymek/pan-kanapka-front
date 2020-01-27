@@ -76,39 +76,6 @@
   &--active {
     transform: translateX(0%);
   }
-  &__button {
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    margin-top: 40px;
-    font-size: 16px;
-    background: #fff;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    padding-left: 40px;
-    position: relative;
-    background-color: #fff;
-    color: $voodoo;
-    transition: transform 0.2s ease-in-out;
-    @media (orientation: landscape) {
-      margin-top: 20px;
-    }
-    &::before {
-      display: block;
-      // position: absolute;
-      content: "";
-      width: 36px;
-      height: 48px;
-      transform: translate(-75%, -10%);
-      mask: url("../../images/add_user_icon.svg") no-repeat;
-      background: $voodoo;
-    }
-    &:hover {
-      transform: scale(1.2);
-    }
-    // align-self: flex-end;
-  }
   &__error {
     margin-bottom: 28px;
     z-index: 1002;
@@ -117,22 +84,21 @@
       display: block;
     }
   }
-  &__input {
+  &__input-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 80vw;
     height: 60px;
-    border: none;
-    background: #fff;
-    padding: 16px;
+    background: $voodoo;
     font-size: 14px;
-    color: $voodoo;
     @media (orientation: landscape) {
-      height: 40px;;
+      height: 40px;
     }
-    &:nth-child(1) {
+    &--username {
       clip-path: polygon(24% 0, 100% 16%, 100% 80%, 55% 95%, 0 85%, 0 22%);
-      
     }
-    &:nth-child(2) {
+    &--password {
       margin-top: 40px;
       clip-path: polygon(83% 0, 100% 16%, 100% 90%, 55% 95%, 0 94%, 0 15%);
       @media (orientation: landscape) {
@@ -140,6 +106,24 @@
       }
     }
   }
+  &__input {
+    width: calc(100% - 3px);
+    height: calc(100% - 3px);
+    border: none;
+    background: #fff;
+    color: $voodoo;
+
+    &--username {
+      clip-path: polygon(24% 0, 100% 16%, 100% 80%, 55% 95%, 0 85%, 0 22%);
+    }
+    &--password {
+      clip-path: polygon(83% 0, 100% 16%, 100% 90%, 55% 95%, 0 94%, 0 15%);
+    }
+  }
+}
+
+.login-signup-mobile-button {
+  align-self: flex-end;
 }
 
 .loginMobile-error-msg {

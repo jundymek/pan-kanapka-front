@@ -32,24 +32,29 @@ function LogInMobile(props) {
         <p className="loginMobile-error-msg blink-1">Nazwa użytkownika lub hasło nie są poprawne</p>
       )}
       <form className="loginMobile-form" onSubmit={handleSubmit}>
-        <input
-          onChange={() => setisLoginError(false)}
-          className="loginMobile-form__input"
-          placeholder="Nazwa użytkownika"
-          type="text"
-          ref={usernameInput}
-          required
-        />
-        <input
-          onChange={() => setisLoginError(false)}
-          className="loginMobile-form__input"
-          placeholder="Hasło"
-          type="password"
-          ref={passwordInput}
-          required
-        />
-        <button className="loginMobile-form__button" type="submit">
-        </button>
+        <div className="loginMobile-form__input-wrapper loginMobile-form__input-wrapper--username">
+          <input
+            onChange={() => setisLoginError(false)}
+            className="loginMobile-form__input loginMobile-form__input--username"
+            placeholder="Nazwa użytkownika"
+            type="text"
+            ref={usernameInput}
+            required
+          />
+        </div>
+        <div className="loginMobile-form__input-wrapper loginMobile-form__input-wrapper--password">
+          <input
+            onChange={() => setisLoginError(false)}
+            className="loginMobile-form__input loginMobile-form__input--password"
+            placeholder="Hasło"
+            type="password"
+            ref={passwordInput}
+            required
+          />
+        </div>
+        <div className="login-signup-mobile-button-wrapper">
+          <button className="login-signup-mobile-button" type="submit"></button>
+        </div>
       </form>
     </section>
   );

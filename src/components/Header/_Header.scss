@@ -30,7 +30,7 @@
       background-color: $brightsun;
       width: 140px;
       height: 140%;
-      animation: .8s polygon;
+      animation: 0.8s polygon;
       animation-delay: 0s;
       animation-fill-mode: forwards;
     }
@@ -40,7 +40,7 @@
     padding: 0;
     color: $voodoo;
     text-transform: uppercase;
-    text-shadow: 11px 2px 20px #FAE042;
+    text-shadow: 11px 2px 20px #fae042;
     -webkit-animation: slide-left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
     animation: slide-left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   }
