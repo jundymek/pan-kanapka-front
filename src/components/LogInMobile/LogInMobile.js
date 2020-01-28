@@ -34,6 +34,7 @@ function LogInMobile(props) {
       <form className="loginMobile-form" onSubmit={handleSubmit}>
         <div className="loginMobile-form__input-wrapper loginMobile-form__input-wrapper--username">
           <input
+            aria-label="username input field"
             onChange={() => setisLoginError(false)}
             className="loginMobile-form__input loginMobile-form__input--username"
             placeholder="Nazwa użytkownika"
@@ -44,6 +45,7 @@ function LogInMobile(props) {
         </div>
         <div className="loginMobile-form__input-wrapper loginMobile-form__input-wrapper--password">
           <input
+            aria-label="password input field"
             onChange={() => setisLoginError(false)}
             className="loginMobile-form__input loginMobile-form__input--password"
             placeholder="Hasło"

@@ -42,6 +42,7 @@ function LoginForm(props) {
         <div className="form-field-wrapper">
           <div className="header-form__input-wrapper header-form__input-wrapper--username">
             <input
+              aria-label="username input field"
               onChange={() => setisLoginError(false)}
               placeholder="Username"
               className="header-form__input"
@@ -52,6 +53,7 @@ function LoginForm(props) {
           </div>
           <div className="header-form__input-wrapper header-form__input-wrapper--password">
             <input
+              aria-label="password input field"
               onChange={() => setisLoginError(false)}
               placeholder="Password"
               className="header-form__input header-form__input--password"

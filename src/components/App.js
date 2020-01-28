@@ -4,6 +4,7 @@ import AddNewLocationForm from "./AddNewLocationForm/AddNewLocationForm";
 import Header from "./Header/Header";
 import MyModal from "./Modal/Modal";
 import usePrevious from "../hooks/usePreviousValue";
+import Footer from "./Footer/Footer";
 
 const MyMap = lazy(() => import("./Map/Map"));
 const LocationsCardsManager = lazy(() => import("./LocationsCardsManager/LocationsCardsManager"));
@@ -35,6 +36,7 @@ function App(props) {
           <LocationsCardsManager />
         </Suspense>
       </div>
+      
       {isModalOpen && (
         <MyModal
           isModalOpen={isModalOpen}
@@ -44,6 +46,7 @@ function App(props) {
           username={props.user}
         ></MyModal>
       )}
+      <Footer />
     </div>
   );
 }

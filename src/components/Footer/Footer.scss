@@ -1,0 +1,60 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  background: $voodoo;
+  overflow: hidden;
+  color: #fff;
+  clip-path: polygon(79% 0, 100% 38%, 100% 100%, 0 100%, 0% 38%);
+  @media (max-width: $desktop) {
+    clip-path: none;
+  }
+  &__paragraph {
+    text-align: center;
+    @media (max-width: $desktop) {
+      text-align: left;
+      padding: 5px;
+    }
+  }
+  &__title {
+    text-transform: uppercase;
+    text-decoration: underline;
+    align-self: flex-end;
+    font-size: 30px;
+    transform: rotate(18deg) translate(-10%, -6%);
+    @media (max-width: $desktop) {
+      display: none;
+    }
+  }
+}
+
+.footer-border {
+  width: 100%;
+  padding-top: 4px;
+  padding-left: 4px;
+  height: 250px;
+  background: $brightsun;
+  clip-path: polygon(79% 0, 100% 38%, 100% 100%, 0 100%, 0% 38%);
+  @media (max-width: $desktop) {
+    clip-path: none;
+  }
+}
+
+.footer-wrapper {
+  padding: 0 5%;
+}
+
+@keyframes slide-left1 {
+  0% {
+    margin-left: 100em;
+    // width: auto;
+  }
+
+  100% {
+    margin-left: 0em;
+    // width: auto;
+  }
+}

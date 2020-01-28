@@ -44,6 +44,7 @@ function SignUpWindow({ handleLogin, setIsSignupWindowVisible }) {
       <form className="signUp-form" onSubmit={handleSubmit}>
         <div className="signUp-form__input-wrapper signUp-form__input-wrapper--username">
           <input
+            aria-label="username input field"
             className="signUp-form__input signUp-form__input--username"
             placeholder="Nazwa użytkownika"
             type="text"
@@ -53,6 +54,7 @@ function SignUpWindow({ handleLogin, setIsSignupWindowVisible }) {
         </div>
         <div className="signUp-form__input-wrapper signUp-form__input-wrapper--password">
           <input
+            aria-label="password input field"
             className="signUp-form__input signUp-form__input--password"
             placeholder="Hasło (minimum 8 znaków)"
             type="password"
@@ -63,6 +65,7 @@ function SignUpWindow({ handleLogin, setIsSignupWindowVisible }) {
         </div>
         <div className="signUp-form__input-wrapper signUp-form__input-wrapper--password1">
           <input
+            aria-label="password confirmation input field"
             className="signUp-form__input signUp-form__input--password1"
             placeholder="Powtórz hasło"
             type="password"
