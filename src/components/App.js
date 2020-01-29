@@ -29,7 +29,7 @@ function App(props) {
     <div className="main main--js">
       <Header />
       <div className="App App--js">
-        <Suspense fallback={<div className="loader">Wczytywanie...</div>}>
+        <Suspense fallback={<div className="loader"></div>}>
           <p className="subtitle-text">Dowiozę kanapki gdzie tylko chcesz...</p>
           <MyMap />
           {props.user === "admin" && <AddNewLocationForm />}

@@ -10,30 +10,38 @@
   color: #fff;
   position: relative;
   clip-path: polygon(79% 0, 100% 38%, 100% 100%, 0 100%, 0% 38%);
+
   &__link {
     color: #fff;
   }
+
   &__paragraph {
     text-align: center;
     color: #fff;
+
     @media (max-width: $desktop) {
       text-align: left;
       padding: 5px;
     }
   }
+
   &__technologies-wrapper {
     align-self: flex-end;
     display: flex;
     margin-right: 30px;
+
     @media (max-width: $desktop) {
       align-self: center;
       margin-right: 0;
     }
+
     @media (max-width: $tablet) {
       flex-direction: column;
       align-self: center;
+      margin-left: 30px;
     }
   }
+
   &__technologies {
     align-self: flex-end;
     display: grid;
@@ -41,32 +49,91 @@
     grid-template-rows: auto;
     column-gap: 20px;
     padding: 10px;
+
     @media (max-width: $desktop) {
       align-self: center;
       grid-template-columns: 1fr 1fr;
       row-gap: 10px;
-      
     }
   }
-  &__technologies-list {
+
+  &__technologies-title {
+    font-size: 25px;
+    justify-self: center;
+    align-self: center;
+    padding: 0;
+    margin: 0;
+    margin-right: 30px;
+    margin-left: 30px;
+
+    &::before {
+      content: "";
+      background-size: 22px 22px;
+      background-image: url("../../images/cheeseburger.png");
+      position: absolute;
+      display: inline-block;
+      width: 22px;
+      height: 22px;
+      margin-left: -28px;
+    }
+  }
+
+  &__technologies-subtitle {
+    margin: 0;
+    margin-bottom: 5px;
+    padding: 0;
+    font-size: 20px;
+    position: relative;
+
+    &::after {
+      content: "";
+      background-size: 20px 20px;
+      position: absolute;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-left: 4px;
+    }
+
+    &--backend::after {
+      background-image: url("../../images/python_icon.svg");
+    }
+
+    &--frontend::after {
+      background-image: url("../../images/react_icon.svg");
+    }
+
+    &--tools::after {
+      background-image: url("../../images/tools_icon.svg");
+    }
+
+    &--libraries::after {
+      background-image: url("../../images/library_icon.svg");
+    }
+  }
+
+  &__list {
     list-style-type: none;
     display: grid;
     margin: 0;
     padding: 0;
   }
-  &__technologies-list-element {
+
+  &__list-item {
     font-size: 16px;
     position: relative;
     padding: 0px 0px 1px 0px;
     line-height: 1em;
     display: inline-block;
   }
-  &__technologies-list-element-text {
+
+  &__list-item-text {
     font-size: 14px;
     position: relative;
     padding: 0px 0px 1px 0px;
     line-height: 1em;
     display: inline-block;
+
     &::before {
       display: block;
       position: absolute;
@@ -80,6 +147,7 @@
       content: "";
       transition: all 0.3s ease;
     }
+
     &:hover {
       &::before {
         width: 100%;
@@ -87,53 +155,6 @@
         min-width: 100%;
       }
     }
-  }
-  &__technologies-title {
-    font-size: 25px;
-    justify-self: center;
-    align-self: center;
-    padding: 0;
-    margin: 0;
-    margin-right: 30px;
-    margin-left: 30px;
-    &::before {
-      content: '';
-      background-size: 22px 22px;
-      background-image: url('../../images/cheeseburger.png');
-      position: absolute;
-      display: inline-block;
-      width: 22px;
-      height: 22px;
-      margin-left: -28px;
-    }
-  }
-  &__technologies-subtitle {
-    margin: 0;
-    margin-bottom: 5px;
-    padding: 0;
-    font-size: 20px;
-    position: relative;
-    &::after {
-      content: '';
-      background-size: 20px 20px;
-      position: absolute;
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      margin-left: 4px;
-    }
-    &--backend::after {
-      background-image: url('../../images/python_icon.svg');
-    } 
-    &--frontend::after {
-      background-image: url('../../images/react_icon.svg');
-    } 
-    &--tools::after {
-        background-image: url('../../images/tools_icon.svg');
-    } 
-    &--libraries::after {
-        background-image: url('../../images/library_icon.svg');
-    }      
   }
 }
 
@@ -144,12 +165,15 @@
   height: 250px;
   background: $brightsun;
   clip-path: polygon(79% 0, 100% 38%, 100% 100%, 0 100%, 0% 38%);
+
   @media (max-width: $desktop) {
     height: 370px;
   }
+
   @media (max-width: $tablet) {
     height: 440px;
   }
+
   @media (max-width: $phone) {
     height: 460px;
   }
@@ -157,9 +181,8 @@
 
 .footer-wrapper {
   padding: 0 5%;
+
   @media (max-width: $tablet) {
-    padding: 0
+    padding: 0;
   }
 }
-
-

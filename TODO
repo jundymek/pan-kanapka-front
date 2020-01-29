@@ -14,12 +14,12 @@ Todo:
   ✔ hamburger menu @started(20-01-04 20:36) @done(20-01-06 01:23) @lasted(1d4h47m18s)
   ✔ PWA @done(20-01-02 00:20)
   ☐ Dokumentacja na githuba
-  ☐ Modal z potwierdzeniem (np. usuniecia lokalizacji)
-  ☐ SignupWindow - z mobile na wersje desktop przerzucic
+  ✔ Modal z potwierdzeniem (np. usuniecia lokalizacji) @done(20-01-29 23:20)
+  ✔ SignupWindow - z mobile na wersje desktop przerzucic @done(20-01-29 23:21)
 
 Błędy: 
   ✔ Po wygaszeniu buttonów i zalogowaniu nowego usera button logout jest "disabled" @done(19-12-04 01:12)
   ✔ Po przestawieniu na mobile i powrocie do desktopu nie przestawiają się karty @done(19-12-31 19:32)
   ☐ Błąd w api polegający na dodawaniu zduplikowanego urządzenia
   ✔ Przy zalogowanym userze nie wyswietla się poprawnie licznik subskrypcji przy karcie @done(20-01-16 01:16)
-  ☐ Przy usówaniu lokacji błąd w modalu
+  ☐ Przy usuwaniu lokacji błąd w modalu

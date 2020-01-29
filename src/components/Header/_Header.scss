@@ -5,6 +5,7 @@
   padding: 0 5%;
   height: 158px;
   position: relative;
+
   &--disabled {
     display: none;
   }
@@ -14,12 +15,15 @@
   display: flex;
   align-items: center;
   width: 50%;
+
   &__image {
     width: 100px;
     height: 100px;
   }
+
   &__image-link {
     position: relative;
+
     &::before {
       z-index: -1;
       position: absolute;
@@ -34,6 +38,7 @@
       animation-fill-mode: forwards;
     }
   }
+
   &__title {
     margin-left: 30px;
     padding: 0;
@@ -46,6 +51,7 @@
 
 .login-section-desktop {
   display: block;
+
   @media (max-width: $desktop) {
     display: none;
   }
@@ -53,6 +59,7 @@
 
 .login-section-mobile {
   display: block;
+
   @media (min-width: $desktop) {
     display: none;
   }

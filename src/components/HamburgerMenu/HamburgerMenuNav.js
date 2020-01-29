@@ -3,7 +3,7 @@ import HamburgerLogged from "./HamburgerLogged";
 
 export function HamburgerMenuNav(props) {
   return (
-    <section>
+    <>
       {props.username && <HamburgerLogged />}
       <nav className="hamburger-nav" id="hamburger-nav">
         <ul>
@@ -36,6 +36,6 @@ export function HamburgerMenuNav(props) {
           )}
         </ul>
       </nav>
-    </section>
+    </>
   );
 }
