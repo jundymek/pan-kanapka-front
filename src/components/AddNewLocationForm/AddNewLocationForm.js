@@ -3,6 +3,7 @@ import { useScript } from "../../hooks/useScript";
 import { connect } from "react-redux";
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 import { addLocation } from "../../store/actions/locationActions";
+import MyModal from "../Modal/Modal";
 
 function AddNewLocationForm({ onAddLocation, token }) {
   const [address, setAddress] = useState("");
@@ -11,6 +12,8 @@ function AddNewLocationForm({ onAddLocation, token }) {
   const [loaded, error] = useScript(
     "https://maps.googleapis.com/maps/api/js?key=AIzaSyDgNgxfwxU2uxt5pfqnRlaS5n73LnPRL14&libraries=places"
   );
+  const [isModalOpen, setisModalOpen] = useState(false);
+  const [modalStyle, setmodalStyle] = useState(null);
 
   useEffect(() => {
     if (!loaded) return;
@@ -31,6 +34,10 @@ function AddNewLocationForm({ onAddLocation, token }) {
   const handleSubmit = e => {
     e.preventDefault();
     onAddLocation(nameInput.current.value, address, latLng.lat, latLng.lng, token);
+    if (loaded) {
+      setisModalOpen(true);
+      setmodalStyle("Added");
+    }
   };
 
   return (
@@ -94,6 +101,16 @@ function AddNewLocationForm({ onAddLocation, token }) {
           </div>
         </div>
       </div>
+      {isModalOpen && (
+        <MyModal
+          isModalOpen={isModalOpen}
+          modalStyle={modalStyle}
+          locationName={nameInput.current.value}
+          setisModalOpen={setisModalOpen}
+          token={token}
+          setmodalStyle={setmodalStyle}
+        ></MyModal>
+      )}
     </div>
   );
 }

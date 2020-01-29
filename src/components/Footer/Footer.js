@@ -12,13 +12,13 @@ function Footer() {
                 <h6 className="footer__technologies-subtitle footer__technologies-subtitle--backend">Backend</h6>
                 <ul className="footer__list">
                   <li className="footer__list-item">
-                    <span class="footer__list-item-text">python</span>
+                    <span className="footer__list-item-text">python</span>
                   </li>
                   <li className="footer__list-item">
-                    <span class="footer__list-item-text">django</span>
+                    <span className="footer__list-item-text">django</span>
                   </li>
                   <li className="footer__list-item">
-                    <span class="footer__list-item-text">django-rest-framework</span>
+                    <span className="footer__list-item-text">django-rest-framework</span>
                   </li>
                 </ul>
               </div>
@@ -26,16 +26,16 @@ function Footer() {
                 <h6 className="footer__technologies-subtitle footer__technologies-subtitle--frontend">Frontend</h6>
                 <ul className="footer__list">
                   <li className="footer__list-item">
-                    <span class="footer__list-item-text">html, js</span>
+                    <span className="footer__list-item-text">html, js</span>
                   </li>
                   <li className="footer__list-item">
-                    <span class="footer__list-item-text">css (sass, bem)</span>
+                    <span className="footer__list-item-text">css (sass, bem)</span>
                   </li>
                   <li className="footer__list-item">
-                    <span class="footer__list-item-text">react</span>
+                    <span className="footer__list-item-text">react</span>
                   </li>
                   <li className="footer__list-item">
-                    <span class="footer__list-item-text">redux</span>
+                    <span className="footer__list-item-text">redux</span>
                   </li>
                 </ul>
               </div>
@@ -43,19 +43,19 @@ function Footer() {
                 <h6 className="footer__technologies-subtitle footer__technologies-subtitle--tools">Narzędzia</h6>
                 <ul className="footer__list">
                   <li className="footer__list-item">
-                    <span class="footer__list-item-text">git</span>
+                    <span className="footer__list-item-text">git</span>
                   </li>
                   <li className="footer__list-item">
-                    <span class="footer__list-item-text">pycharm</span>
+                    <span className="footer__list-item-text">pycharm</span>
                   </li>
                   <li className="footer__list-item">
-                    <span class="footer__list-item-text">vs code</span>
+                    <span className="footer__list-item-text">vs code</span>
                   </li>
                   <li className="footer__list-item">
-                    <span class="footer__list-item-text">figma</span>
+                    <span className="footer__list-item-text">figma</span>
                   </li>
                   <li className="footer__list-item">
-                    <span class="footer__list-item-text">heroku</span>
+                    <span className="footer__list-item-text">heroku</span>
                   </li>
                 </ul>
               </div>
@@ -63,22 +63,22 @@ function Footer() {
                 <h6 className="footer__technologies-subtitle footer__technologies-subtitle--libraries">Biblioteki</h6>
                 <ul className="footer__list">
                   <li className="footer__list-item">
-                    <span class="footer__list-item-text">leaflet</span>
+                    <span className="footer__list-item-text">leaflet</span>
                   </li>
                   <li className="footer__list-item">
-                    <span class="footer__list-item-text">django-rest-auth</span>
+                    <span className="footer__list-item-text">django-rest-auth</span>
                   </li>
                   <li className="footer__list-item">
-                    <span class="footer__list-item-text">django-push-notifications</span>
+                    <span className="footer__list-item-text">django-push-notifications</span>
                   </li>
                   <li className="footer__list-item">
-                    <span class="footer__list-item-text">google places api</span>
+                    <span className="footer__list-item-text">google places api</span>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
-          <p className="footer__paragraph">Projekt i wykonanie: <a class="footer__link" href="https://github.com/jundymek">jundymek</a> - 2020 r.</p>
+          <p className="footer__paragraph">Projekt i wykonanie: <a className="footer__link" href="https://github.com/jundymek">jundymek</a> - 2020 r.</p>
         </footer>
       </div>
     </div>

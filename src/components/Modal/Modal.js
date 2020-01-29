@@ -55,7 +55,9 @@ function MyModal({
         <ModalLoggedOut isOpen={isModalOpen} setisModalOpen={setisModalOpen} handleCloseModal={handleCloseModal} />
       );
     case "Deleted":
-      return <ModalDeleted locationName={locationName} />;
+      return <ModalDeleted locationName={locationName} handleCloseModal={handleCloseModal} />;
+    case "Added":
+      return <ModalAdded locationName={locationName} handleCloseModal={handleCloseModal} />;
     case "DeleteConfirmation":
       return (
         <ModalDeleteConfirmation
@@ -97,7 +99,10 @@ export function ModalUnSubscribed({ isOpen, locationName, handleCloseModal }) {
   );
 }
 
-export function ModalDeleted({ locationName }) {
+export function ModalDeleted({ locationName, handleCloseModal }) {
+  setTimeout(() => {
+    handleCloseModal();
+  }, 3000);
   return (
     <Modal
       isOpen={true}
@@ -106,6 +111,21 @@ export function ModalDeleted({ locationName }) {
       overlayClassName="modal-wrapper"
     >
       <p className="modal__paragraph">Lokalizacja {locationName} zostałą usunięta</p>
+    </Modal>
+  );
+}
+export function ModalAdded({ locationName, handleCloseModal }) {
+  setTimeout(() => {
+    handleCloseModal();
+  }, 3000);
+  return (
+    <Modal
+      isOpen={true}
+      locationName={locationName}
+      className="modal modal--info fade-in"
+      overlayClassName="modal-wrapper"
+    >
+      <p className="modal__paragraph">Lokalizacja {locationName} zostałą dodana</p>
     </Modal>
   );
 }
