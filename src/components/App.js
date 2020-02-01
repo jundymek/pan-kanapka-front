@@ -4,6 +4,7 @@ import AddNewLocationForm from "./AddNewLocationForm/AddNewLocationForm";
 import Header from "./Header/Header";
 import MyModal from "./Modal/Modal";
 import usePrevious from "../hooks/usePreviousValue";
+import Faq from "./Faq/Faq";
 
 const MyMap = lazy(() => import("./Map/Map"));
 const LocationsCardsManager = lazy(() => import("./LocationsCardsManager/LocationsCardsManager"));
@@ -34,6 +35,7 @@ function App(props) {
           <MyMap />
           {props.user === "admin" && <AddNewLocationForm />}
           <LocationsCardsManager />
+          <Faq />
           <Footer />
         </Suspense>
       </div>
