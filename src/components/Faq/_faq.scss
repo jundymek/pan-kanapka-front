@@ -3,28 +3,69 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #fff;
   width: 100%;
-  padding: 10px;
+  // padding: 10px;
   margin-bottom: 30px;
 
+  &__collapsible {
+    overflow: hidden;
+    transition: all 2s ease;
+    max-height: 0;
+
+    &--open {
+      max-height: 500vh;
+    }
+  }
+
   &__paragraph {
+    margin: 0;
+    padding: 10px;
     font-size: 18px;
     line-height: 21px;
     text-align: justify;
   }
 
   &__title {
-    font-size: 24px;
-    line-height: 28px;
+    display: block;
+    width: 95%;
+    margin: 0;
+    padding: 16px;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 28px;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #f7f7f7;
+    cursor: pointer;
+    transition: all 0.25s ease-out;
+
+    &:hover {
+      color: $voodoo;
+    }
+
+    &::before {
+      content: " ";
+      display: inline-block;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-left: 5px solid currentColor;
+      vertical-align: middle;
+      margin-right: 0.7rem;
+      transform: translateY(-2px);
+      transition: transform 0.2s ease-out;
+    }
+
+    &--open::before {
+      transform: rotate(90deg) translateX(-3px);
+    }
   }
 }
 
 .steps {
   display: flex;
-  justify-content: space-around;
-  position: relative;
-  width: 100vw;
-  max-width: 1440px;
+  flex-direction: column;
+  align-items: center;
 
   @media (max-width: $tablet) {
     flex-direction: column;
@@ -55,14 +96,15 @@
     }
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       height: 1px;
       top: 50%;
       left: 100%;
-      border: 1px dotted red;
-      width: calc((100vw - (3*100%)) / 3);
-      max-width: calc((1440px - (3*100%)) / 3);
+      border: 1px dotted $voodoo;
+      width: calc((95vw - (3 * 100%)) / 3);
+      max-width: calc((1440px - (3 * 100%)) / 3);
+
       @media (max-width: $tablet) {
         display: none;
       }
@@ -90,20 +132,27 @@
       width: 95%;
       position: relative;
       border: 1px solid black;
+
+      &--first {
+        margin-top: 0;
+      }
     }
 
     &::after {
       @media (max-width: $tablet) {
-        content: '';
+        content: "";
         position: absolute;
         width: 1px;
         top: 100%;
         left: 50%;
-        border: 1px dotted red;
-        // background-color: red;
+        border: 1px dotted $voodoo;
         height: 100px;
       }
     }
+  }
+
+  &__main-title {
+    font-size: 24px;
   }
 
   &__paragraph {
@@ -116,5 +165,28 @@
     font-size: 18px;
     margin-top: 5px;
     margin-bottom: 12px;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    width: 95vw;
+    max-width: 1440px;
+    padding-top: 20px;
+
+    &:hover {
+      .steps__block {
+        &::after {
+          animation: faq-bar 2s ease;
+        }
+      }
+    }
+
+    @media (max-width: $tablet) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }
