@@ -33,9 +33,9 @@ function App(props) {
         <Suspense fallback={<div className="loader"></div>}>
           <p className="subtitle-text">Dowiozę kanapki gdzie tylko chcesz...</p>
           <MyMap />
-          {props.user === "admin" && <AddNewLocationForm />}
+          {props.user === "admin" && <AddNewLocationForm title="Dodaj nową lokalizację"/>}
           <LocationsCardsManager />
-          <Faq />
+          <Faq title="Krótka instrukcja obsługi" />
           <Footer />
         </Suspense>
       </div>

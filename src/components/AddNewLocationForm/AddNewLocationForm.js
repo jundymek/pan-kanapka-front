@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useScript } from "../../hooks/useScript";
 import { connect } from "react-redux";
+import Collapsible from "../../hoc/Collapsible";
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 import { addLocation } from "../../store/actions/locationActions";
 import MyModal from "../Modal/Modal";
@@ -41,66 +42,56 @@ function AddNewLocationForm({ onAddLocation, token }) {
   };
 
   return (
-    <div className="add-new-location-wrapper" id="add-new-location">
-      <div className="wrap-collabsible">
-        <input id="collapsible" className="toggle" type="checkbox" />
-        <label htmlFor="collapsible" className="lbl-toggle">
-          Dodaj nową lokalizację
-        </label>
-        <div className="collapsible-content">
-          <div className="content-inner">
-            {loaded && !error ? (
-              <PlacesAutocomplete value={address} onChange={handleChange} onSelect={handleSelect}>
-                {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-                  <div className="input-wrapper">
-                    <form onSubmit={handleSubmit} className="add-new-site-form">
-                      <div className="add-new-site-form__input-wrapper add-new-site-form__input-wrapper--search">
-                        <input
-                          {...getInputProps({
-                            placeholder: "Wyszukaj lokalizację...",
-                            title: "Po adresie lub nazwie lokalizacji",
-                            className: "add-new-site-form__input add-new-site-form__input--search"
-                          })}
-                        />
-                      </div>
-                      <div className="autocomplete-dropdown-container">
-                        {loading && <div>Loading...</div>}
-                        {suggestions.map(suggestion => {
-                          const className = suggestion.active ? "suggestion-item--active" : "suggestion-item";
-                          return (
-                            <div
-                              {...getSuggestionItemProps(suggestion, {
-                                className
-                                /* style, */
-                              })}
-                            >
-                              <span>{suggestion.description}</span>
-                            </div>
-                          );
+    <section className="add-new-location-wrapper">
+      {loaded && !error ? (
+        <PlacesAutocomplete value={address} onChange={handleChange} onSelect={handleSelect}>
+          {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+            <div className="input-wrapper">
+              <form onSubmit={handleSubmit} className="add-new-site-form">
+                <div className="add-new-site-form__input-wrapper add-new-site-form__input-wrapper--search">
+                  <input
+                    {...getInputProps({
+                      placeholder: "Wyszukaj lokalizację...",
+                      title: "Po adresie lub nazwie lokalizacji",
+                      className: "add-new-site-form__input add-new-site-form__input--search"
+                    })}
+                  />
+                </div>
+                <div className="autocomplete-dropdown-container">
+                  {loading && <div>Loading...</div>}
+                  {suggestions.map(suggestion => {
+                    const className = suggestion.active ? "suggestion-item--active" : "suggestion-item";
+                    return (
+                      <div
+                        {...getSuggestionItemProps(suggestion, {
+                          className
+                          /* style, */
                         })}
+                      >
+                        <span>{suggestion.description}</span>
                       </div>
-                      <div className="add-new-site-form__input-wrapper add-new-site-form__input-wrapper--name">
-                        <input
-                          type="text"
-                          className="add-new-site-form__input add-new-site-form__input--name"
-                          placeholder="Podaj nazwę dla użytkownika"
-                          ref={nameInput}
-                          required
-                        />
-                      </div>
-                      <button type="submit" className="add-new-site-form__button">
-                        Dodaj lokalizację
-                      </button>
-                    </form>
-                  </div>
-                )}
-              </PlacesAutocomplete>
-            ) : (
-              <b>Something went wrong!</b>
-            )}
-          </div>
-        </div>
-      </div>
+                    );
+                  })}
+                </div>
+                <div className="add-new-site-form__input-wrapper add-new-site-form__input-wrapper--name">
+                  <input
+                    type="text"
+                    className="add-new-site-form__input add-new-site-form__input--name"
+                    placeholder="Podaj nazwę dla użytkownika"
+                    ref={nameInput}
+                    required
+                  />
+                </div>
+                <button type="submit" className="add-new-site-form__button">
+                  Dodaj lokalizację
+                </button>
+              </form>
+            </div>
+          )}
+        </PlacesAutocomplete>
+      ) : (
+        <b>Something went wrong!</b>
+      )}
       {isModalOpen && (
         <MyModal
           isModalOpen={isModalOpen}
@@ -111,7 +102,7 @@ function AddNewLocationForm({ onAddLocation, token }) {
           setmodalStyle={setmodalStyle}
         ></MyModal>
       )}
-    </div>
+    </section>
   );
 }
 
@@ -124,4 +115,4 @@ const mapDispatchToProps = dispatch => ({
   onAddLocation: (name, address, lat, lng, token) => dispatch(addLocation(name, address, lat, lng, token))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddNewLocationForm);
+export default connect(mapStateToProps, mapDispatchToProps)(Collapsible(AddNewLocationForm));

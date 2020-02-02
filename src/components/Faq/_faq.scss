@@ -8,16 +8,6 @@
   // padding: 10px;
   margin-bottom: 30px;
 
-  &__collapsible {
-    overflow: hidden;
-    transition: all 2s ease;
-    max-height: 0;
-
-    &--open {
-      max-height: 500vh;
-    }
-  }
-
   &__paragraph {
     margin: 0;
     padding: 10px;
@@ -128,6 +118,17 @@
     width: 100%;
 
     @media (max-width: $tablet) {
+      margin-top: 100px;
+      width: 50%;
+      position: relative;
+      border: 1px solid black;
+
+      &--first {
+        margin-top: 0;
+      }
+    }
+
+    @media (max-width: $phone) {
       margin-top: 100px;
       width: 95%;
       position: relative;

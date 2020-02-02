@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import Collapsible from '../../hoc/Collapsible';
 import register_icon from "../../images/register_icon.png";
 import notifications_agreement_icon from "../../images/notifications_agreement_icon.png";
 import subscribe_icon from "../../images/subscribe_icon1.png";
@@ -7,26 +8,8 @@ import notification_button from "../../images/przycisk_powiadamiaj.png";
 import registration from "../../images/rejestracja.png";
 
 function Faq() {
-  const [isOpen, setIsOpen] = useState(false);
 
-  function toggleOpen() {
-    const faq = document.querySelector(".faq__collapsible");
-    const title = document.querySelector(".faq__title");
-    title.classList.toggle("faq__title--open");
-    faq.classList.toggle("faq__collapsible--open");
-    isOpen
-      ? setTimeout(() => {
-          setIsOpen(prevState => !prevState);
-        }, 2000)
-      : setIsOpen(prevState => !prevState);
-  }
   return (
-    <section className="faq">
-      <h3 onClick={toggleOpen} className="faq__title">
-        Krótka instrukcja obsługi
-      </h3>
-      <div className="faq__collapsible ">
-        {isOpen && (
           <>
             <p className="faq__paragraph">
               Aplikacja Pan Kanapka została stworzona dla... Pana Kanapki i jego klientów. Jeśli pracujesz w biurowcu i
@@ -80,10 +63,7 @@ function Faq() {
               </div>
             </section>
           </>
-        )}
-      </div>
-    </section>
   );
 }
 
-export default Faq;
+export default Collapsible(Faq);
