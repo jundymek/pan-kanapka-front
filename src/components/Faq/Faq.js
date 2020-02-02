@@ -1,4 +1,10 @@
 import React, { useState } from "react";
+import register_icon from "../../images/register_icon.png";
+import notifications_agreement_icon from "../../images/notifications_agreement_icon.png";
+import subscribe_icon from "../../images/subscribe_icon1.png";
+import notification_ask from "../../images/notification_ask_message.png";
+import notification_button from "../../images/przycisk_powiadamiaj.png";
+import registration from "../../images/rejestracja.png";
 
 function Faq() {
   return (
@@ -17,27 +23,37 @@ function Faq() {
       <section className="steps">
         <div className="steps__block-wrapper">
           <div className="steps__block steps__block--first">
-            
+            <img src={register_icon} alt="Rejestracja" />
           </div>
           <span className="steps__counter">Krok 1</span>
           <h5 className="steps__title">Rejestracja</h5>
           <p className="steps__paragraph">Załóż nowe konto w aplikacji (wystarczy tylko podanie loginu i hasła)</p>
+          <img className="steps__image" src={registration} alt="Rejestracja" />
         </div>
         <div className="steps__block-wrapper">
           <div className="steps__block steps__block--second">
-
+            <img src={notifications_agreement_icon} alt="Zgoda na notyfikacje" />
           </div>
           <span className="steps__counter">Krok 2</span>
           <h5 className="steps__title">Zgoda na powiadomienia</h5>
-          <p className="steps__paragraph">Wyraź zgodę na otrzymywanie powiadomień (dzięki temu Pan Kanapka będzie mógł wysyłać wiadomości bezpośrednio do twojej przeglądarki internetowej.</p>
+          <p className="steps__paragraph">
+            Wyraź zgodę na otrzymywanie powiadomień (dzięki temu Pan Kanapka będzie mógł wysyłać wiadomości bezpośrednio
+            do twojej przeglądarki internetowej.
+          </p>
+          <img className="steps__image" src={notification_ask} alt="Zgoda na powiadomienia" />
         </div>
         <div className="steps__block-wrapper">
           <div className="steps__block steps__block--third">
-
+            <img src={subscribe_icon} alt="Zgoda na powiadomienia" />
           </div>
           <span className="steps__counter">Krok 3</span>
           <h5 className="steps__title">Zapisanie się na subskrypcję</h5>
-          <p className="steps__paragraph">Wybierz miejsce, które chcesz monitorować i zatwierdź chęć otrzymywania powiadomień przyciskiem “Powiadamiaj”. Subskrybowana lokalizacja zostanie oznaczona zielonym cieniem oraz ikonką dzwoneczka u góry karty lokalizacji.</p>
+          <p className="steps__paragraph">
+            Wybierz miejsce, które chcesz monitorować i zatwierdź chęć otrzymywania powiadomień przyciskiem
+            “Powiadamiaj”. Subskrybowana lokalizacja zostanie oznaczona zielonym cieniem oraz ikonką dzwoneczka u góry
+            karty lokalizacji.
+          </p>
+          <img className="steps__image" src={notification_button} alt="Przycisk powiadamiaj" />
         </div>
       </section>
     </section>

@@ -5,6 +5,7 @@
   align-items: center;
   width: 100%;
   padding: 10px;
+  margin-bottom: 30px;
 
   &__paragraph {
     font-size: 18px;
@@ -25,6 +26,12 @@
   width: 100vw;
   max-width: 1440px;
 
+  @media (max-width: $tablet) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   &__counter {
     font-size: 14px;
     margin-top: 12px;
@@ -32,10 +39,16 @@
 
   &__block {
     width: 200px;
-    max-width: calc(100vw / 3);
     height: 200px;
     border: 1px solid black;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: $tablet) {
+      border: none;
+    }
 
     &--third::after {
       display: none;
@@ -48,9 +61,21 @@
       top: 50%;
       left: 100%;
       border: 1px dotted red;
-      // background-color: red;
       width: calc((100vw - (3*100%)) / 3);
       max-width: calc((1440px - (3*100%)) / 3);
+      @media (max-width: $tablet) {
+        display: none;
+      }
+    }
+  }
+
+  &__image {
+    margin-top: auto;
+
+    @media (max-width: $tablet) {
+      margin: 0;
+      margin-top: 30px;
+      margin-bottom: 10px;
     }
   }
 
@@ -59,6 +84,26 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+
+    @media (max-width: $tablet) {
+      margin-top: 100px;
+      width: 95%;
+      position: relative;
+      border: 1px solid black;
+    }
+
+    &::after {
+      @media (max-width: $tablet) {
+        content: '';
+        position: absolute;
+        width: 1px;
+        top: 100%;
+        left: 50%;
+        border: 1px dotted red;
+        // background-color: red;
+        height: 100px;
+      }
+    }
   }
 
   &__paragraph {
