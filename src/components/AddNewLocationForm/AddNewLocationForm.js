@@ -11,7 +11,7 @@ function AddNewLocationForm({ onAddLocation, token }) {
   const [latLng, setLatLng] = useState("");
   const nameInput = useRef(null);
   const [loaded, error] = useScript(
-    "https://maps.googleapis.com/maps/api/js?key=AIzaSyDgNgxfwxU2uxt5pfqnRlaS5n73LnPRL14&libraries=places"
+    process.env.REACT_APP_GOOGLE_API_KEY
   );
   const [isModalOpen, setisModalOpen] = useState(false);
   const [modalStyle, setmodalStyle] = useState(null);
