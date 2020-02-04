@@ -1,68 +1,77 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Pan Kanapka 
+![Pan Kanapka](github/cheeseburger.png "Pan Kanapka")
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+Prosta aplikacja napisana w ramach nauki Django/Reacta. Znajomy rzucił pomysł i tak wpadłem w sidła **Pana Kanapki**... 😁
+Poniżej przedstawiam pomysł na aplikację. Realizację widać w kodzie i pod adresem [https://pan-kanapka-front.herokuapp.com](https://pan-kanapka-front.herokuapp.com) .
 
-### `npm start`
+---
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Oto treść przekazana przez programistę - na zasadzie masz pomysł i się postaraj coś z tego zrobić...
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+> Może appka dla panów kanapka co przywożą żarcie do biur :) że możesz się zarejestrować na powiadomienia i jak pan kanapka powie że za 5 minut jest w konkretnym miejscu to dostajesz push notification ? :)
+Można się pobawić z mapami (leaflet.js na przykład) rzeczami w okolicy geo (geodjango) i mobilkami (responsive design, HTML5 notifications, location) , do pchania powiadomień do ludzi pewbe jakaś kolejka zadań by się przydala
+Imo bardzo rozwojowe zadanie, a przypadków użycia ma moze  5-6 więc niespecjalnie duża kobyła
+Ale można zaczac od listy lokalizacji i osób zarejestrowanych na push notification. Wiec względnie  nieskomplikowany model danycb. I nie odrywa cię bardzo od frontendow, bo sporo frontu jest do napisania jednak
 
-### `npm test`
+---
+Początkowo wziąłem się za pisanie tego w czystym Django, ale stwierdziłem, że lepszym rozwiązaniem będzie podział projektu na część backendową i frontendową. Jako, że staram się też uczyć Reacta padło na tą bibliotekę. 
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+Poniżej przedstawiam technologie i narzędzia użyte do napisania opisywanej aplikacji: 🚀
+## Backend
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Python
+* Django
+* Django-rest-framework
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Frontend
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* html
+* js (es6)
+* css (sass, BEM)
+* react
+* redux
+* pwa
 
-### `npm run eject`
+## Wybrane biblioteki
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* leaflet
+* django-rest-auth
+* django-push-notifiacations
+* google places api
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Narzędzia z których korzystałem
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* pycharm
+* vs Code
+* git
+* figma
+* heroku
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Starałem się jak mogłem, żeby aplikacja została napisana zgodnie ze sztuką programistyczną. Wiem, że popełniłem masę błędów i kod nie jest idealny. Udało się jednak doprowadzić do tego, że ogólne założenie zostało spełnione i apka działa jak należy. Poniżej funkcjonalności, które na chwilę obecną zostały wprowadzone:
 
-## Learn More
+* Rejestracja/logowanie
+* Z poziomu admina możliwość dodawania/usuwania lokalizacji
+* Lokalizacje gdzie Pan Kanapka rozwozi jedzenie oznaczane są markerami na mapie
+* Użytkownik po zalogowaniu może zezwolić przeglądarce na otrzymywanie powiadomień Push
+* Admin (Pan Kanapka) może wysyłać powiadomienia, które trafiają na urządzenia zarejestrowanych użytkowników (tych, którzy wyrazili zgodę na otrzymywanie powiadomień i zapisali się na "subskrypcję" konkretnej lokalizacji)
+---
+Starałem się, żeby strona była wizualnie poprawna i przede wszystkim właściwie zakodowana (kontrast, semantyka, właściwe rozmieszczenie elementów na stronie). Jest responsywna, wygląda ok na wszelkiego typu urządzeniach (przynajmniej w moim testowym środowiku tak to wyglądało 😇). Jest to aplikacja PWA (Progressive Web App). 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Pan Kanapka na telefonie](github/mobile.png "Pan Kanapka na telefonie")
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Pisząc Pana Kanapkę napotkałem na wiele problemów, ale myślę, że wyszedłem z nich obronną ręką. Nauczyłem się naprawdę sporo, choć może *nauczyłem* to za dużo powiedziane. W moim odczuciu jeszcze długa droga przede mną, żeby opanować w zadowalającym stopniu technologie, których użyłem do zakodowania tej aplikacji. Frajdy było co nie miara i na pewno będzie jeszcze więcej, bo na liście mam jeszcze sporo rzeczy do poprawy/napisania. Także działam dalej... 👨‍💻
 
-### Code Splitting
+### Dla chętnych panel admina z jakże mało popularnym hasłem... :)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+No dobra - panel nie do końca. Po prostu admin ma dodatkowo aktywne pole dodawania nowej lokalizacji (to w końcu Pan Kanapka) oraz wysyłania powiadomień... 
 
-### Analyzing the Bundle Size
+| Login        | Hasło          | Rodzaj konta  |
+|:------------:|:--------------:|:-------------:|
+| **admin**    | qwerty         | administrator |
+| **test**     | Test12345      | użytkownik    |
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Na koniec jeszcze link do kodu backendu (API napisane w django/django-rest-framework): [https://github.com/jundymek/pan-kanapka-api](https://github.com/jundymek/pan-kanapka-api)

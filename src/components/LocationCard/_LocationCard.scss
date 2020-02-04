@@ -124,7 +124,7 @@
       clip-path: polygon(0 0, 100% 0, 100% 82%, 0% 100%);
       &::before {
         content: "";
-        background-image: url("../../images/building.jpg");
+        background-image: url("../../images/building_compressed.jpg");
         background-size: cover;
         position: absolute;
         width: 100%;
