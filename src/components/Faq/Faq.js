@@ -8,6 +8,39 @@ import notification_button from "../../images/przycisk_powiadamiaj.png";
 import registration from "../../images/rejestracja.png";
 
 function Faq() {
+  const steps = [
+    {
+      stepNumber: 1,
+      icon: register_icon,
+      iconAltText: "Rejestracja",
+      stepTitle: "Rejestracja",
+      stepText: "Załóż nowe konto w aplikacji (wystarczy tylko podanie loginu i hasła)",
+      stepImage: registration,
+      stepImageAlt: "Rejestracja"
+    },
+    {
+      stepNumber: 2,
+      icon: notifications_agreement_icon,
+      iconAltText: "Zgoda na notyfikacje",
+      stepTitle: "Zapisanie się na subskrypcję",
+      stepText: `Wyraź zgodę na otrzymywanie powiadomień (dzięki temu Pan Kanapka będzie mógł wysyłać wiadomości
+              bezpośrednio do twojej przeglądarki internetowej)`,
+      stepImage: notification_ask,
+      stepImageAlt: "Zgoda na powiadomienia"
+    },
+    {
+      stepNumber: 3,
+      icon: subscribe_icon,
+      iconAltText: "Zapisanie na powiadomienia",
+      stepTitle: "Zapisanie się na subskrypcję",
+      stepText: `Wybierz miejsce, które chcesz monitorować i zatwierdź chęć otrzymywania powiadomień przyciskiem
+            “Powiadamiaj”. Subskrybowana lokalizacja zostanie oznaczona zielonym cieniem oraz ikonką dzwoneczka u góry
+            karty lokalizacji.`,
+      stepImage: notification_button,
+      stepImageAlt: "Przycisk powiadamiaj"
+    }
+  ];
+
   return (
     <div className="faq">
       <p className="faq__paragraph">
@@ -23,40 +56,17 @@ function Faq() {
       <section className="steps">
         <h4 className="steps__main-title">Trzy proste kroki</h4>
         <div className="steps__wrapper">
-          <div className="steps__block-wrapper steps__block-wrapper--first">
-            <div className="steps__block steps__block--first">
-              <img src={register_icon} alt="Rejestracja" />
-            </div>
-            <span className="steps__counter">Krok 1</span>
-            <h5 className="steps__title">Rejestracja</h5>
-            <p className="steps__paragraph">Załóż nowe konto w aplikacji (wystarczy tylko podanie loginu i hasła)</p>
-            <img className="steps__image" src={registration} alt="Rejestracja" />
-          </div>
-          <div className="steps__block-wrapper">
-            <div className="steps__block steps__block--second">
-              <img src={notifications_agreement_icon} alt="Zgoda na notyfikacje" />
-            </div>
-            <span className="steps__counter">Krok 2</span>
-            <h5 className="steps__title">Zgoda na powiadomienia</h5>
-            <p className="steps__paragraph">
-              Wyraź zgodę na otrzymywanie powiadomień (dzięki temu Pan Kanapka będzie mógł wysyłać wiadomości
-              bezpośrednio do twojej przeglądarki internetowej).
-            </p>
-            <img className="steps__image" src={notification_ask} alt="Zgoda na powiadomienia" />
-          </div>
-          <div className="steps__block-wrapper">
-            <div className="steps__block steps__block--third">
-              <img src={subscribe_icon} alt="Zgoda na powiadomienia" />
-            </div>
-            <span className="steps__counter">Krok 3</span>
-            <h5 className="steps__title">Zapisanie się na subskrypcję</h5>
-            <p className="steps__paragraph">
-              Wybierz miejsce, które chcesz monitorować i zatwierdź chęć otrzymywania powiadomień przyciskiem
-              “Powiadamiaj”. Subskrybowana lokalizacja zostanie oznaczona zielonym cieniem oraz ikonką dzwoneczka u góry
-              karty lokalizacji.
-            </p>
-            <img className="steps__image" src={notification_button} alt="Przycisk powiadamiaj" />
-          </div>
+          {steps.map(item => (
+            <FaqStep
+              stepNumber={item.stepNumber}
+              icon={item.icon}
+              iconAltText={item.iconAltText}
+              stepTitle={item.stepTitle}
+              stepText={item.stepText}
+              stepImage={item.stepImage}
+              stepImageAlt={item.stepImageAlt}
+            />
+          ))}
         </div>
       </section>
     </div>
@@ -64,3 +74,28 @@ function Faq() {
 }
 
 export default Collapsible(Faq);
+
+export function FaqStep(props) {
+  const addWrapperClass = stepNumber => {
+    switch (stepNumber) {
+      case 1:
+        return `steps__block-wrapper steps__block-wrapper--first`;
+      case 3:
+        return `steps__block-wrapper steps__block-wrapper--third`;
+      default:
+        return `steps__block-wrapper`;
+    }
+  };
+
+  return (
+    <div className={addWrapperClass(props.stepNumber)}>
+      <div className={props.stepNumber === 3 ? `steps__block steps__block--third` : `steps__block`}>
+        <img src={props.icon} alt={props.iconAltText} />
+      </div>
+      <span className="steps__counter">Krok {props.stepNumber}</span>
+      <h5 className="steps__title">{props.stepTitle}</h5>
+      <p className="steps__paragraph">{props.stepText}</p>
+      <img className="steps__image" src={props.stepImage} alt={props.stepImageAlt} />
+    </div>
+  );
+}

@@ -12,6 +12,7 @@
     font-size: 18px;
     line-height: 21px;
     text-align: justify;
+
     &--mark {
       background: $brightsun;
       margin-right: 3px;
@@ -50,10 +51,6 @@
       border: none;
     }
 
-    &--third::after {
-      display: none;
-    }
-
     &::after {
       content: "";
       position: absolute;
@@ -67,6 +64,10 @@
       @media (max-width: $tablet) {
         display: none;
       }
+    }
+
+    &--third::after {
+      display: none;
     }
   }
 
@@ -120,6 +121,10 @@
         border: 1px dotted $voodoo;
         height: 100px;
       }
+    }
+    
+    &--third::after {
+      display: none;
     }
   }
 
