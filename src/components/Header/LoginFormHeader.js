@@ -7,9 +7,10 @@ import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 
 function LoginFormHeader(props) {
   const windowWidth = useWindowSize().width;
+  const desktopSize = 1024;
   return (
     <>
-      {windowWidth > 1024 ? (
+      {windowWidth > desktopSize ? (
         <div className="login-section-desktop">{props.username ? <Logged /> : <LoginForm />}</div>
       ) : (
         <div className="login-section-mobile">
