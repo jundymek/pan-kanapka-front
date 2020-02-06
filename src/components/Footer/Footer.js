@@ -1,4 +1,5 @@
 import React from "react";
+import { FooterTechSection } from "./FooterTechSection";
 
 function Footer() {
   const techSections = [
@@ -54,18 +55,3 @@ function Footer() {
 }
 
 export default Footer;
-
-function FooterTechSection({ title, technologies, techClassModifier }) {
-  return (
-    <section>
-      <h6 className={`footer__technologies-subtitle ${techClassModifier}`}>{title}</h6>
-      <ul className="footer__list">
-        {technologies.map(item => (
-          <li className="footer__list-item">
-            <span className="footer__list-item-text">{item}</span>
-          </li>
-        ))}
-      </ul>
-    </section>
-  );
-}
