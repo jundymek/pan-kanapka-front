@@ -8,38 +8,36 @@ function MenuItems(props) {
   const [menuItems, setMenuItems] = useState(null);
 
   useEffect(() => {
-    async function getData() {
-      await fetchMenuItems().then(res => {
+    fetchMenuItems()
+      .then(res => {
         if (res.length > 0) {
           setMenuItems(res);
         }
-      });
-    }
-    getData();
+      })
+      .catch(err => console.log(err));
   }, []);
 
   const handleDelete = id => {
-    async function deleteData() {
-      await deleteMenuItem(id, props.token).then(result => {
-        console.log(result);
-        if (result === "deleted") {
-          setMenuItems(prevState => prevState.filter(item => item.id !== id));
-        }
-      });
-    }
-    deleteData();
+    deleteMenuItem(id, props.token)
+      .then(() => {
+        setMenuItems(prevState => prevState.filter(item => item.id !== id));
+      })
+      .catch(err => console.log(err));
   };
 
   return (
-    <section>
-      {menuItems &&
+    <section className="menu">
+      {menuItems ? (
         menuItems.map(item => (
-          <div key={item.id}>
+          <div key={item.id} className="menu__block">
             <p>{item.name}</p>
             <img src={item.image} alt="" />
             <button onClick={() => handleDelete(item.id)}>Delete</button>
           </div>
-        ))}
+        ))
+      ) : (
+        <h2>Aktualnie brak kanapek... :(</h2>
+      )}
       <AddNewMenuItem token={props.token} setMenuItems={setMenuItems} />
     </section>
   );
