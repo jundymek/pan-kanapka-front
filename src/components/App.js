@@ -5,6 +5,7 @@ import Header from "./Header/Header";
 import MyModal from "./Modal/Modal";
 import usePrevious from "../hooks/usePreviousValue";
 import Faq from "./Faq/Faq";
+import MenuItems from "./MenuItems/MenuItems";
 
 const MyMap = lazy(() => import("./Map/Map"));
 const LocationsCardsManager = lazy(() => import("./LocationsCardsManager/LocationsCardsManager"));
@@ -35,6 +36,7 @@ function App(props) {
           <MyMap />
           {props.user === "admin" && <AddNewLocationForm title="Dodaj nową lokalizację"/>}
           <LocationsCardsManager />
+          <MenuItems />
           <Faq title="Krótka instrukcja obsługi" />
           <Footer />
         </Suspense>
