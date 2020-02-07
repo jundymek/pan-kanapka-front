@@ -5,11 +5,12 @@ import Header from "./Header/Header";
 import MyModal from "./Modal/Modal";
 import usePrevious from "../hooks/usePreviousValue";
 import Faq from "./Faq/Faq";
-import MenuItems from "./MenuItems/MenuItems";
+// import MenuItems from "./MenuItems/MenuItems";
 
 const MyMap = lazy(() => import("./Map/Map"));
 const LocationsCardsManager = lazy(() => import("./LocationsCardsManager/LocationsCardsManager"));
 const Footer = lazy(() => import("./Footer/Footer"));
+const MenuItems = lazy(() => import("./MenuItems/MenuItems"))
 
 function App(props) {
   const [isModalOpen, setisModalOpen] = useState(false);

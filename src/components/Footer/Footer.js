@@ -32,8 +32,9 @@ function Footer() {
           <div className="footer__technologies-wrapper">
             <h5 className="footer__technologies-title">Pan Kanapka</h5>
             <article className="footer__technologies">
-              {techSections.map(item => (
+              {techSections.map((item, index) => (
                 <FooterTechSection
+                  key={index}
                   title={item.title}
                   technologies={item.technologies}
                   techClassModifier={item.techClassModifier}

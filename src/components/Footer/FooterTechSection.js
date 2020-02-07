@@ -4,8 +4,8 @@ export function FooterTechSection({ title, technologies, techClassModifier }) {
     <section>
       <h6 className={`footer__technologies-subtitle ${techClassModifier}`}>{title}</h6>
       <ul className="footer__list">
-        {technologies.map(item => (
-          <li className="footer__list-item">
+        {technologies.map((item,index) => (
+          <li key={index} className="footer__list-item">
             <span className="footer__list-item-text">{item}</span>
           </li>
         ))}
