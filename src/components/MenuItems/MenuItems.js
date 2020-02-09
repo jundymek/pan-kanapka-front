@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { deleteMenuItem } from "./deleteMenuItem";
 import { AddNewMenuItem } from "./AddNewMenuItem";
 import { fetchMenuItems } from "./fetchMenuItems";
+import MenuItem from "./MenuItem";
 
 function MenuItems(props) {
   const [menuItems, setMenuItems] = useState(null);
@@ -28,20 +29,9 @@ function MenuItems(props) {
   return (
     <section className="menu">
       {menuItems ? (
-        menuItems.map(item => (
-          <div key={item.id} className="menu__block">
-            <p className="menu__block-price">{item.price} PLN</p>
-            <div className="menu__block-wrapper">
-              <h4 className="menu__block-title">{item.name}</h4>
-              <img src={item.image} alt="" className="menu__block-image" />
-            </div>
-            <p className="menu__block-description">{item.description}</p>
-            <div className="menu__buttons-wrapper">
-              <button onClick={() => console.log('edit')} className="menu__button"><img src={require("../../images/edit_icon.svg")} alt="Przycisk edytuj" title="Edytuj" /></button>
-              <button onClick={() => handleDelete(item.id)} className="menu__button"><img src={require("../../images/delete_icon1.svg")} alt="Przycisk usuń" title="Usuń"/></button>
-            </div>
-          </div>
-        ))
+        menuItems.map(item => 
+          <MenuItem item={item} handleDelete={handleDelete} />
+        )
       ) : (
         <h2>Aktualnie brak kanapek... :(</h2>
       )}

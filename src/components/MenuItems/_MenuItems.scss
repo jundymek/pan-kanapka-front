@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
+  width: 95%;
   &__block {
     display: flex;
     justify-content: space-evenly;
@@ -12,6 +13,9 @@
     width: 95%;
     border: 1px solid $voodoo;
     margin: 20px;
+    &--editable {
+      animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
     @media (max-width: $tablet) {
       flex-direction: column;
       justify-content: center;
@@ -31,7 +35,11 @@
     line-height: 36px;
     margin: 0;
     background: $brightsun;
-    clip-path: polygon(6% 1%, 94% 0, 100% 97%, 0 97%);
+    clip-path: polygon(4% 1%, 94% 0, 100% 99%, 0 100%);
+    &--editable {
+      height: 300px;
+      clip-path: none;
+    }
     @media (max-width: $tablet) {
       width: 95%;
     }
@@ -46,6 +54,10 @@
     font-size: 48px;
     transform: rotate(-44.48deg) translateY(20px) translateX(-40px);
     background: $brightsun;
+    &--editable {
+      transform: none;
+      width: 200px;
+    }
     @media (max-width: $tablet) {
       transform: none;
       margin: 0;
@@ -54,21 +66,47 @@
   }
   &__block-title {
     font-size: 36px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
   &__button {
-    width: 80px;
-    height: 80px;
+    width: 40px;
+    height: 40px;
     border: 0;
     margin: 0;
     cursor: pointer;
   }
+  &__button-image {
+    width: 40px;
+    height: 40px;
+    border: 0;
+    margin: 0;
+  }
   &__buttons-wrapper {
     position: absolute;
     top: 2px;
-    right: 60px;
+    right: 10px;
     @media (max-width: $tablet) {
       position: relative;
       right: 0;
     }
   }
+}
+
+
+.menu-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-hidden {
+  display: none;
+}
+
+.input-visible {
+  display: block;
+}
+
+.input-change-image {
+  margin-top: 10px;
 }
