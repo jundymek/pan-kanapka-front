@@ -37,7 +37,7 @@ function App(props) {
           <MyMap />
           {props.user === "admin" && <AddNewLocationForm title="Dodaj nową lokalizację"/>}
           <LocationsCardsManager />
-          <MenuItems />
+          <MenuItems title="Menu Pana Kanapki" />
           <Faq title="Krótka instrukcja obsługi" />
           <Footer />
         </Suspense>

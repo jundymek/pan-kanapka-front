@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
 
-function MenuItemEdit({ item, setIsEditable, token }) {
+function MenuItemEdit({ item, setIsEditable, token, setMenuItems }) {
   const [titleValue, setTitleValue] = useState(item.name);
   const [descriptionValue, setDescriptionValue] = useState(item.description);
   const [priceValue, setPriceValue] = useState(item.price);
@@ -33,14 +33,16 @@ function MenuItemEdit({ item, setIsEditable, token }) {
       data.append("image", selectedImage);
     }
     data.append("description", descriptionValue);
+    console.log(data);
     axios
       .patch(`${process.env.REACT_APP_API_URL}/api/menu_items/${item.id}/`, data, {
         headers: {
           Authorization: `Token ${token}`
         }
       })
-      .then(() => {
+      .then(res => {
         setIsEditable(false);
+        setMenuItems(prevState => prevState.map(item => (item.id === res.data.id ? res.data : item)));
       })
       .catch(function(error) {
         console.log(error);
@@ -62,7 +64,7 @@ function MenuItemEdit({ item, setIsEditable, token }) {
       />
       PLN
       <div className="menu__block-wrapper">
-        <input className="menu__block-title" type="text" value={titleValue} onChange={e => onChangeInput(e, "title")} />
+        <input className="menu__block-title menu__block-title--editable" type="text" value={titleValue} onChange={e => onChangeInput(e, "title")} />
         <img src={item.image} alt="" className="menu__block-image" />
         <input
           className="input-change-image"

@@ -4,7 +4,6 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
-  width: 95%;
   &__block {
     display: flex;
     justify-content: space-evenly;
@@ -68,18 +67,21 @@
     font-size: 36px;
     margin-top: 10px;
     margin-bottom: 10px;
+    &--editable {
+      max-width: 90%;
+    }
   }
   &__button {
     width: 40px;
     height: 40px;
-    border: 0;
+    border: none;
     margin: 0;
     cursor: pointer;
   }
   &__button-image {
     width: 40px;
     height: 40px;
-    border: 0;
+    border: none;
     margin: 0;
   }
   &__buttons-wrapper {

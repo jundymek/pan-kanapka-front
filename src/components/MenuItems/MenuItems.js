@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { deleteMenuItem } from "./deleteMenuItem";
 import { AddNewMenuItem } from "./AddNewMenuItem";
 import { fetchMenuItems } from "./fetchMenuItems";
+import Collapsible from "../../hoc/Collapsible";
 import MenuItem from "./MenuItem";
 
 function MenuItems(props) {
@@ -30,7 +31,7 @@ function MenuItems(props) {
     <section className="menu">
       {menuItems ? (
         menuItems.map(item => 
-          <MenuItem item={item} handleDelete={handleDelete} />
+          <MenuItem key={item.id} item={item} handleDelete={handleDelete} setMenuItems={setMenuItems}/>
         )
       ) : (
         <h2>Aktualnie brak kanapek... :(</h2>
@@ -43,4 +44,4 @@ function MenuItems(props) {
 const mapStateToProps = state => ({
   token: state.auth.token
 });
-export default connect(mapStateToProps)(MenuItems);
+export default connect(mapStateToProps)(Collapsible(MenuItems));
