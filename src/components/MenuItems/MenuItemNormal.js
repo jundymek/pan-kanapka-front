@@ -1,4 +1,5 @@
 import React from "react";
+
 export function MenuItemNormal({item, handleDelete, setIsEditable}) {
   const handleEdit = () => {
     setIsEditable(true)

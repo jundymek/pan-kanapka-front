@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense, lazy } from "react";
 import { connect } from "react-redux";
 import { deleteMenuItem } from "./deleteMenuItem";
 import { AddNewMenuItem } from "./AddNewMenuItem";
 import { fetchMenuItems } from "./fetchMenuItems";
 import Collapsible from "../../hoc/Collapsible";
-import MenuItem from "./MenuItem";
+
+const MenuItem = lazy(() => import("./MenuItem"));
 
 function MenuItems(props) {
-  const [menuItems, setMenuItems] = useState(null);
+  const [menuItems, setMenuItems] = useState([]);
 
   useEffect(() => {
     fetchMenuItems()
       .then(res => {
-        if (res.length > 0) {
-          setMenuItems(res);
-        }
+        res.length ? setMenuItems(res) : setMenuItems(null);
       })
       .catch(err => console.log(err));
   }, []);
@@ -30,9 +29,11 @@ function MenuItems(props) {
   return (
     <section className="menu">
       {menuItems ? (
-        menuItems.map(item => 
-          <MenuItem key={item.id} item={item} handleDelete={handleDelete} setMenuItems={setMenuItems}/>
-        )
+        menuItems.map(item => (
+          <Suspense fallback={<div className="loader"></div>}>
+            <MenuItem key={item.id} item={item} handleDelete={handleDelete} setMenuItems={setMenuItems} />
+          </Suspense>
+        ))
       ) : (
         <h2>Aktualnie brak kanapek... :(</h2>
       )}
