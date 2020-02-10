@@ -4,26 +4,49 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
+  position: relative;
+
+  &::after {
+    content: '';
+    background: url('../../images/menu-min.jpg') no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: absolute;
+    top: 20px;
+    left: 2.5%;
+    width: 95%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.2;
+  }
+
   &__block {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     position: relative;
     width: 95%;
-    border: 1px solid $voodoo;
+    border: 4px solid $voodoo;
     margin: 20px;
+    -webkit-box-shadow: 2px -2px 4px 0px rgba(0, 0, 0, 0.32);
+    -moz-box-shadow: 2px -2px 4px 0px rgba(0, 0, 0, 0.32);
+    box-shadow: 2px -2px 4px 0px rgba(0, 0, 0, 0.32);
+
     &--editable {
-      animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+      animation: flip-in-hor-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
     }
+
     @media (max-width: $tablet) {
       flex-direction: column;
       justify-content: center;
     }
   }
+
   &__block-image {
     width: 300px;
     height: 300px;
   }
+
   &__block-description {
     padding-left: 30px;
     width: 40%;
@@ -34,79 +57,205 @@
     line-height: 36px;
     margin: 0;
     background: $brightsun;
-    clip-path: polygon(4% 1%, 94% 0, 100% 99%, 0 100%);
+    -webkit-box-shadow: 2px -2px 4px 0px rgba(0, 0, 0, 0.32);
+    -moz-box-shadow: 2px -2px 4px 0px rgba(0, 0, 0, 0.32);
+    box-shadow: 2px -2px 4px 0px rgba(0, 0, 0, 0.32);
+
     &--editable {
       height: 300px;
       clip-path: none;
     }
+
     @media (max-width: $tablet) {
       width: 95%;
     }
   }
+
   &__block-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 30px;
   }
+
   &__block-price {
     font-size: 48px;
     transform: rotate(-44.48deg) translateY(20px) translateX(-40px);
     background: $brightsun;
+    -webkit-box-shadow: 2px -2px 4px 0px rgba(0, 0, 0, 0.32);
+    -moz-box-shadow: 2px -2px 4px 0px rgba(0, 0, 0, 0.32);
+    box-shadow: 2px -2px 4px 0px rgba(0, 0, 0, 0.32);
+
     &--editable {
       transform: none;
       width: 200px;
     }
+
     @media (max-width: $tablet) {
       transform: none;
       margin: 0;
       margin-top: 20px;
     }
   }
+
   &__block-title {
     font-size: 36px;
     margin-top: 10px;
     margin-bottom: 10px;
+    text-transform: uppercase;
+
     &--editable {
       max-width: 90%;
     }
   }
+
   &__button {
-    width: 40px;
-    height: 40px;
+    background: none;
     border: none;
     margin: 0;
     cursor: pointer;
+
+    @media (max-width: $tablet) {
+      padding: 20px;
+    }
   }
+
   &__button-image {
     width: 40px;
-    height: 40px;
     border: none;
-    margin: 0;
+
+    @media (max-width: $tablet) {
+      width: 60px;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
+
   &__buttons-wrapper {
     position: absolute;
-    top: 2px;
+    top: 8px;
     right: 10px;
+
     @media (max-width: $tablet) {
       position: relative;
       right: 0;
+      margin-top: 10px;
     }
   }
 }
 
+.menu-form-wrapper {
+  width: 100%;
+
+  &__title {
+    text-align: center;
+    font-size: 24px;
+    text-transform: uppercase;
+  }
+}
 
 .menu-form {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-}
 
-.input-hidden {
-  display: none;
-}
+  &__button {
+    padding: 0 10px;
+    margin: 40px 0 20px 10px;
+    font-size: 16px;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    height: 70px;
+    text-align: right;
+    position: relative;
+    background-color: $brightsun;
+    color: $voodoo;
+    clip-path: polygon(33% 0, 100% 4%, 97% 57%, 100% 88%, 4% 100%, 0 6%);
+    transition: transform 0.2s ease-in-out;
 
-.input-visible {
-  display: block;
+    &::before {
+      display: inline-block;
+      position: relative;
+      content: "";
+      width: 24px;
+      height: 24px;
+      margin: 0 0px -12px 0px;
+      mask: url("../../images/add_icon.svg") no-repeat;
+      background: $voodoo;
+      transition: width 0.3s ease-in-out;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__input-wrapper {
+    width: 500px;
+    max-width: 90vw;
+    height: 60px;
+    margin-top: 20px;
+    padding-top: 3px;
+    padding-left: 3px;
+    background: $voodoo;
+    transition: transform 1s ease;
+
+    &--title {
+      clip-path: polygon(50% 0%, 100% 5%, 100% 94%, 50% 100%, 0 93%, 0 4%);
+      transform: rotate(-2deg);
+    }
+
+    &--description {
+      clip-path: polygon(18% 0, 100% 5%, 100% 89%, 50% 100%, 0 77%, 0 4%);
+      transform: rotate(1deg);
+      height: 160px;
+    }
+
+    &--price {
+      clip-path: polygon(50% 0%, 100% 5%, 100% 94%, 50% 100%, 0 93%, 0 4%);
+      transform: rotate(-2deg);
+    }
+
+    &--image {
+      clip-path: polygon(18% 0, 100% 5%, 100% 89%, 50% 100%, 0 97%, 0 4%);
+      transform: rotate(1deg);
+    }
+
+    &:focus-within {
+      transform: rotate(0);
+    }
+  }
+
+  &__input {
+    border: none;
+    background: $drover;
+    width: calc(100% - 3px);
+    max-width: 90vw;
+    height: calc(100% - 3px);
+    font-size: 18px;
+    padding: 20px;
+
+    &--title {
+      clip-path: polygon(50% 0%, 100% 5%, 100% 94%, 50% 100%, 0 93%, 0 4%);
+    }
+
+    &--description {
+      clip-path: polygon(18% 0, 100% 5%, 100% 89%, 50% 100%, 0 77%, 0 4%);
+    }
+
+    &--price {
+      clip-path: polygon(50% 0%, 100% 5%, 100% 94%, 50% 100%, 0 93%, 0 4%);
+    }
+
+    &--image {
+      clip-path: polygon(18% 0, 100% 5%, 100% 89%, 50% 100%, 0 97%, 0 4%);
+    }
+  }
 }
 
 .input-change-image {

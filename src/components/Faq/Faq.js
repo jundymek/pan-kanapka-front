@@ -59,6 +59,7 @@ function Faq() {
         <div className="steps__wrapper">
           {steps.map(item => (
             <FaqStep
+              key={item.number}
               stepNumber={item.stepNumber}
               icon={item.icon}
               iconAltText={item.iconAltText}

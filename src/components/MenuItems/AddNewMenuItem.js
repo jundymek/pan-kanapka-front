@@ -33,18 +33,50 @@ export function AddNewMenuItem(props) {
       });
   };
   return (
-    <form className="menu-form" onSubmit={handleSubmit}>
-      <input aria-label="nazwa dania" placeholder="Nazwa dania" type="text" ref={name} required />
-      <textarea type="text" aria-label="opis dania" placeholder="Opis dania" ref={description} />
-      <input type="number" step="0.01" aria-label="cena dania" placeholder="Cena dania" ref={price} />
-      <input
-        type="file"
-        name="file"
-        accept="image/x-png,image/gif,image/jpeg"
-        aria-label="Obrazek dania"
-        onChange={onChangeImage}
-      />
-      <button type="submit">Submit</button>
-    </form>
+    <section className="menu-form-wrapper">
+      <h3 className="menu-form-wrapper__title">Dodaj nowy przysmak</h3>
+      <form className="menu-form" onSubmit={handleSubmit}>
+        <div className="menu-form__input-wrapper menu-form__input-wrapper--title">
+          <input
+            className="menu-form__input menu-form__input--title"
+            aria-label="nazwa dania"
+            placeholder="Nazwa dania"
+            type="text"
+            ref={name}
+            required
+          />
+        </div>
+        <div className="menu-form__input-wrapper menu-form__input-wrapper--description">
+          <textarea
+            className="menu-form__input menu-form__input--description"
+            type="text"
+            aria-label="opis dania"
+            placeholder="Opis dania"
+            ref={description}
+          />
+        </div>
+        <div className="menu-form__input-wrapper menu-form__input-wrapper--price">
+          <input
+            className="menu-form__input menu-form__input--price"
+            type="number"
+            step="0.01"
+            aria-label="cena dania"
+            placeholder="Cena dania"
+            ref={price}
+          />
+        </div>
+        <div className="menu-form__input-wrapper menu-form__input-wrapper--image">
+          <input
+            className="menu-form__input menu-form__input--image"
+            type="file"
+            name="file"
+            accept="image/x-png,image/gif,image/jpeg"
+            aria-label="Obrazek dania"
+            onChange={onChangeImage}
+          />
+        </div>
+        <button className="menu-form__button" type="submit">Dodaj</button>
+      </form>
+    </section>
   );
 }
