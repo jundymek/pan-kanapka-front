@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { fetchLogin } from "../../store/actions/authActions";
 import cheesburger from "../../images/cheeseburger.svg";
 import PropTypes from "prop-types";
+import Button from "../Button/Button";
 
 function LogInMobile(props) {
   const usernameInput = useRef(null);
@@ -55,7 +56,7 @@ function LogInMobile(props) {
           />
         </div>
         <div className="login-signup-mobile-button-wrapper">
-          <button className="login-signup-mobile-button" type="submit"></button>
+          <Button variant="mobile" />
         </div>
       </form>
     </section>

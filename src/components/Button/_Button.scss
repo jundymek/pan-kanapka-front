@@ -1,0 +1,118 @@
+.button {
+    padding: 0 10px;
+    margin: 20px 10px;
+    font-size: 16px;
+    background: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    width: auto;
+    height: 50px;
+    text-align: right;
+    position: relative;
+    background-color: $brightsun;
+    color: $voodoo;
+    transition: transform 0.2s ease-in-out;
+
+    &::before {
+        display: inline-block;
+        position: relative;
+        content: "";
+        width: 24px;
+        height: 24px;
+        margin: 0 4px -6px 0px;
+        background: $voodoo;
+        transition: width 0.3s ease-in-out;
+    }
+
+    &:hover {
+        transform: scale(1.2);
+    }
+
+    &--cancel::before {
+        mask: url("../../images/cancel_icon.svg") no-repeat;
+    }
+
+    &--cancel:hover::before {
+        background-color: rgb(243, 26, 26);
+    }
+
+    &--confirm::before {
+        mask: url("../../images/confirm_icon.svg") no-repeat;
+    }
+
+    &--confirm:hover::before {
+        background-color: rgb(243, 26, 26);
+    }
+
+    &--delete::before {
+        mask: url("../../images/delete_icon.svg") no-repeat;
+    }
+
+    &--delete:hover::before {
+        background-color: rgb(243, 26, 26);
+    }
+
+    &--delete {
+        border: none;
+        height: 70px;
+        clip-path: polygon(33% 0, 100% 4%, 97% 57%, 100% 88%, 4% 100%, 0 6%);
+    }
+
+    &--submit {
+        border: none;
+        height: 70px;
+        clip-path: polygon(33% 0, 100% 4%, 100% 61%, 98% 100%, 0 96%, 0 6%);
+    }
+
+    &--submit::before {
+        mask: url("../../images/bell_icon.svg") no-repeat;
+    }
+
+    &--submit:hover::before {
+        transition: transform 0.2s ease-in-out;
+        transform: scale(1.4);
+        background-color: rgb(46, 87, 6);
+    }
+
+    &--add {
+        border: none;
+        height: 70px;
+        clip-path: polygon(33% 0, 100% 4%, 97% 57%, 100% 88%, 4% 100%, 0 6%);
+    }
+
+    &--add::before {
+        margin: 0 0px -12px 0px;
+        mask: url("../../images/add_icon.svg") no-repeat;
+    }
+
+    &--add:hover::before {
+        transition: transform 0.2s ease-in-out;
+        transform: scale(1.1);
+        background-color: rgb(46, 87, 6);
+    }
+}
+
+.button-mobile {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    font-size: 16px;
+    background: #fff;
+    cursor: pointer;
+    width: calc(100% - 3px);
+    height: calc(100% - 3px);
+    color: $voodoo;
+    transition: transform 0.2s ease-in-out;
+
+    &::before {
+        display: block;
+        content: "";
+        width: 36px;
+        height: 48px;
+        transform: translate(0, -10%);
+        mask: url("../../images/add_user_icon.svg") no-repeat;
+        background: $voodoo;
+    }
+
+    &:hover {
+        transform: scale(1.2);
+    }
+}

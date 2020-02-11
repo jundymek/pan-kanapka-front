@@ -1,6 +1,7 @@
 import React from "react";
 import { sendNotification } from "../../helpers/sendNotification";
 import { handleSubscribeLocation } from "./LocationCard";
+import Button from "../Button/Button";
 export function CardButtons({
   username,
   cardId,
@@ -18,9 +19,7 @@ export function CardButtons({
 
   if (username !== "admin") {
     return (
-      <button
-        className="locationCard__btn locationCard__btn--submit"
-        title={!isSubscribed ? "Włącz powiadomienia" : "Wyłącz powiadomienia"}
+      <Button
         onClick={() =>
           handleSubscribeLocation(
             cardId,
@@ -32,22 +31,15 @@ export function CardButtons({
             setmodalStyle
           )
         }
-      >
-        {!isSubscribed ? "Powiadamiaj" : "Nie powiadamiaj"}
-      </button>
+        label={!isSubscribed ? "Powiadamiaj" : "Nie powiadamiaj"}
+        variant="submit"
+      />
     );
   } else {
     return (
       <div className="locationCard__btn-wrapper">
-        <button
-          className="locationCard__btn locationCard__btn--delete"
-          onClick={() => handleDeleteLocation(cardId, token)}
-        >
-          Usuń kartę
-        </button>
-        <button className="locationCard__btn locationCard__btn--submit" onClick={() => sendNotification(cardId, token)}>
-          Powiadom
-        </button>
+        <Button onClick={() => handleDeleteLocation(cardId, token)} label="Usuń kartę" variant="delete" />
+        <Button onClick={() => sendNotification(cardId, token)} label="Powiadom" variant="submit" />
       </div>
     );
   }

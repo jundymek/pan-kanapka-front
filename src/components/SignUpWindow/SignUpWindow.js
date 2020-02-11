@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { signUpWindowHideShow } from "../../helpers/signUpWindowHideShow";
 import cheesburger from "../../images/cheeseburger.svg";
 import signUp from "../../helpers/signUp";
+import Button from "../Button/Button";
 
 function SignUpWindow({ handleLogin, setIsSignupWindowVisible }) {
   const usernameInput = useRef(null);
@@ -76,7 +77,7 @@ function SignUpWindow({ handleLogin, setIsSignupWindowVisible }) {
         </div>
         {formErrors && <div className="signUp-form__error signUp-form__error--js blink-1">{formErrors}</div>}
         <div className="login-signup-mobile-button-wrapper login-signup-mobile-button-wrapper--signup">
-          <button className="login-signup-mobile-button login-signup-mobile-button" type="submit"></button>
+          <Button variant="mobile" />
         </div>
       </form>
     </section>

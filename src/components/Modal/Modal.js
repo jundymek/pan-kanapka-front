@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
 import { modalBlurBackground } from "../../helpers/modalBlurBackground";
+import Button from "../Button/Button";
 
 Modal.setAppElement("body");
 
@@ -175,12 +176,8 @@ export function ModalDeleteConfirmation({
     >
       <p className="modal__paragraph">Czy usunąć kartę lokalizacji {locationName} ?</p>
       <div className="modal-buttons-wrapper">
-        <button className="button button--confirm" onClick={handleConfirm}>
-          Potwiedź
-        </button>
-        <button className="button button--cancel" onClick={handleCloseModal}>
-          Anuluj
-        </button>
+        <Button onClick={handleConfirm} label="Potwierdź" variant="confirm" />
+        <Button onClick={handleCloseModal} label="Anuluj" variant="cancel" />
       </div>
     </Modal>
   );

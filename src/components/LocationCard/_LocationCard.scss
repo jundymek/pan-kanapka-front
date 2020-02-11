@@ -16,78 +16,36 @@
   -webkit-box-shadow: 2px -2px 4px 0px rgba(0, 0, 0, 0.32);
   -moz-box-shadow: 2px -2px 4px 0px rgba(0, 0, 0, 0.32);
   box-shadow: 2px -2px 4px 0px rgba(0, 0, 0, 0.32);
+
   &__address-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
   &__address {
     margin: 0;
     padding: 10px;
     color: $voodoo;
+
     &--icon {
       color: $voodoo;
       padding: 10px;
       font-size: 30px;
     }
   }
-  &__btn {
-    padding: 0 10px;
-    margin: 20px 10px;
-    font-size: 16px;
-    background: #fff;
-    border-radius: 4px;
-    cursor: pointer;
-    width: auto;
-    height: 70px;
-    border: none;
-    text-align: right;
-    position: relative;
-    background-color: $brightsun;
-    color: $voodoo;
-    clip-path: polygon(33% 0, 100% 4%, 100% 61%, 98% 100%, 0 96%, 0 6%);
-    transition: transform 0.3s ease-in-out;
-    &::before {
-      display: inline-block;
-      position: relative;
-      content: "";
-      width: 24px;
-      height: 24px;
-      margin: 0 4px -8px 0px;
-      mask: url("../../images/bell_icon.svg") no-repeat;
-      background: $voodoo;
-      transition: transform 0.3s ease-in-out;
-    }
-    &:hover {
-      transition: transform 0.3s ease-in-out;
-      transform: scale(1.2);
-    }
 
-    &--delete {
-      clip-path: polygon(33% 0, 100% 4%, 97% 57%, 100% 88%, 4% 100%, 0 6%);
-    }
-    &--delete::before {
-      mask: url("../../images/delete_icon.svg") no-repeat;
-    }
-    &--delete:hover::before {
-      background-color: rgb(243, 26, 26);
-    }
-    &--submit:hover::before {
-      transition: transform 0.2s ease-in-out;
-      transform: scale(1.4);
-      transform: rotate(10deg);
-      background-color: rgb(46, 87, 6);
-    }
-  }
   &__btn-wrapper {
     display: flex;
   }
+
   &__clients-icon-wrapper {
     position: absolute;
     color: $voodoo;
     top: 10px;
     left: 10px;
   }
+
   &__clients-icon {
     width: 30px;
     height: 30px;
@@ -96,6 +54,7 @@
     top: 10px;
     left: 10px;
   }
+
   &__clients-icon-counter {
     position: absolute;
     top: 0px;
@@ -103,12 +62,14 @@
     font-size: 22px;
     font-weight: bold;
   }
+
   &__title-wrapper {
     width: calc(100% + 8px);
     height: 300px;
     background-color: $brightsun;
     clip-path: polygon(0 0, 100% 0, 100% 82%, 0% 100%);
     position: relative;
+
     &--inner {
       position: absolute;
       display: flex;
@@ -122,6 +83,7 @@
       width: calc(100% - 8px);
       height: calc(100% - 8px);
       clip-path: polygon(0 0, 100% 0, 100% 82%, 0% 100%);
+
       &::before {
         content: "";
         background-image: url("../../images/building_compressed.jpg");
@@ -132,6 +94,7 @@
         opacity: 0.3;
       }
     }
+
     &--subscribed {
       &::after {
         display: block;
@@ -147,10 +110,12 @@
       }
     }
   }
+
   &__title {
     margin-top: -10px;
     color: $voodoo;
   }
+
   &--subscribed {
     -webkit-box-shadow: 0px 0px 15px 3px rgba(86, 181, 31, 1);
     -moz-box-shadow: 0px 0px 15px 3px rgba(86, 181, 31, 1);

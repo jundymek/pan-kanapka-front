@@ -17,39 +17,6 @@
   align-items: center;
   flex-direction: column;
 
-  &__button {
-    padding: 0 10px;
-    margin: 40px 0 0 10px;
-    font-size: 16px;
-    background: #fff;
-    border: none;
-    cursor: pointer;
-    width: auto;
-    height: 70px;
-    text-align: right;
-    position: relative;
-    background-color: $brightsun;
-    color: $voodoo;
-    clip-path: polygon(33% 0, 100% 4%, 97% 57%, 100% 88%, 4% 100%, 0 6%);
-    transition: transform 0.2s ease-in-out;
-
-    &::before {
-      display: inline-block;
-      position: relative;
-      content: "";
-      width: 24px;
-      height: 24px;
-      margin: 0 0px -12px 0px;
-      mask: url("../../images/add_icon.svg") no-repeat;
-      background: $voodoo;
-      transition: width 0.3s ease-in-out;
-    }
-
-    &:hover {
-      transform: scale(1.2);
-    }
-  }
-
   &__input-wrapper {
     width: 500px;
     max-width: 90vw;
@@ -102,4 +69,3 @@
   cursor: pointer;
   text-align: left;
 }
-

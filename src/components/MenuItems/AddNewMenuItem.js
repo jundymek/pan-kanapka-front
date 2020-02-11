@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import axios from "axios";
+import Button from "../Button/Button";
 
 export function AddNewMenuItem(props) {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -75,7 +76,7 @@ export function AddNewMenuItem(props) {
             onChange={onChangeImage}
           />
         </div>
-        <button className="menu-form__button" type="submit">Dodaj</button>
+        <Button label="Dodaj" variant="add" />
       </form>
     </section>
   );

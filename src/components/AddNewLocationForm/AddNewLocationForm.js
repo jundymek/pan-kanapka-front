@@ -5,6 +5,7 @@ import Collapsible from "../../hoc/Collapsible";
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 import { addLocation } from "../../store/actions/locationActions";
 import MyModal from "../Modal/Modal";
+import Button from "../Button/Button";
 
 function AddNewLocationForm({ onAddLocation, token }) {
   const [address, setAddress] = useState("");
@@ -82,9 +83,10 @@ function AddNewLocationForm({ onAddLocation, token }) {
                     required
                   />
                 </div>
-                <button type="submit" className="add-new-site-form__button">
-                  Dodaj lokalizację
-                </button>
+                <Button 
+                  variant="add"
+                  label="Dodaj lokalizację"
+                  />
               </form>
             </div>
           )}
