@@ -1,6 +1,7 @@
 import React from "react";
+import { connect } from "react-redux";
 
-export function MenuItemNormal({item, handleDelete, setIsEditable}) {
+function MenuItemNormal({item, handleDelete, setIsEditable, user}) {
   const handleEdit = () => {
     setIsEditable(true)
   }
@@ -13,23 +14,33 @@ export function MenuItemNormal({item, handleDelete, setIsEditable}) {
       </div>
       <p className="menu__block-description">{item.description}</p>
       <div className="menu__buttons-wrapper">
-        <button onClick={handleEdit} className="menu__button">
-          <img
-            className="menu__button-image"
-            src={require("../../images/edit_icon.svg")}
-            alt="Przycisk edytuj"
-            title="Edytuj"
-          />
-        </button>
-        <button onClick={() => handleDelete(item.id)} className="menu__button">
-          <img
-            className="menu__button-image"
-            src={require("../../images/delete_icon1.svg")}
-            alt="Przycisk usuń"
-            title="Usuń"
-          />
-        </button>
+        {user === "admin" && 
+        <>
+          <button onClick={handleEdit} className="menu__button">
+            <img
+              className="menu__button-image"
+              src={require("../../images/edit_icon.svg")}
+              alt="Przycisk edytuj"
+              title="Edytuj"
+            />
+          </button>
+          <button onClick={() => handleDelete(item.id)} className="menu__button">
+            <img
+              className="menu__button-image"
+              src={require("../../images/delete_icon1.svg")}
+              alt="Przycisk usuń"
+              title="Usuń"
+            />
+          </button>
+        </>
+      }
       </div>
     </div>
   );
 }
+
+const mapStateToProps = state => ({
+  user: state.auth.username
+});
+
+export default connect(mapStateToProps)(MenuItemNormal);

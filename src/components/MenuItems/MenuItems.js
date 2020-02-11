@@ -28,21 +28,22 @@ function MenuItems(props) {
 
   return (
     <section className="menu">
-      {menuItems ? (
-        menuItems.map(item => (
-          <Suspense fallback={<div className="loader"></div>}>
+      <Suspense fallback={<div className="loader"></div>}>
+        {menuItems ? (
+          menuItems.map(item => (
             <MenuItem key={item.id} item={item} handleDelete={handleDelete} setMenuItems={setMenuItems} />
-          </Suspense>
-        ))
-      ) : (
-        <h2>Aktualnie brak kanapek... :(</h2>
-      )}
-      <AddNewMenuItem token={props.token} setMenuItems={setMenuItems} />
+          ))
+        ) : (
+          <h2>Aktualnie brak kanapek... :(</h2>
+        )}
+      </Suspense>
+      {props.user === "admin" && <AddNewMenuItem token={props.token} setMenuItems={setMenuItems} />}
     </section>
   );
 }
 
 const mapStateToProps = state => ({
-  token: state.auth.token
+  token: state.auth.token,
+  user: state.auth.username
 });
 export default connect(mapStateToProps)(Collapsible(MenuItems));

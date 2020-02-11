@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import MenuItemEdit from "./MenuItemEdit";
-import { MenuItemNormal } from "./MenuItemNormal";
+import MenuItemNormal from "./MenuItemNormal";
 
 function MenuItem({ item, handleDelete, setMenuItems }) {
   const [isEditable, setIsEditable] = useState(false);
