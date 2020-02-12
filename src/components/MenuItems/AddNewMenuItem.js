@@ -7,6 +7,7 @@ export function AddNewMenuItem(props) {
   const name = useRef(null);
   const description = useRef(null);
   const price = useRef(null);
+  const image = useRef(null);
 
   const onChangeImage = e => {
     setSelectedImage(e.target.files[0]);
@@ -18,7 +19,9 @@ export function AddNewMenuItem(props) {
     const data = new FormData();
     data.append("name", name.current.value);
     data.append("price", price.current.value);
-    data.append("image", selectedImage);
+    if(selectedImage) {
+      data.append("image", selectedImage);
+    }
     data.append("description", description.current.value);
     axios
       .post(`${process.env.REACT_APP_API_URL}/api/menu_items/`, data, {
@@ -29,10 +32,21 @@ export function AddNewMenuItem(props) {
       .then(res => {
         props.setMenuItems(prevState => prevState.concat(res.data));
       })
+      .then(() => {
+        clearInputFields();
+      })
       .catch(function(error) {
         console.log(error);
       });
   };
+
+  function clearInputFields() {
+    name.current.value = null;
+    description.current.value = null;
+    price.current.value = null;
+    image.current.value = null;
+  }
+
   return (
     <section className="menu-form-wrapper">
       <h3 className="menu-form-wrapper__title">Dodaj nowy przysmak</h3>
@@ -54,6 +68,7 @@ export function AddNewMenuItem(props) {
             aria-label="opis dania"
             placeholder="Opis dania"
             ref={description}
+            required
           />
         </div>
         <div className="menu-form__input-wrapper menu-form__input-wrapper--price">
@@ -64,6 +79,7 @@ export function AddNewMenuItem(props) {
             aria-label="cena dania"
             placeholder="Cena dania"
             ref={price}
+            required
           />
         </div>
         <div className="menu-form__input-wrapper menu-form__input-wrapper--image">
@@ -74,6 +90,7 @@ export function AddNewMenuItem(props) {
             accept="image/x-png,image/gif,image/jpeg"
             aria-label="Obrazek dania"
             onChange={onChangeImage}
+            ref={image}
           />
         </div>
         <Button label="Dodaj" variant="add" />

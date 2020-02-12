@@ -64,8 +64,17 @@ function MenuItemEdit({ item, setIsEditable, token, setMenuItems }) {
       />
       PLN
       <div className="menu__block-wrapper">
-        <input className="menu__block-title menu__block-title--editable" type="text" value={titleValue} onChange={e => onChangeInput(e, "title")} />
-        <img src={item.image} alt="" className="menu__block-image" />
+        <input
+          className="menu__block-title menu__block-title--editable"
+          type="text"
+          value={titleValue}
+          onChange={e => onChangeInput(e, "title")}
+        />
+        <img
+          src={item.image ? item.image : require("../../images/no_image.svg")}
+          alt="Zdjęcie dania"
+          className="menu__block-image"
+        />
         <input
           className="input-change-image"
           type="file"
