@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
 
-function MenuItemEdit({ item, setIsEditable, token, setMenuItems }) {
+function MenuItemEdit({ item, setIsEditable, token, setMenuItems, itemImageUrl }) {
   const [titleValue, setTitleValue] = useState(item.name);
   const [descriptionValue, setDescriptionValue] = useState(item.description);
   const [priceValue, setPriceValue] = useState(item.price);
@@ -70,7 +70,7 @@ function MenuItemEdit({ item, setIsEditable, token, setMenuItems }) {
           onChange={e => onChangeInput(e, "title")}
         />
         <img
-          src={item.image ? item.image : require("../../images/no_image.svg")}
+          src={itemImageUrl() ? itemImageUrl() : require("../../images/no_image.svg")}
           alt="Zdjęcie dania"
           className="menu__block-image"
         />

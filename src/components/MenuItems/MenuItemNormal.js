@@ -1,17 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
 
-function MenuItemNormal({ item, handleDelete, setIsEditable, user }) {
+function MenuItemNormal({ item, handleDelete, setIsEditable, user, itemImageUrl }) {
   const handleEdit = () => {
     setIsEditable(true);
   };
+
   return (
     <div key={item.id} className="menu__block">
       <p className="menu__block-price">{item.price} PLN</p>
       <div className="menu__block-wrapper">
         <h4 className="menu__block-title">{item.name}</h4>
         <img
-          src={item.image ? item.image : require("../../images/no_image.svg")}
+          src={itemImageUrl() ? itemImageUrl() : require("../../images/no_image.svg")}
           alt="Zdjęcie dania"
           className="menu__block-image"
         />
