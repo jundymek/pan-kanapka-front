@@ -70,7 +70,7 @@
   align-items: center;
   height: 40px;
   background: #fff;
-  margin: 0.5rem 0;
+  margin: 4px 0;
   text-align: right;
   transform: skew(16deg);
 }
@@ -235,7 +235,6 @@
   align-items: center;
   top: 100px;
   left: 20px;
-  padding: 12px 0;
   color: #5a3b5d;
   font-size: 1.4em;
   text-decoration: none;
@@ -249,10 +248,13 @@
     opacity: 1;
     transition: opacity 0 ease-in;
   }
+  @media (max-width:$phone) {
+    position: relative;
+    left: 0;
+  }
   @media (orientation: landscape) {
-    top: 20px;
-    right: 40px;
-    left: unset;
+    position: relative;
+    top: 10px;
   }
   &__text {
     font-size: 20px;
@@ -267,6 +269,7 @@
     clip-path: polygon(77% 1%, 100% 25%, 100% 75%, 50% 100%, 0 86%, 0% 25%);
     margin-left: 10px;
     transition: transform 0.5s ease-in;
+    border: none;
     cursor: pointer;
     &:hover {
       transform: scale(1.1);

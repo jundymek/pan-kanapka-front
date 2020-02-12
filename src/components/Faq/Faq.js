@@ -43,7 +43,7 @@ function Faq() {
   ];
 
   return (
-    <div className="faq">
+    <div id="faq" className="faq">
       <p className="faq__paragraph">
         Aplikacja <span className="faq__paragraph--mark">Pan Kanapka</span> została stworzona dla... Pana Kanapki i jego
         klientów. Jeśli pracujesz w biurowcu i korzystasz z usług osoby dostarczającej pyszne kanapki do twojego miejsca

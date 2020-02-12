@@ -16,7 +16,7 @@ const Collapsible = WrappedComponent => {
 
     render() {
       return (
-        <section className="collapsible">
+        <section id={this.props.id} className="collapsible">
           <h3
             onClick={this.toggleOpen}
             className={this.state.isOpen ? "collapsible__title collapsible__title--open" : "collapsible__title"}
