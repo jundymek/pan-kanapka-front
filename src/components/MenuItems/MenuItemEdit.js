@@ -8,12 +8,11 @@ function MenuItemEdit({ item, setIsEditable, token, setMenuItems }) {
   const [priceValue, setPriceValue] = useState(item.price);
   const [selectedImage, setSelectedImage] = useState(null);
   const onChangeInput = (e, fieldToChange) => {
-    console.log(titleValue);
     switch (fieldToChange) {
       case "title":
         setTitleValue(e.target.value);
         break;
-      case "desciption":
+      case "description":
         setDescriptionValue(e.target.value);
         break;
       case "price":
